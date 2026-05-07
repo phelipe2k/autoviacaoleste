@@ -1,0 +1,23 @@
+{
+  "name": "Auto Viação Leste",
+  "short_name": "AVLeste",
+  "description": "Transporte Executivo Premium - Ônibus de luxo com tecnologia e conforto",
+  "theme_color": "#0F5E63",
+  "background_color": "#DDEEF3",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/src/assets/branding/logos/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/branding/logos/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/"
+}

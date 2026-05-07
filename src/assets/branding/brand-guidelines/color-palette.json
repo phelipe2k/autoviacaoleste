@@ -1,0 +1,52 @@
+{
+  "color-palette": {
+    "primary": {
+      "name": "Teal Escuro",
+      "hex": "#0F5E63",
+      "rgb": "15, 94, 99",
+      "usage": "cores principais, botões, destaque"
+    },
+    "secondary": {
+      "name": "Teal Médio",
+      "hex": "#1B7D85",
+      "rgb": "27, 125, 133",
+      "usage": "hover states, gradientes"
+    },
+    "accent": {
+      "name": "Ciano Brilhante",
+      "hex": "#6EE7F2",
+      "rgb": "110, 231, 242",
+      "usage": "detalhes, highlights, CTAs"
+    },
+    "dark": {
+      "name": "Grafite",
+      "hex": "#111827",
+      "rgb": "17, 24, 39",
+      "usage": "backgrounds escuros, texto"
+    },
+    "light": {
+      "name": "Branco Gelo",
+      "hex": "#DDEEF3",
+      "rgb": "221, 238, 243",
+      "usage": "backgrounds claros, cards"
+    },
+    "white": {
+      "name": "Branco Puro",
+      "hex": "#FFFFFF",
+      "rgb": "255, 255, 255",
+      "usage": "texto em backgrounds escuros"
+    }
+  },
+  "typography": {
+    "heading": {
+      "font": "Orbitron",
+      "weights": [400, 700, 800],
+      "usage": "títulos, logo, elementos de destaque"
+    },
+    "body": {
+      "font": "Inter",
+      "weights": [400, 500, 600],
+      "usage": "texto corrido, parágrafos, formulários"
+    }
+  }
+}
