@@ -1,0 +1,215 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Building2,
+  Users,
+  Plane,
+  Briefcase,
+  Bus,
+  ArrowRight,
+  Star,
+  CheckCircle,
+  Clock,
+  Shield,
+  Wifi,
+  Coffee,
+} from "lucide-react";
+import { useState } from "react";
+
+const services = [
+  {
+    id: 1,
+    icon: Building2,
+    title: "Fretamento",
+    description:
+      "Soluções personalizadas de transporte para empresas, com frota moderna e equipe especializada.",
+    features: [
+      "Contratos flexíveis",
+      "Frota dedicada",
+      "Motoristas treinados",
+      "Rastreamento em tempo real",
+    ],
+    color: "from-primary to-cyan",
+    highlight: "Ideal para empresas",
+  },
+  {
+    id: 2,
+    icon: Users,
+    title: "Turismo",
+    description:
+      "Passeios e excursões com conforto e segurança para grupos de todos os tamanhos.",
+    features: [
+      "Roteiros personalizados",
+      "Guias especializados",
+      "Seguro viagem incluso",
+      "Paradas programadas",
+    ],
+    color: "from-cyan to-teal-neon",
+    highlight: "Experiências únicas",
+  },
+  {
+    id: 3,
+    icon: Briefcase,
+    title: "Viagens Corporativas",
+    description:
+      "Transporte executivo para reuniões, eventos e deslocamentos de negócios.",
+    features: [
+      "Pontualidade garantida",
+      "Wi-Fi premium",
+      "Ambiente silencioso",
+      "Atendimento VIP",
+    ],
+    color: "from-teal-neon to-primary",
+    highlight: "Para executivos",
+  },
+  {
+    id: 4,
+    icon: Bus,
+    title: "Transporte Escolar",
+    description:
+      "Segurança e confiabilidade no transporte de estudantes, com rigorosos padrões de qualidade.",
+    features: [
+      "Motoristas especializados",
+      "Veículos monitorados",
+      "Segurança certificada",
+      "Rastreamento GPS",
+    ],
+    color: "from-primary-light to-cyan",
+    highlight: "Segurança máxima",
+  },
+];
+
+export function ServicesSection() {
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+
+  return (
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
+      
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-glow-cyan opacity-15 blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-glow-teal opacity-15 blur-3xl" />
+
+      <div className="relative section-padding">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
+              Nossos Serviços
+            </span>
+            <h2 className="heading-lg text-white mt-4 mb-4">
+              Soluções <span className="text-gradient">Completas</span> em Transporte
+            </h2>
+            <p className="body-lg max-w-2xl mx-auto">
+              Oferecemos uma variedade de serviços para atender todas as suas
+              necessidades de mobilidade com excelência.
+            </p>
+          </motion.div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                onMouseEnter={() => setHoveredId(service.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                className="group relative"
+              >
+                <div
+                  className={`glass-card p-8 h-full transition-all duration-500 ${
+                    hoveredId === service.id
+                      ? "shadow-glow-cyan border-cyan/30"
+                      : ""
+                  }`}
+                >
+                  {/* Icon */}
+                  <div
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}
+                  >
+                    <service.icon className="w-8 h-8 text-dark" />
+                  </div>
+
+                  {/* Highlight Badge */}
+                  <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
+                    <span className="text-xs font-medium text-cyan">
+                      {service.highlight}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-ice/60 mb-6">{service.description}</p>
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center gap-3 text-sm text-ice/70"
+                      >
+                        <CheckCircle className="w-4 h-4 text-cyan shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <button className="flex items-center gap-2 text-cyan font-medium group-hover:gap-4 transition-all duration-300">
+                    Saiba mais
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  {/* Glow Effect */}
+                  <div
+                    className={`absolute -inset-px rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10`}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-16 glass-card p-8 text-center"
+          >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="text-left">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Precisa de uma solução personalizada?
+                </h3>
+                <p className="text-ice/60">
+                  Entre em contato conosco e desenvolveremos a melhor solução
+                  para você.
+                </p>
+              </div>
+              <button className="btn-primary flex items-center gap-2 px-8 py-4 whitespace-nowrap">
+                Solicitar Orçamento
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
