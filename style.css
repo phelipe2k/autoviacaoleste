@@ -128,7 +128,7 @@ body {
     min-height: 100vh;
     background: 
         linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(15, 94, 99, 0.85)),
-        url('./src/assets/banners/desktop/banner-premium-experience-01.webp') center/cover no-repeat;
+        url('/images/banner-home.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     position: relative;
@@ -797,7 +797,7 @@ section {
     .hero {
         background: 
             linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(15, 94, 99, 0.85)),
-            url('./src/assets/banners/mobile/banner-premium-experience-01@mobile.webp') center/cover no-repeat;
+            url('/images/banner-home.png') center/cover no-repeat;
     }
 
     .services-grid {
@@ -883,7 +883,7 @@ section {
     .hero {
         background: 
             linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(15, 94, 99, 0.85)),
-            url('./src/assets/banners/mobile/banner-premium-experience-01@mobile.webp') center/cover no-repeat;
+            url('/images/banner-home.png') center/cover no-repeat;
     }
 
     .gallery-grid {

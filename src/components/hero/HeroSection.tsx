@@ -52,11 +52,17 @@ export function HeroSection() {
     <section className="relative min-h-screen overflow-hidden">
       {/* Background Layers */}
       <div className="absolute inset-0">
-        {/* Dark Gradient Base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-dark z-10" />
-        
-        {/* Cinematic Overlay */}
-        <div className="absolute inset-0 bg-hero-gradient z-20" />
+        <Image
+          src="/images/banner-home.png"
+          alt="Onibus executivo viajando pela estrada"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[62%_center]"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/65 to-dark/10 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark/45 via-transparent to-dark/80 z-10" />
         
         {/* Animated Grid Pattern */}
         <div 
@@ -69,41 +75,16 @@ export function HeroSection() {
         />
 
         {/* Glow Effects */}
-        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-glow-cyan opacity-40 blur-3xl z-20" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-glow-teal opacity-30 blur-3xl z-20" />
-      </div>
-
-      {/* Futuristic Lines Behind Bus */}
-      <div className="absolute inset-0 z-25 overflow-hidden pointer-events-none">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute top-1/2 right-0 transform -translate-y-1/2"
-        >
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 0.3 }}
-              transition={{ delay: 1.2 + i * 0.1, duration: 0.8 }}
-              className="h-[2px] bg-gradient-to-r from-transparent via-cyan to-primary mb-8 origin-right"
-              style={{ 
-                width: `${300 + i * 100}px`,
-                marginRight: `${100 + i * 50}px`,
-              }}
-            />
-          ))}
-        </motion.div>
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-glow-teal opacity-20 blur-3xl z-20" />
       </div>
 
       {/* Content Container */}
       <div className="relative z-30 section-padding pt-32 pb-12">
         <div className="max-w-7xl mx-auto">
           {/* Main Hero Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[60vh]">
+          <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(280px,0.8fr)] gap-12 items-center min-h-[60vh]">
             {/* Left Column - Text */}
-            <div className="order-2 lg:order-1">
+            <div>
               {/* Tagline */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -170,14 +151,8 @@ export function HeroSection() {
               </motion.div>
             </div>
 
-            {/* Right Column - Bus Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="order-1 lg:order-2 relative"
-            >
-              <div className="relative aspect-[16/10] lg:aspect-[16/9]">
+            <div className="hidden lg:block" aria-hidden="true">
+              <div>
                 {/* Glow behind bus */}
                 <div className="absolute inset-0 bg-gradient-radial from-cyan/20 via-transparent to-transparent blur-2xl" />
                 
@@ -205,7 +180,7 @@ export function HeroSection() {
                   <p className="text-xs text-ice/60">Anos de experiência</p>
                 </motion.div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Booking Search */}

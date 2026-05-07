@@ -1,8 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/contato/page": "app/contato/page.js",
   "/area-do-cliente/page": "app/area-do-cliente/page.js",
   "/destinos/page": "app/destinos/page.js",
-  "/contato/page": "app/contato/page.js",
   "/faq/page": "app/faq/page.js",
   "/frota/page": "app/frota/page.js",
   "/horarios/page": "app/horarios/page.js",

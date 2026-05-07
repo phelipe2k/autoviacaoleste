@@ -12,8 +12,17 @@
       "static/chunks/4bd1b696-26805bb0e48c55d3.js",
       "static/chunks/517-e03fed9646ea2b80.js",
       "static/chunks/main-app-8428166ae4884e1e.js",
-      "static/css/a17f006852c3019f.css",
+      "static/css/a3960ab51509e404.css",
       "static/chunks/app/layout-225ce50f57d32c30.js"
+    ],
+    "/contato/page": [
+      "static/chunks/webpack-67a10a6e9798cf66.js",
+      "static/chunks/4bd1b696-26805bb0e48c55d3.js",
+      "static/chunks/517-e03fed9646ea2b80.js",
+      "static/chunks/main-app-8428166ae4884e1e.js",
+      "static/chunks/961-ff7366d921bbcc38.js",
+      "static/chunks/498-c859a47e560ee514.js",
+      "static/chunks/app/contato/page-3a99788ec0e5b50b.js"
     ],
     "/area-do-cliente/page": [
       "static/chunks/webpack-67a10a6e9798cf66.js",
@@ -33,15 +42,6 @@
       "static/chunks/498-c859a47e560ee514.js",
       "static/chunks/app/destinos/page-7f221aa0e85ef9bd.js"
     ],
-    "/contato/page": [
-      "static/chunks/webpack-67a10a6e9798cf66.js",
-      "static/chunks/4bd1b696-26805bb0e48c55d3.js",
-      "static/chunks/517-e03fed9646ea2b80.js",
-      "static/chunks/main-app-8428166ae4884e1e.js",
-      "static/chunks/961-ff7366d921bbcc38.js",
-      "static/chunks/498-c859a47e560ee514.js",
-      "static/chunks/app/contato/page-3a99788ec0e5b50b.js"
-    ],
     "/faq/page": [
       "static/chunks/webpack-67a10a6e9798cf66.js",
       "static/chunks/4bd1b696-26805bb0e48c55d3.js",
@@ -59,8 +59,8 @@
       "static/css/f905e3f5554554b8.css",
       "static/chunks/961-ff7366d921bbcc38.js",
       "static/chunks/498-c859a47e560ee514.js",
-      "static/chunks/713-57a814723a1f4969.js",
-      "static/chunks/app/frota/page-ce163af154341a09.js"
+      "static/chunks/781-29be81ebab678876.js",
+      "static/chunks/app/frota/page-b326dfc7e70b2de4.js"
     ],
     "/horarios/page": [
       "static/chunks/webpack-67a10a6e9798cf66.js",
@@ -69,8 +69,7 @@
       "static/chunks/main-app-8428166ae4884e1e.js",
       "static/chunks/961-ff7366d921bbcc38.js",
       "static/chunks/498-c859a47e560ee514.js",
-      "static/chunks/828-eaaae1882ae71db2.js",
-      "static/chunks/app/horarios/page-5f58ad5d821077fa.js"
+      "static/chunks/app/horarios/page-17ad947ffaddddb3.js"
     ],
     "/institucional/page": [
       "static/chunks/webpack-67a10a6e9798cf66.js",
@@ -97,10 +96,10 @@
       "static/chunks/main-app-8428166ae4884e1e.js",
       "static/css/f905e3f5554554b8.css",
       "static/chunks/961-ff7366d921bbcc38.js",
+      "static/chunks/342-b698d4e0370809d9.js",
       "static/chunks/498-c859a47e560ee514.js",
-      "static/chunks/828-eaaae1882ae71db2.js",
-      "static/chunks/713-57a814723a1f4969.js",
-      "static/chunks/app/page-6b0a594c7bd2ced9.js"
+      "static/chunks/781-29be81ebab678876.js",
+      "static/chunks/app/page-06e951eb94ec2edc.js"
     ],
     "/passagens/page": [
       "static/chunks/webpack-67a10a6e9798cf66.js",
@@ -109,8 +108,7 @@
       "static/chunks/main-app-8428166ae4884e1e.js",
       "static/chunks/961-ff7366d921bbcc38.js",
       "static/chunks/498-c859a47e560ee514.js",
-      "static/chunks/828-eaaae1882ae71db2.js",
-      "static/chunks/app/passagens/page-aebeaf4f96edf03f.js"
+      "static/chunks/app/passagens/page-1651439e24d757df.js"
     ],
     "/politica-de-privacidade/page": [
       "static/chunks/webpack-67a10a6e9798cf66.js",
