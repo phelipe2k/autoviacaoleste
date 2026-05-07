@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 150" role="img" aria-labelledby="title desc">
+  <title id="title">Auto Viacao Leste preto</title>
+  <desc id="desc">Versao preta monocromatica do logotipo Auto Viacao Leste.</desc>
+  <rect width="760" height="150" fill="none"/>
+  <g fill="#07131A">
+    <circle cx="75" cy="75" r="55" fill="none" stroke="#07131A" stroke-width="8"/>
+    <path d="M74 26c27 0 47 16 55 39-22-11-43-14-63-9L45 36c8-6 18-10 29-10Z"/>
+    <path d="M28 78c0-16 7-31 18-40l13 25-12 46c-12-7-19-18-19-31Z"/>
+    <path d="M66 61c22-7 44-3 65 11-17 4-33 12-48 25L66 61Z"/>
+    <path d="M84 101c13-13 29-21 47-25-1 19-12 36-29 45L84 101Z"/>
+    <path d="M60 67 79 105l-17 18-11-13 9-43Z"/>
+    <path d="M44 37 66 59l-7 8-14-30Z"/>
+    <path d="M102 121c-17 9-39 8-55-3l32-11 23 14Z"/>
+  </g>
+  <g fill="#07131A" font-family="Orbitron, Rajdhani, Eurostile, Arial Black, Arial, sans-serif" font-size="36" font-weight="800" letter-spacing="5">
+    <text x="154" y="89">AUTO VIAÇÃO LESTE</text>
+  </g>
+  <g fill="#07131A">
+    <path d="M244 70h19l12 9-12 10h-19l12-10-12-9Z"/>
+    <path d="M394 70h19l12 9-12 10h-19l12-10-12-9Z"/>
+  </g>
+</svg>

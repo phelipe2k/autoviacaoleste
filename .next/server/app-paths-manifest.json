@@ -1,0 +1,16 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/area-do-cliente/page": "app/area-do-cliente/page.js",
+  "/destinos/page": "app/destinos/page.js",
+  "/contato/page": "app/contato/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/frota/page": "app/frota/page.js",
+  "/horarios/page": "app/horarios/page.js",
+  "/institucional/page": "app/institucional/page.js",
+  "/minhas-viagens/page": "app/minhas-viagens/page.js",
+  "/page": "app/page.js",
+  "/passagens/page": "app/passagens/page.js",
+  "/politica-de-privacidade/page": "app/politica-de-privacidade/page.js",
+  "/servicos/page": "app/servicos/page.js",
+  "/termos-de-uso/page": "app/termos-de-uso/page.js"
+}
