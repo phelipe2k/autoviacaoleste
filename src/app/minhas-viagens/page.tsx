@@ -7,9 +7,9 @@ import { Calendar, Clock, MapPin, Bus, Eye, Search, Filter } from "lucide-react"
 import { useState } from "react";
 
 const requests = [
-  { id: "AVL-2026-001", route: "São Paulo -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "open", detail: "Grupo turístico" },
-  { id: "AVL-2026-002", route: "Rio de Janeiro -> São Paulo", date: "20/06/2026", time: "A combinar", status: "open", detail: "Orçamento solicitado" },
-  { id: "AVL-2026-003", route: "São Paulo -> Curitiba", date: "05/07/2026", time: "Planejamento", status: "completed", detail: "Atendimento concluído" },
+  { id: "AVL-2026-001", route: "Governador Valadares -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "open", detail: "Grupo turístico" },
+  { id: "AVL-2026-002", route: "Governador Valadares -> Belo Horizonte", date: "20/06/2026", time: "A combinar", status: "open", detail: "Orçamento solicitado" },
+  { id: "AVL-2026-003", route: "Governador Valadares -> Vitória", date: "05/07/2026", time: "Planejamento", status: "completed", detail: "Atendimento concluído" },
 ];
 
 export default function MinhasViagensPage() {

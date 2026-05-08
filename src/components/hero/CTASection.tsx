@@ -86,13 +86,13 @@ export function CTASection() {
                 className="flex flex-col md:flex-row items-center justify-center gap-8 pt-8 border-t border-white/10"
               >
                 <a
-                  href="tel:+551130000000"
+                  href="tel:+553330000000"
                   className="flex items-center gap-3 text-ice/70 hover:text-cyan transition-colors"
                 >
                   <div className="w-10 h-10 rounded-full bg-cyan/10 flex items-center justify-center">
                     <Phone className="w-4 h-4 text-cyan" />
                   </div>
-                  <span>(11) 3000-0000</span>
+                  <span>(33) 3000-0000</span>
                 </a>
                 <a
                   href="mailto:contato@viacaoleste.com.br"
@@ -107,7 +107,7 @@ export function CTASection() {
                   <div className="w-10 h-10 rounded-full bg-cyan/10 flex items-center justify-center">
                     <MapPin className="w-4 h-4 text-cyan" />
                   </div>
-                  <span>São Paulo, SP</span>
+                  <span>Governador Valadares, MG</span>
                 </div>
               </motion.div>
             </div>

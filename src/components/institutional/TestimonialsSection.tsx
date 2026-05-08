@@ -13,7 +13,7 @@ const testimonials = [
     avatar: "/images/avatars/maria.jpg",
     rating: 5,
     text: "Sempre viajo com a Auto Viação Leste. A pontualidade é incrével e o conforto das poltronas faz toda a diferenéa nas viagens longas. Recomendo a todos!",
-    route: "São Paulo - Rio de Janeiro",
+    route: "Governador Valadares - Rio de Janeiro",
   },
   {
     id: 2,

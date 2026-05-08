@@ -80,7 +80,7 @@ export function Footer() {
             <div className="lg:col-span-2">
               <Link href="/" className="flex items-center gap-3 mb-6">
                 <Image
-                  src="/images/logo-transparente.png"
+                  src="/images/logo-transparente.webp"
                   alt="Auto Viação Leste"
                   width={64}
                   height={64}
@@ -148,14 +148,14 @@ export function Footer() {
                 <li className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-cyan mt-1 shrink-0" />
                   <span className="text-sm text-ice/60">
-                    Av. Brasil, 1500 - Centro
+                    Governador Valadares - MG
                     <br />
-                    CEP: 12345-678
+                    Atendimento turístico sob consulta
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-cyan shrink-0" />
-                  <span className="text-sm text-ice/60">(11) 3000-0000</span>
+                  <span className="text-sm text-ice/60">(33) 3000-0000</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-cyan shrink-0" />

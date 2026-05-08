@@ -101,7 +101,7 @@ export default function TermosDeUsoPage() {
               <p className="text-ice/70 mb-4">Para esclarecimentos sobre estes termos, entre em contato:</p>
               <div className="space-y-2 text-ice/70">
                 <p><strong className="text-white">E-mail:</strong> contato@viacaoleste.com.br</p>
-                <p><strong className="text-white">Telefone:</strong> (11) 3000-0000</p>
+                <p><strong className="text-white">Telefone:</strong> (33) 3000-0000</p>
               </div>
             </motion.div>
           </div>

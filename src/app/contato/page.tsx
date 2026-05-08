@@ -8,9 +8,9 @@ import { useState } from "react";
 
 // Canais de atendimento exibidos nos cards do topo.
 const contactInfo = [
-  { icon: Phone, title: "Telefone", content: "(11) 3000-0000", subcontent: "Segunda a Sexta, 8h às 20h" },
+  { icon: Phone, title: "Telefone", content: "(33) 3000-0000", subcontent: "Segunda a Sexta, 8h às 20h" },
   { icon: Mail, title: "E-mail", content: "contato@viacaoleste.com.br", subcontent: "Respondemos em 24h" },
-  { icon: MapPin, title: "Endereço", content: "Av. Paulista, 1000", subcontent: "São Paulo, SP - 01310-100" },
+  { icon: MapPin, title: "Sede", content: "Governador Valadares", subcontent: "Minas Gerais" },
   { icon: Clock, title: "Horário", content: "Atendimento 24h", subcontent: "Central de atendimento" },
 ];
 
@@ -147,7 +147,7 @@ export default function ContatoPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50"
-                        placeholder="(11) 99999-9999"
+                        placeholder="(33) 99999-9999"
                       />
                     </div>
                     <div>

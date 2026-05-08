@@ -14,7 +14,7 @@ const menuItems = [
 ];
 
 const requests = [
-  { id: "AVL001", route: "São Paulo -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "Em análise" },
+  { id: "AVL001", route: "Governador Valadares -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "Em análise" },
   { id: "AVL002", route: "Grupo turístico -> Evento", date: "20/06/2026", time: "A combinar", status: "Aguardando retorno" },
 ];
 

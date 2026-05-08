@@ -7,7 +7,7 @@ import { MapPin, Search, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 const allDestinations = [
-  { city: "São Paulo", state: "SP", coverage: "Sob consulta", image: "/images/destinations/sp.jpg" },
+  { city: "Governador Valadares", state: "MG", coverage: "Base de saída", image: "/images/destinations/gv.jpg" },
   { city: "Rio de Janeiro", state: "RJ", coverage: "Turismo sob consulta", image: "/images/destinations/rj.jpg" },
   { city: "Curitiba", state: "PR", coverage: "Sob consulta", image: "/images/destinations/pr.jpg" },
   { city: "Florianópolis", state: "SC", coverage: "Sob consulta", image: "/images/destinations/sc.jpg" },

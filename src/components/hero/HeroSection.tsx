@@ -50,7 +50,7 @@ export function HeroSection() {
     <section className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/images/banner-home.png"
+          src="/images/banner-home.webp"
           alt="Ônibus de turismo viajando pela estrada"
           fill
           priority

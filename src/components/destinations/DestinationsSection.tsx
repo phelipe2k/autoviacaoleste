@@ -7,11 +7,11 @@ import { useState } from "react";
 const destinations = [
   {
     id: 1,
-    city: "São Paulo",
-    state: "SP",
+    city: "Governador Valadares",
+    state: "MG",
     duration: "Sob consulta",
     frequency: "Roteiro flexível",
-    status: "Turismo e grupos",
+    status: "Base de saída",
     popular: true,
   },
   {

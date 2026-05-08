@@ -48,11 +48,10 @@ export function Navbar() {
           <nav className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 group">
               <Image
-                src="/images/logo-transparente.png"
+                src="/images/logo-transparente.webp"
                 alt="Auto Viação Leste"
                 width={56}
                 height={56}
-                priority
                 className="h-14 w-14 object-contain transition-opacity group-hover:opacity-90"
               />
               <div className="sr-only">
