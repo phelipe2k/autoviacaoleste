@@ -12,17 +12,17 @@ const testimonials = [
     role: "Viagem frequente",
     avatar: "/images/avatars/maria.jpg",
     rating: 5,
-    text: "Sempre viajo com a Auto Viação Leste. A pontualidade é incrível e o conforto das poltronas faz toda a diferença nas viagens longas. Recomendo a todos!",
-    route: "São Paulo → Rio de Janeiro",
+    text: "Sempre viajo com a Auto Via??o Leste. A pontualidade � incr�vel e o conforto das poltronas faz toda a diferen�a nas viagens longas. Recomendo a todos!",
+    route: "S?o Paulo � Rio de Janeiro",
   },
   {
     id: 2,
-    name: "João Santos",
+    name: "Jo?o Santos",
     role: "Executivo",
     avatar: "/images/avatars/joao.jpg",
     rating: 5,
-    text: "Como executivo, preciso de um transporte confiável para minhas viagens de negócios. O serviço premium da AVL supera todas as expectativas.",
-    route: "Curitiba → São Paulo",
+    text: "Como executivo, preciso de um transporte confi?vel para minhas viagens de neg?cios. O servi?o premium da AVL supera todas as expectativas.",
+    route: "Curitiba � S?o Paulo",
   },
   {
     id: 3,
@@ -30,16 +30,16 @@ const testimonials = [
     role: "Turista",
     avatar: "/images/avatars/ana.jpg",
     rating: 5,
-    text: "Viajei com minha família para o Rio e foi uma experiência maravilhosa. A equipe foi super atenciosa e o Wi-Fi funcionou perfeitamente durante toda a viagem.",
-    route: "Belo Horizonte → Rio de Janeiro",
+    text: "Viajei com minha fam?lia para o Rio e foi uma experi?ncia maravilhosa. A equipe foi super atenciosa e o Wi-Fi funcionou perfeitamente durante toda a viagem.",
+    route: "Belo Horizonte � Rio de Janeiro",
   },
   {
     id: 4,
     name: "Carlos Mendes",
-    role: "Empresário",
+    role: "Empres?rio",
     avatar: "/images/avatars/carlos.jpg",
     rating: 5,
-    text: "Contratamos o fretamento para nossa empresa há 2 anos. A AVL sempre cumpre os horários e oferece um serviço de primeira qualidade.",
+    text: "Contratamos o fretamento para nossa empresa h� 2 anos. A AVL sempre cumpre os hor?rios e oferece um servi?o de primeira qualidade.",
     route: "Fretamento Corporativo",
   },
 ];
@@ -82,7 +82,7 @@ export function TestimonialsSection() {
               O Que Nossos <span className="text-gradient">Clientes</span> Dizem
             </h2>
             <p className="body-lg max-w-2xl mx-auto">
-              A satisfação de nossos passageiros é o nosso maior orgulho.
+              A satisfa??o de nossos passageiros � o nosso maior orgulho.
             </p>
           </motion.div>
 
@@ -182,9 +182,9 @@ export function TestimonialsSection() {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {[
-              { value: "4.9", label: "Avaliação Média", suffix: "/5" },
-              { value: "98", label: "Satisfação", suffix: "%" },
-              { value: "50k+", label: "Avaliações", suffix: "" },
+              { value: "4.9", label: "Avalia??o M?dia", suffix: "/5" },
+              { value: "98", label: "Satisfa��o", suffix: "%" },
+              { value: "50k+", label: "Avalia��es", suffix: "" },
               { value: "30", label: "Anos de", suffix: "+" },
             ].map((stat, index) => (
               <div

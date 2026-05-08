@@ -13,7 +13,7 @@ export default function Home() {
     <main className="relative">
       {/* Navegacao fixa no topo do site. */}
       <Navbar />
-      {/* Primeira dobra da home, com banner, chamada principal e busca de passagens. */}
+      {/* Primeira dobra da home, com banner, chamada principal e formulário de orçamento. */}
       <HeroSection />
       {/* Secoes comerciais reutilizaveis que apresentam destinos, frota, servicos e prova social. */}
       <DestinationsSection />

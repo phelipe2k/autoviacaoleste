@@ -8,10 +8,10 @@ import { useState } from "react";
 
 const allDestinations = [
   { city: "São Paulo", state: "SP", coverage: "Sob consulta", image: "/images/destinations/sp.jpg" },
-  { city: "Rio de Janeiro", state: "RJ", coverage: "Planejamento futuro", image: "/images/destinations/rj.jpg" },
+  { city: "Rio de Janeiro", state: "RJ", coverage: "Turismo sob consulta", image: "/images/destinations/rj.jpg" },
   { city: "Curitiba", state: "PR", coverage: "Sob consulta", image: "/images/destinations/pr.jpg" },
   { city: "Florianópolis", state: "SC", coverage: "Sob consulta", image: "/images/destinations/sc.jpg" },
-  { city: "Belo Horizonte", state: "MG", coverage: "Planejamento futuro", image: "/images/destinations/mg.jpg" },
+  { city: "Belo Horizonte", state: "MG", coverage: "Eventos e grupos", image: "/images/destinations/mg.jpg" },
   { city: "Campinas", state: "SP", coverage: "Atendimento regional", image: "/images/destinations/campinas.jpg" },
   { city: "Santos", state: "SP", coverage: "Atendimento regional", image: "/images/destinations/santos.jpg" },
   { city: "Outras cidades", state: "BR", coverage: "Avaliação comercial", image: "/images/destinations/br.jpg" },
@@ -49,13 +49,13 @@ export default function DestinosPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                Área de atuação
+                Turismo e fretamento
               </span>
               <h1 className="heading-lg text-white mt-4 mb-4">
-                Destinos em <span className="text-gradient">Planejamento</span>
+                Roteiros sob <span className="text-gradient">Consulta</span>
               </h1>
               <p className="body-lg max-w-2xl mx-auto">
-                Consulte nossa equipe para avaliar viagens, fretamentos e futuros atendimentos por região.
+                Consulte nossa equipe para avaliar excursões, eventos, viagens em grupo e fretamentos por região.
               </p>
             </motion.div>
 

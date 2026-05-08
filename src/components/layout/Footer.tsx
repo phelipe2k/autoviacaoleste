@@ -6,12 +6,12 @@ import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Youtube, Arr
 
 const footerLinks = {
   servicos: [
-    { href: "/passagens", label: "Solicitar viagem" },
+    { href: "/passagens", label: "Solicitar orçamento" },
     { href: "/frota", label: "Nossa Frota" },
-    { href: "/destinos", label: "Área de Atuação" },
-    { href: "/servicos", label: "Serviços" },
-    { href: "/servicos", label: "Fretamento" },
+    { href: "/destinos", label: "Roteiros sob consulta" },
     { href: "/servicos", label: "Turismo" },
+    { href: "/servicos", label: "Fretamento" },
+    { href: "/contato", label: "Atendimento comercial" },
   ],
   empresa: [
     { href: "/institucional", label: "Quem Somos" },
@@ -23,8 +23,8 @@ const footerLinks = {
   ],
   suporte: [
     { href: "/faq", label: "Perguntas Frequentes" },
-    { href: "/passagens", label: "Solicitações" },
-    { href: "/horarios", label: "Disponibilidade" },
+    { href: "/passagens", label: "Orçamentos" },
+    { href: "/contato", label: "Disponibilidade" },
     { href: "/politica-de-privacidade", label: "Política de Privacidade" },
     { href: "/termos-de-uso", label: "Termos de Uso" },
     { href: "/contato", label: "Atendimento" },
@@ -54,7 +54,7 @@ export function Footer() {
                   Receba novidades da Auto Viação Leste
                 </h3>
                 <p className="body-md">
-                  Cadastre-se para saber sobre serviços, atendimento e futuras atualizações de rotas.
+                  Cadastre-se para saber sobre serviços, atendimento, turismo e futuras atualizações da empresa.
                 </p>
               </div>
               <form className="flex flex-col sm:flex-row gap-3">
@@ -94,7 +94,7 @@ export function Footer() {
                 </div>
               </Link>
               <p className="body-md mb-6 max-w-sm">
-                Transporte rodoviário com foco em segurança, conforto, frota moderna e atendimento sob consulta para viagens e serviços personalizados.
+                Transporte rodoviário com foco em turismo, fretamento, segurança, conforto e atendimento sob consulta para viagens personalizadas.
               </p>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (

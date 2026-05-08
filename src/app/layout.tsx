@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Auto Viação Leste | Transporte com Segurança e Conforto",
+  title: "Auto Viação Leste | Turismo, Fretamento e Transporte sob Consulta",
   description:
-    "Área institucional da Auto Viação Leste, com informações sobre frota, serviços, contato e solicitações de viagens sob consulta.",
-  keywords: ["ônibus", "viagem", "transporte", "fretamento", "turismo", "Auto Viação Leste"],
+    "Turismo, excursões, fretamento e transporte sob consulta com a Auto Viação Leste. Frota, serviços, contato e orçamentos personalizados.",
+  keywords: ["ônibus", "turismo", "excursão", "fretamento", "transporte sob consulta", "Auto Viação Leste"],
   authors: [{ name: "Auto Viação Leste" }],
   icons: {
     icon: "/images/favicon-64.png",
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     apple: "/images/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Auto Viação Leste | Transporte com Segurança e Conforto",
-    description: "Frota, serviços, contato e solicitações de viagens sob consulta.",
+    title: "Auto Viação Leste | Turismo, Fretamento e Transporte sob Consulta",
+    description: "Frota, serviços, contato e orçamentos para turismo, grupos e fretamento.",
     type: "website",
   },
 };

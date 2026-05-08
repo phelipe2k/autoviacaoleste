@@ -24,9 +24,9 @@ const services = [
     icon: Building2,
     title: "Fretamento",
     description:
-      "Soluções personalizadas de transporte para empresas, com frota moderna e equipe especializada.",
+      "Transporte sob medida para empresas, eventos e equipes, com frota moderna e equipe especializada.",
     features: [
-      "Contratos flexíveis",
+      "Contratos flex?veis",
       "Frota dedicada",
       "Motoristas treinados",
       "Rastreamento em tempo real",
@@ -39,27 +39,27 @@ const services = [
     icon: Users,
     title: "Turismo",
     description:
-      "Passeios e excursões com conforto e segurança para grupos de todos os tamanhos.",
+      "Passeios, excurs?es e roteiros personalizados com conforto e seguran?a para grupos de todos os tamanhos.",
     features: [
       "Roteiros personalizados",
-      "Guias especializados",
-      "Seguro viagem incluso",
+      "Atendimento para excurs?es",
+      "Planejamento por demanda",
       "Paradas programadas",
     ],
     color: "from-cyan to-teal-neon",
-    highlight: "Experiências únicas",
+    highlight: "Experi?ncias �nicas",
   },
   {
     id: 3,
     icon: Briefcase,
     title: "Viagens Corporativas",
     description:
-      "Transporte executivo para reuniões, eventos e deslocamentos de negócios.",
+      "Transporte executivo para reuni?es, eventos e deslocamentos de neg?cios.",
     features: [
       "Pontualidade garantida",
-      "Wi-Fi premium",
-      "Ambiente silencioso",
-      "Atendimento VIP",
+      "Agenda sob consulta",
+      "Ambiente confort�vel",
+      "Atendimento comercial",
     ],
     color: "from-teal-neon to-primary",
     highlight: "Para executivos",
@@ -69,15 +69,15 @@ const services = [
     icon: Bus,
     title: "Transporte Escolar",
     description:
-      "Segurança e confiabilidade no transporte de estudantes, com rigorosos padrões de qualidade.",
+      "Seguran?a e confiabilidade no transporte de estudantes, com rigorosos padr?es de qualidade.",
     features: [
       "Motoristas especializados",
-      "Veículos monitorados",
-      "Segurança certificada",
+      "Ve?culos monitorados",
+      "Seguran?a certificada",
       "Rastreamento GPS",
     ],
     color: "from-primary-light to-cyan",
-    highlight: "Segurança máxima",
+    highlight: "Seguran?a m?xima",
   },
 ];
 
@@ -105,14 +105,14 @@ export function ServicesSection() {
             className="text-center mb-16"
           >
             <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-              Nossos Serviços
+              Nossos Servi?os
             </span>
             <h2 className="heading-lg text-white mt-4 mb-4">
-              Soluções <span className="text-gradient">Completas</span> em Transporte
+              Solu??es <span className="text-gradient">Completas</span> em Transporte
             </h2>
             <p className="body-lg max-w-2xl mx-auto">
-              Oferecemos uma variedade de serviços para atender todas as suas
-              necessidades de mobilidade com excelência.
+              Nesta primeira fase, atendemos principalmente turismo, excurs?es,
+              eventos, grupos e fretamentos sob consulta.
             </p>
           </motion.div>
 
@@ -197,15 +197,15 @@ export function ServicesSection() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Precisa de uma solução personalizada?
+                  Precisa de uma solu��o personalizada?
                 </h3>
                 <p className="text-ice/60">
-                  Entre em contato conosco e desenvolveremos a melhor solução
-                  para você.
+                  Entre em contato conosco e desenvolveremos a melhor solu��o
+                  para voc?.
                 </p>
               </div>
               <button className="btn-primary flex items-center gap-2 px-8 py-4 whitespace-nowrap">
-                Solicitar Orçamento
+                Solicitar Or?amento
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

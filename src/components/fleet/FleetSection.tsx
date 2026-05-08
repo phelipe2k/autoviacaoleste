@@ -30,7 +30,7 @@ const fleet = [
     category: "Premium",
     image: "/images/fleet/executivo-plus.jpg",
     features: [
-      { icon: Armchair, label: "Poltrona 160° reclinável" },
+      { icon: Armchair, label: "Poltrona 160? reclin�vel" },
       { icon: Wifi, label: "Wi-Fi Premium" },
       { icon: Usb, label: "USB e tomadas individuais" },
       { icon: Tv, label: "Entretenimento a bordo" },
@@ -39,10 +39,10 @@ const fleet = [
     specs: {
       capacity: "42 poltronas",
       age: "2023/2024",
-      wifi: "Incluído",
+      wifi: "Inclu?do",
     },
     description:
-      "Experiência premium de viagem com máximo conforto e tecnologia de ponta.",
+      "Experi?ncia premium de viagem com m�ximo conforto e tecnologia de ponta.",
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ const fleet = [
     category: "Executivo",
     image: "/images/fleet/executivo.jpg",
     features: [
-      { icon: Armchair, label: "Poltrona 140° reclinável" },
+      { icon: Armchair, label: "Poltrona 140? reclin�vel" },
       { icon: Wifi, label: "Wi-Fi gratuito" },
       { icon: Usb, label: "USB individuais" },
       { icon: Snowflake, label: "Ar-condicionado" },
@@ -58,28 +58,28 @@ const fleet = [
     specs: {
       capacity: "46 poltronas",
       age: "2022/2023",
-      wifi: "Incluído",
+      wifi: "Inclu?do",
     },
     description:
-      "Conforto executivo ideal para viagens de negócios ou lazer.",
+      "Conforto executivo ideal para viagens de neg?cios ou lazer.",
   },
   {
     id: 3,
     name: "Convencional",
-    category: "Econômico",
+    category: "Econ?mico",
     image: "/images/fleet/convencional.jpg",
     features: [
-      { icon: Armchair, label: "Poltrona reclinável" },
+      { icon: Armchair, label: "Poltrona reclin�vel" },
       { icon: Snowflake, label: "Ar-condicionado" },
       { icon: Usb, label: "Carregadores USB" },
     ],
     specs: {
       capacity: "50 poltronas",
       age: "2021/2022",
-      wifi: "Disponível",
+      wifi: "Dispon?vel",
     },
     description:
-      "Qualidade e economia para suas viagens diárias.",
+      "Qualidade e economia para suas viagens di?rias.",
   },
 ];
 
@@ -113,10 +113,10 @@ export function FleetSection() {
               Nossa Frota
             </span>
             <h2 className="heading-lg text-white mt-4 mb-4">
-              Frota <span className="text-gradient">Moderna</span> e Confortável
+              Frota <span className="text-gradient">Moderna</span> e Confort�vel
             </h2>
             <p className="body-lg max-w-2xl mx-auto">
-              Ônibus novos, revisados e equipados com o que há de mais moderno
+              ?nibus novos, revisados e equipados com o que h? de mais moderno
               em tecnologia e conforto.
             </p>
           </motion.div>

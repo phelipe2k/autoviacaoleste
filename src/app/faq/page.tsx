@@ -8,48 +8,48 @@ import { useState } from "react";
 
 const categories = [
   { id: "geral", label: "Geral" },
-  { id: "solicitacoes", label: "Solicitações" },
-  { id: "orcamento", label: "Orçamento" },
+  { id: "solicitacoes", label: "Solicita??es" },
+  { id: "orcamento", label: "Or?amento" },
   { id: "frota", label: "Frota" },
-  { id: "documentacao", label: "Documentação" },
+  { id: "documentacao", label: "Documenta??o" },
 ];
 
 const faqs = [
   {
     id: 1,
     category: "geral",
-    question: "A Auto Viação Leste já vende passagens online?",
-    answer: "Nesta fase inicial, o site não realiza venda direta de passagens. A empresa atende solicitações, dúvidas e orçamentos enquanto prepara a estrutura futura de rotas, horários e passagens.",
+    question: "A Auto Via??o Leste j? vende passagens online?",
+    answer: "Nesta fase inicial, o site n?o realiza venda direta de passagens. O foco atual ? turismo, excurs?es, grupos e fretamentos sob consulta enquanto a empresa prepara a estrutura futura para linhas regulares.",
   },
   {
     id: 2,
     category: "solicitacoes",
-    question: "Como faço para solicitar uma viagem?",
-    answer: "Use o formulário de solicitação informando origem, destino, data desejada e quantidade de pessoas. A equipe comercial retornará com disponibilidade, orientações e próximos passos.",
+    question: "Como fa?o para solicitar um or?amento?",
+    answer: "Use o formul?rio de solicita??o informando origem, destino, data desejada e quantidade de pessoas. A equipe comercial retornar? com disponibilidade, orienta??es e pr?ximos passos.",
   },
   {
     id: 3,
     category: "orcamento",
-    question: "Posso pedir orçamento para grupo, empresa ou excursão?",
-    answer: "Sim. O atendimento sob consulta é indicado para fretamento, eventos, grupos, turismo e transporte executivo. Quanto mais detalhes você enviar, mais precisa será a avaliação.",
+    question: "Posso pedir or?amento para grupo, empresa ou excurs�o?",
+    answer: "Sim. O atendimento sob consulta ? indicado para fretamento, eventos, grupos, turismo e transporte executivo. Quanto mais detalhes voc? enviar, mais precisa ser� a avalia??o.",
   },
   {
     id: 4,
     category: "frota",
-    question: "Quais informações da frota posso consultar?",
-    answer: "O site apresenta categorias de ônibus, recursos de conforto, segurança e manutenção. A disponibilidade de veículo para uma data específica é confirmada pela equipe.",
+    question: "Quais informa??es da frota posso consultar?",
+    answer: "O site apresenta categorias de ?nibus, recursos de conforto, seguran?a e manuten??o. A disponibilidade de ve?culo para uma data espec?fica � confirmada pela equipe.",
   },
   {
     id: 5,
     category: "documentacao",
-    question: "Quando rotas regulares e horários fixos serão ativados?",
-    answer: "Essas áreas ficarão preparadas no layout e serão ativadas somente após a documentação e as autorizações necessárias estarem concluídas.",
+    question: "Quando rotas regulares e hor?rios fixos ser�o ativados?",
+    answer: "A previs?o de planejamento ? para uma etapa posterior, com possibilidade no fim de 2026. Essas ?reas ser�o ativadas somente ap?s documenta??o, autoriza??es necess�rias e confirma??o operacional da empresa.",
   },
   {
     id: 6,
     category: "geral",
     question: "Como entro em contato com a empresa?",
-    answer: "Você pode usar a página de contato, telefone ou e-mail informados no site para solicitar informações, consultar disponibilidade ou falar com a equipe comercial.",
+    answer: "Voc� pode usar a p?gina de contato, telefone ou e-mail informados no site para solicitar informa??es, consultar disponibilidade ou falar com a equipe comercial.",
   },
 ];
 
@@ -82,7 +82,7 @@ export default function FAQPage() {
                 Perguntas <span className="text-gradient">Frequentes</span>
               </h1>
               <p className="body-lg max-w-2xl mx-auto">
-                Encontre respostas sobre atendimento, solicitações e serviços sob consulta.
+                Encontre respostas sobre atendimento, solicita??es e servi?os sob consulta.
               </p>
             </motion.div>
 
@@ -154,8 +154,8 @@ export default function FAQPage() {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-12 glass-card p-8 text-center">
               <MessageCircle className="w-12 h-12 text-cyan mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Não encontrou sua dúvida?</h3>
-              <p className="text-ice/70 mb-6">Nossa equipe de atendimento está pronta para ajudar você.</p>
+              <h3 className="text-xl font-bold text-white mb-2">N?o encontrou sua d?vida?</h3>
+              <p className="text-ice/70 mb-6">Nossa equipe de atendimento est? pronta para ajudar voc?.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="btn-primary">Falar com Atendente</button>
                 <button className="btn-outline">Ver todos os contatos</button>

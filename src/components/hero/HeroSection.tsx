@@ -39,8 +39,8 @@ const features = [
 ];
 
 const stats = [
-  { icon: Route, value: "Sob consulta", label: "ROTAS FUTURAS", sublabel: "Estrutura preparada" },
-  { icon: Users, value: "Atendimento", label: "GRUPOS E EMPRESAS", sublabel: "Solicitações personalizadas" },
+  { icon: Route, value: "Sob consulta", label: "ROTEIROS TURÍSTICOS", sublabel: "Viagens planejadas" },
+  { icon: Users, value: "Atendimento", label: "GRUPOS E EMPRESAS", sublabel: "Orçamentos personalizados" },
   { icon: Bus, value: "Frota", label: "ÔNIBUS REVISADOS", sublabel: "Veículos para diferentes perfis" },
   { icon: ShieldCheck, value: "Cuidado", label: "VIAGENS SEGURAS", sublabel: "Prioridade em cada trajeto" },
 ];
@@ -105,7 +105,7 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="body-lg mb-8 max-w-lg"
               >
-                Transporte rodoviário com foco institucional, atendimento sob consulta, frota moderna e estrutura preparada para crescer com segurança.
+                Turismo, excursões e fretamento sob consulta, com frota moderna, equipe qualificada e planejamento para cada roteiro.
               </motion.p>
 
               <motion.div

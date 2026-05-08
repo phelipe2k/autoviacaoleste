@@ -7,20 +7,20 @@ import { useState } from "react";
 const destinations = [
   {
     id: 1,
-    city: "São Paulo",
+    city: "S?o Paulo",
     state: "SP",
     duration: "Sob consulta",
-    frequency: "Agenda flexível",
-    status: "Atendimento regional",
+    frequency: "Roteiro flex�vel",
+    status: "Turismo e grupos",
     popular: true,
   },
   {
     id: 2,
     city: "Rio de Janeiro",
     state: "RJ",
-    duration: "Planejamento",
-    frequency: "Futuras rotas",
-    status: "Em estruturação",
+    duration: "Sob or?amento",
+    frequency: "Excurs�es",
+    status: "Turismo sob consulta",
     popular: true,
   },
   {
@@ -34,9 +34,9 @@ const destinations = [
   },
   {
     id: 4,
-    city: "Florianópolis",
+    city: "Florian?polis",
     state: "SC",
-    duration: "Sob orçamento",
+    duration: "Sob or?amento",
     frequency: "Roteiro combinado",
     status: "Turismo e grupos",
     popular: true,
@@ -45,9 +45,9 @@ const destinations = [
     id: 5,
     city: "Belo Horizonte",
     state: "MG",
-    duration: "Planejamento",
-    frequency: "Futuras rotas",
-    status: "Em avaliação",
+    duration: "Sob consulta",
+    frequency: "Roteiro combinado",
+    status: "Turismo e eventos",
     popular: false,
   },
   {
@@ -55,8 +55,8 @@ const destinations = [
     city: "Outras cidades",
     state: "BR",
     duration: "Sob consulta",
-    frequency: "Conforme solicitação",
-    status: "Avaliação comercial",
+    frequency: "Conforme solicita??o",
+    status: "Avalia??o comercial",
     popular: false,
   },
 ];
@@ -79,13 +79,13 @@ export function DestinationsSection() {
             className="text-center mb-16"
           >
             <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-              Área de atuação
+              Turismo sob consulta
             </span>
             <h2 className="heading-lg text-white mt-4 mb-4">
-              Destinos e <span className="text-gradient">Possibilidades</span>
+              Roteiros e <span className="text-gradient">Possibilidades</span>
             </h2>
             <p className="body-lg max-w-2xl mx-auto">
-              Consulte viagens sob demanda e acompanhe a estrutura preparada para futuras rotas regulares.
+              Consulte excurs?es, viagens em grupo, eventos e roteiros personalizados para diferentes regi?es.
             </p>
           </motion.div>
 
@@ -190,7 +190,7 @@ export function DestinationsSection() {
             className="text-center mt-12"
           >
             <button className="btn-outline inline-flex items-center gap-2 px-8 py-4 text-base">
-              Consultar destinos
+              Consultar roteiro
               <ArrowRight className="w-5 h-5" />
             </button>
           </motion.div>

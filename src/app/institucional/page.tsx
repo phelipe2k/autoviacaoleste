@@ -7,28 +7,28 @@ import { Target, Eye, Heart, Award, Users, Clock, MapPin, TrendingUp } from "luc
 
 // Valores institucionais exibidos em cards.
 const values = [
-  { icon: Heart, title: "Compromisso", description: "Dedicação total à satisfação dos nossos passageiros e clientes." },
-  { icon: Award, title: "Excelência", description: "Busca constante pela qualidade em todos os nossos serviços." },
-  { icon: Users, title: "Respeito", description: "Valorização das pessoas: passageiros, colaboradores e parceiros." },
-  { icon: Clock, title: "Pontualidade", description: "Respeito ao tempo de quem confia em nossos serviços." },
+  { icon: Heart, title: "Compromisso", description: "Dedica??o total � satisfa??o dos nossos passageiros e clientes." },
+  { icon: Award, title: "Excel?ncia", description: "Busca constante pela qualidade em todos os nossos servi?os." },
+  { icon: Users, title: "Respeito", description: "Valoriza??o das pessoas: passageiros, colaboradores e parceiros." },
+  { icon: Clock, title: "Pontualidade", description: "Respeito ao tempo de quem confia em nossos servi?os." },
 ];
 
 // Linha do tempo da empresa, organizada por ano.
 const timeline = [
-  { year: "1994", title: "Fundação", description: "Início das operações com 5 ônibus e 2 rotas." },
-  { year: "2000", title: "Expansão", description: "Ampliação da frota para 20 ônibus e cobertura estadual." },
-  { year: "2010", title: "Certificação ISO", description: "Conquista da certificação ISO 9001 em qualidade." },
-  { year: "2015", title: "Frota Renovada", description: "100% da frota renovada com ônibus de última geração." },
-  { year: "2020", title: "Tecnologia", description: "Lançamento do aplicativo e bilhete digital." },
-  { year: "2024", title: "Referência", description: "Mais de 1 milhão de passageiros transportados anualmente." },
+  { year: "1994", title: "Funda??o", description: "In?cio de uma trajet?ria dedicada ao transporte rodovi?rio com responsabilidade." },
+  { year: "2000", title: "Crescimento", description: "Amplia??o gradual da opera??o e fortalecimento do atendimento regional." },
+  { year: "2010", title: "Qualidade", description: "Evolu??o dos processos de manuten??o, seguran?a e atendimento ao cliente." },
+  { year: "2015", title: "Frota Renovada", description: "Investimento em ve?culos mais confort?veis para viagens, grupos e fretamentos." },
+  { year: "2024", title: "Nova fase", description: "Estrutura??o comercial com foco inicial em turismo e servi?os sob consulta." },
+  { year: "2026", title: "Planejamento", description: "Prepara??o para futuras linhas regulares ap?s documenta??o e autoriza??es necess�rias." },
 ];
 
 // Indicadores institucionais de escala e experiencia.
 const stats = [
-  { value: "30+", label: "Anos de experiência", icon: Clock },
-  { value: "120+", label: "Rotas atendidas", icon: MapPin },
-  { value: "50+", label: "Ônibus na frota", icon: TrendingUp },
-  { value: "500+", label: "Colaboradores", icon: Users },
+  { value: "30+", label: "Anos de experi?ncia", icon: Clock },
+  { value: "Sob consulta", label: "Roteiros tur?sticos", icon: MapPin },
+  { value: "Frota", label: "Ve?culos revisados", icon: TrendingUp },
+  { value: "Equipe", label: "Atendimento especializado", icon: Users },
 ];
 
 // Pagina institucional: conta historia, missao, valores, numeros e trajetoria.
@@ -53,12 +53,12 @@ export default function InstitucionalPage() {
                 Quem Somos
               </span>
               <h1 className="heading-lg text-white mt-4 mb-4">
-                Nossa <span className="text-gradient">História</span>
+                Nossa <span className="text-gradient">Hist?ria</span>
               </h1>
               <p className="body-lg max-w-3xl mx-auto">
-                Há mais de 30 anos conectando pessoas e destinos com segurança,
-                conforto e compromisso. A Auto Viação Leste nasceu com uma missão
-                clara: transformar a experiência de viagem dos brasileiros.
+                H? mais de 30 anos atuando com transporte rodovi?rio, seguran?a,
+                conforto e compromisso. Nesta fase, a Auto Via??o Leste concentra
+                seu atendimento em turismo, excurs?es, grupos e fretamentos sob consulta.
               </p>
             </motion.div>
           </div>
@@ -80,10 +80,10 @@ export default function InstitucionalPage() {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-cyan flex items-center justify-center mx-auto mb-6">
                   <Target className="w-8 h-8 text-dark" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Missão</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Miss?o</h3>
                 <p className="text-ice/70">
-                  Conectar pessoas e destinos com segurança, conforto e pontualidade,
-                  superando expectativas e criando experiências de viagem memoráveis.
+                  Conectar pessoas, grupos e empresas a viagens planejadas com
+                  seguran?a, conforto, pontualidade e atendimento respons?vel.
                 </p>
               </motion.div>
 
@@ -97,10 +97,10 @@ export default function InstitucionalPage() {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan to-teal-neon flex items-center justify-center mx-auto mb-6">
                   <Eye className="w-8 h-8 text-dark" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Visão</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Vis?o</h3>
                 <p className="text-ice/70">
-                  Ser reconhecida como a melhor empresa de transporte rodoviário
-                  do Brasil, referência em inovação, qualidade e satisfação do cliente.
+                  Crescer com organiza??o, qualidade e seguran?a, preparando a
+                  empresa para novas etapas de atendimento rodovi?rio.
                 </p>
               </motion.div>
 
@@ -116,8 +116,8 @@ export default function InstitucionalPage() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Valores</h3>
                 <p className="text-ice/70">
-                  Segurança, pontualidade, respeito ao cliente, inovação contínua
-                  e compromisso com a excelência em tudo que fazemos.
+                  Seguran?a, pontualidade, respeito ao cliente, transpar?ncia
+                  comercial e compromisso com a excel?ncia em cada solicita??o.
                 </p>
               </motion.div>
             </div>
@@ -173,10 +173,11 @@ export default function InstitucionalPage() {
               className="text-center mb-16"
             >
               <h2 className="heading-md text-white mb-4">
-                Nossa <span className="text-gradient">Trajetória</span>
+                Nossa <span className="text-gradient">Trajet?ria</span>
               </h2>
               <p className="body-lg">
-                Três décadas de história, crescimento e inovação no transporte brasileiro.
+                Tr?s d�cadas de hist�ria e uma nova etapa voltada a turismo,
+                fretamento e futuras expans?es estruturadas.
               </p>
             </motion.div>
 

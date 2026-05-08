@@ -9,11 +9,11 @@ import { Menu, X, User, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/", label: "Início" },
-  { href: "/passagens", label: "Solicitações" },
+  { href: "/", label: "In?cio" },
+  { href: "/passagens", label: "Or?amento" },
   { href: "/frota", label: "Frota" },
-  { href: "/destinos", label: "Atuação" },
-  { href: "/servicos", label: "Serviços" },
+  { href: "/destinos", label: "Turismo" },
+  { href: "/servicos", label: "Servi?os" },
   { href: "/institucional", label: "Institucional" },
   { href: "/contato", label: "Contato" },
 ];
@@ -49,7 +49,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-3 group">
               <Image
                 src="/images/logo-transparente.png"
-                alt="Auto Viação Leste"
+                alt="Auto Via??o Leste"
                 width={56}
                 height={56}
                 priority
@@ -57,7 +57,7 @@ export function Navbar() {
               />
               <div className="sr-only">
                 <p className="text-sm font-semibold text-ice font-display tracking-wider">
-                  AUTO VIAÇÃO
+                  AUTO VIA��O
                 </p>
                 <p className="text-xs text-cyan tracking-[0.2em]">LESTE</p>
               </div>

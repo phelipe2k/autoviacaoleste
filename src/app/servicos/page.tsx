@@ -11,41 +11,41 @@ const detailedServices = [
   {
     icon: Building2,
     title: "Fretamento Empresarial",
-    description: "Soluções completas de transporte para empresas de todos os portes. Deslocamento de funcionários, eventos corporativos e mais.",
+    description: "Solu??es completas de transporte para empresas de todos os portes. Deslocamento de funcion�rios, eventos corporativos e mais.",
     features: [
-      "Contratos flexíveis e personalizados",
+      "Contratos flex?veis e personalizados",
       "Frota dedicada exclusiva",
       "Motoristas uniformizados e treinados",
       "Rastreamento GPS em tempo real",
-      "Relatórios de utilização detalhados",
+      "Relat?rios de utiliza??o detalhados",
       "Atendimento 24 horas",
     ],
-    cta: "Solicitar Orçamento",
+    cta: "Solicitar Or?amento",
   },
   {
     icon: Users,
-    title: "Turismo e Excursões",
-    description: "Roteiros especiais para grupos, com conforto e segurança. Ideal para agências de turismo, escolas e grupos de amigos.",
+    title: "Turismo e Excurs�es",
+    description: "Roteiros especiais para grupos, com conforto e seguran?a. Ideal para ag?ncias de turismo, escolas e grupos de amigos.",
     features: [
       "Roteiros personalizados",
       "Guias de turismo especializados",
       "Seguro viagem incluso",
-      "Paradas estratégicas programadas",
+      "Paradas estrat?gicas programadas",
       "Descontos para grupos grandes",
-      "Orçamento sob consulta",
+      "Or?amento sob consulta",
     ],
     cta: "Ver Roteiros",
   },
   {
     icon: Briefcase,
     title: "Viagens Corporativas",
-    description: "Transporte executivo para reuniões, eventos e deslocamentos de negócios com máxima pontualidade.",
+    description: "Transporte executivo para reuni?es, eventos e deslocamentos de neg?cios com m?xima pontualidade.",
     features: [
       "Pontualidade garantida",
       "Wi-Fi premium de alta velocidade",
       "Ambiente silencioso para trabalho",
       "Atendimento VIP exclusivo",
-      "Flexibilidade de horários",
+      "Flexibilidade de hor?rios",
       "Faturamento facilitado",
     ],
     cta: "Conhecer Mais",
@@ -53,11 +53,11 @@ const detailedServices = [
   {
     icon: Bus,
     title: "Transporte Escolar",
-    description: "Segurança máxima no transporte de estudantes, com rigorosos padrões de qualidade e certificações.",
+    description: "Seguran?a m?xima no transporte de estudantes, com rigorosos padr?es de qualidade e certifica??es.",
     features: [
       "Motoristas especializados em transporte escolar",
-      "Veículos monitorados constantemente",
-      "Certificação de segurança veicular",
+      "Ve?culos monitorados constantemente",
+      "Certifica??o de seguran?a veicular",
       "Rastreamento GPS para pais",
       "Aplicativo de acompanhamento",
       "Monitores a bordo (opcional)",
@@ -85,13 +85,13 @@ export default function ServicosPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                Serviços
+                Servi?os
               </span>
               <h1 className="heading-lg text-white mt-4 mb-4">
-                Soluções <span className="text-gradient">Completas</span>
+                Solu??es <span className="text-gradient">Completas</span>
               </h1>
               <p className="body-lg max-w-2xl mx-auto">
-                Oferecemos uma variedade de serviços de transporte para atender
+                Oferecemos uma variedade de servi?os de transporte para atender
                 todas as suas necessidades de mobilidade.
               </p>
             </motion.div>
@@ -155,11 +155,11 @@ export default function ServicosPage() {
               className="glass-card p-12 text-center"
             >
               <h2 className="heading-md text-white mb-4">
-                Não encontrou o que procura?
+                N?o encontrou o que procura?
               </h2>
               <p className="text-ice/70 mb-8 max-w-xl mx-auto">
-                Entre em contato conosco e desenvolveremos uma solução
-                personalizada para sua necessidade específica.
+                Entre em contato conosco e desenvolveremos uma solu��o
+                personalizada para sua necessidade espec?fica.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="btn-primary flex items-center justify-center gap-2">
@@ -167,7 +167,7 @@ export default function ServicosPage() {
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button className="btn-outline flex items-center justify-center gap-2">
-                  Ver Todos os Serviços
+                  Ver Todos os Servi?os
                 </button>
               </div>
             </motion.div>

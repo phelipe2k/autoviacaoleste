@@ -23,7 +23,7 @@ export function BookingSearch() {
   const [passengers, setPassengers] = useState(1);
 
   const tabs = [
-    { id: "solicitacao" as TabType, label: "Solicitar viagem", icon: ClipboardList },
+    { id: "solicitacao" as TabType, label: "Solicitar or?amento", icon: ClipboardList },
     { id: "atendimento" as TabType, label: "Atendimento", icon: Briefcase },
     { id: "disponibilidade" as TabType, label: "Disponibilidade", icon: Clock },
   ];
@@ -69,7 +69,7 @@ export function BookingSearch() {
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
                   <input
                     type="text"
-                    placeholder="De onde você sai?"
+                    placeholder="De onde voc? sai?"
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
                     className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
@@ -85,7 +85,7 @@ export function BookingSearch() {
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
                   <input
                     type="text"
-                    placeholder="Para onde você vai?"
+                    placeholder="Para onde voc? vai?"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
@@ -130,7 +130,7 @@ export function BookingSearch() {
 
               <div className="flex items-end">
                 <button className="w-full btn-primary flex items-center justify-center gap-2 py-3.5">
-                  Solicitar viagem
+                  Solicitar or?amento
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
@@ -144,7 +144,7 @@ export function BookingSearch() {
               className="text-center py-8"
             >
               <p className="text-ice/60 mb-4">
-                Fale com nossa equipe para tirar dúvidas, pedir orçamento ou acompanhar uma solicitação.
+                Fale com nossa equipe para tirar d?vidas, pedir or?amento ou acompanhar uma solicita??o.
               </p>
               <button className="btn-outline inline-flex items-center gap-2">
                 <Briefcase className="w-4 h-4" />

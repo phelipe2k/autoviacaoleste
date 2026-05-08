@@ -8,18 +8,18 @@ import { useState } from "react";
 
 // Canais de atendimento exibidos nos cards do topo.
 const contactInfo = [
-  { icon: Phone, title: "Telefone", content: "(11) 3000-0000", subcontent: "Segunda a Sexta, 8h às 20h" },
+  { icon: Phone, title: "Telefone", content: "(11) 3000-0000", subcontent: "Segunda a Sexta, 8h ?s 20h" },
   { icon: Mail, title: "E-mail", content: "contato@viacaoleste.com.br", subcontent: "Respondemos em 24h" },
-  { icon: MapPin, title: "Endereço", content: "Av. Paulista, 1000", subcontent: "São Paulo, SP - 01310-100" },
-  { icon: Clock, title: "Horário", content: "Atendimento 24h", subcontent: "Central de atendimento" },
+  { icon: MapPin, title: "Endere?o", content: "Av. Paulista, 1000", subcontent: "S?o Paulo, SP - 01310-100" },
+  { icon: Clock, title: "Hor?rio", content: "Atendimento 24h", subcontent: "Central de atendimento" },
 ];
 
 // Assuntos disponiveis no select do formulario de contato.
 const subjects = [
-  "Solicitação de viagem",
-  "Fretamento e serviços corporativos",
-  "Reclamações",
-  "Sugestões",
+  "Or?amento de turismo",
+  "Fretamento e servi?os corporativos",
+  "Reclama??es",
+  "Sugest?es",
   "Outros",
 ];
 
@@ -198,8 +198,8 @@ export default function ContatoPage() {
                     Atendimento via WhatsApp
                   </h3>
                   <p className="text-ice/70 mb-6">
-                    Prefere conversar pelo WhatsApp?Nossa equipe está disponível
-                    para atender você em horário comercial.
+                    Prefere conversar pelo WhatsApp?Nossa equipe est? dispon?vel
+                    para atender voc? em hor�rio comercial.
                   </p>
                   <button className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold transition-colors flex items-center justify-center gap-2">
                     <MessageCircle className="w-5 h-5" />
@@ -212,8 +212,8 @@ export default function ContatoPage() {
                     Ouvidoria
                   </h3>
                   <p className="text-ice/70 mb-4">
-                    Se você já entrou em contato com nossos canais de atendimento
-                    e não ficou satisfeito, fale com nossa Ouvidoria.
+                    Se voc? j? entrou em contato com nossos canais de atendimento
+                    e n?o ficou satisfeito, fale com nossa Ouvidoria.
                   </p>
                   <a href="mailto:ouvidoria@viacaoleste.com.br" className="text-cyan hover:underline flex items-center gap-2">
                     ouvidoria@viacaoleste.com.br
