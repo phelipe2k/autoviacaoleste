@@ -65,7 +65,7 @@ export function DestinationsSection() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-16 sm:py-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-glow-cyan opacity-20 blur-3xl" />
 
@@ -76,7 +76,7 @@ export function DestinationsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
             <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
               Turismo sob consulta
@@ -99,7 +99,7 @@ export function DestinationsSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onMouseEnter={() => setHoveredId(destination.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className="group relative h-[400px] rounded-2xl overflow-hidden cursor-pointer"
+                className="group relative h-[320px] sm:h-[400px] rounded-2xl overflow-hidden cursor-pointer"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-dark-lighter to-dark flex items-center justify-center">
                   <div className="text-center">
@@ -121,7 +121,7 @@ export function DestinationsSection() {
                   </div>
                 )}
 
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="absolute inset-0 p-5 sm:p-6 flex flex-col justify-end">
                   <motion.div
                     animate={{
                       y: hoveredId === destination.id ? 0 : 10,
@@ -136,11 +136,11 @@ export function DestinationsSection() {
                       </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
                       {destination.city}
                     </h3>
 
-                    <div className="flex items-center gap-4 mb-4 text-sm text-ice/60">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4 text-sm text-ice/60">
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
                         {destination.duration}
@@ -154,7 +154,7 @@ export function DestinationsSection() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-xs text-ice/50">Status</p>
-                        <p className="text-xl font-bold text-gradient">
+                        <p className="text-lg sm:text-xl font-bold text-gradient leading-tight">
                           {destination.status}
                         </p>
                       </div>

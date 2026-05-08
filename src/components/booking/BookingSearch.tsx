@@ -23,9 +23,9 @@ export function BookingSearch() {
   const [passengers, setPassengers] = useState(15);
 
   const tabs = [
-    { id: "orcamento" as TabType, label: "Orçamento turístico", icon: ClipboardList },
-    { id: "roteiro" as TabType, label: "Montar roteiro", icon: Route },
-    { id: "whatsapp" as TabType, label: "WhatsApp", icon: MessageCircle },
+    { id: "orcamento" as TabType, label: "Orçamento turístico", shortLabel: "Orçamento", icon: ClipboardList },
+    { id: "roteiro" as TabType, label: "Montar roteiro", shortLabel: "Roteiro", icon: Route },
+    { id: "whatsapp" as TabType, label: "WhatsApp", shortLabel: "WhatsApp", icon: MessageCircle },
   ];
 
   return (
@@ -35,31 +35,32 @@ export function BookingSearch() {
       transition={{ duration: 0.8, delay: 0.5 }}
       className="relative z-20"
     >
-      <div className="glass-card overflow-hidden">
-        <div className="flex border-b border-white/10 overflow-x-auto">
+      <div className="glass-card overflow-hidden shadow-deep">
+        <div className="grid grid-cols-3 sm:flex border-b border-white/10">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
-                "flex items-center gap-2 px-6 py-4 text-sm font-medium transition-all duration-300 whitespace-nowrap",
+                "min-w-0 flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-3.5 sm:py-4 text-[11px] sm:text-sm font-semibold sm:font-medium transition-all duration-300",
                 activeTab === tab.id
                   ? "text-cyan border-b-2 border-cyan bg-cyan/5"
                   : "text-ice/60 hover:text-ice hover:bg-white/5"
               )}
             >
-              <tab.icon className="w-4 h-4" />
-              {tab.label}
+              <tab.icon className="w-4 h-4 shrink-0" />
+              <span className="truncate sm:hidden">{tab.shortLabel}</span>
+              <span className="hidden sm:inline whitespace-nowrap">{tab.label}</span>
             </button>
           ))}
         </div>
 
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {activeTab === "orcamento" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4"
             >
               <div className="relative group">
                 <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
@@ -72,7 +73,7 @@ export function BookingSearch() {
                     placeholder="Cidade de saída"
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3.5 bg-dark/55 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -88,7 +89,7 @@ export function BookingSearch() {
                     placeholder="Praia, cidade ou evento"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3.5 bg-dark/55 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -103,7 +104,7 @@ export function BookingSearch() {
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3.5 bg-dark/55 border border-white/10 rounded-xl text-sm sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -117,7 +118,7 @@ export function BookingSearch() {
                   <select
                     value={passengers}
                     onChange={(e) => setPassengers(Number(e.target.value))}
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300 appearance-none cursor-pointer"
+                    className="w-full pl-12 pr-4 py-3.5 bg-dark/55 border border-white/10 rounded-xl text-sm sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300 appearance-none cursor-pointer"
                   >
                     {[15, 25, 35, 45, 50].map((num) => (
                       <option key={num} value={num}>
@@ -129,7 +130,7 @@ export function BookingSearch() {
               </div>
 
               <div className="flex items-end">
-                <button className="w-full btn-primary flex items-center justify-center gap-2 py-3.5">
+                <button className="w-full btn-primary flex items-center justify-center gap-2 py-3.5 text-sm sm:text-base">
                   Solicitar orçamento
                   <ArrowRight className="w-5 h-5" />
                 </button>

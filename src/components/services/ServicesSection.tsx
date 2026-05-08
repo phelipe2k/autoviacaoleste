@@ -78,7 +78,7 @@ export function ServicesSection() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-16 sm:py-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-glow-cyan opacity-15 blur-3xl" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-glow-teal opacity-15 blur-3xl" />
@@ -90,7 +90,7 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
             <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
               Turismo rodoviário
@@ -116,7 +116,7 @@ export function ServicesSection() {
                 className="group relative"
               >
                 <div
-                  className={`glass-card p-8 h-full transition-all duration-500 ${
+                  className={`glass-card p-5 sm:p-8 h-full transition-all duration-500 ${
                     hoveredId === service.id
                       ? "shadow-glow-cyan border-cyan/30"
                       : ""
@@ -134,7 +134,7 @@ export function ServicesSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">
                     {service.title}
                   </h3>
                   <p className="text-ice/60 mb-6">{service.description}</p>
@@ -169,18 +169,18 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-16 glass-card p-8 text-center"
+            className="mt-10 sm:mt-16 glass-card p-5 sm:p-8 text-center"
           >
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="text-left">
-                <h3 className="text-2xl font-bold text-white mb-2">
+              <div className="text-left min-w-0">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
                   Quer montar uma viagem turística?
                 </h3>
                 <p className="text-ice/60">
                   Conte o destino, a data e o tamanho do grupo para receber orientação e orçamento.
                 </p>
               </div>
-              <button className="btn-primary flex items-center gap-2 px-8 py-4 whitespace-nowrap">
+              <button className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-8 py-4 text-sm sm:text-base">
                 Solicitar orçamento turístico
                 <ArrowRight className="w-5 h-5" />
               </button>

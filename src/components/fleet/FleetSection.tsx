@@ -81,7 +81,7 @@ export function FleetSection() {
   const activeBus = fleet[activeIndex];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-16 sm:py-24 overflow-hidden">
       {/* Fundo da secao, normalmente com degrade escuro. */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-lighter to-dark" />
 
@@ -96,7 +96,7 @@ export function FleetSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
             <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
               Nossa Frota
@@ -147,14 +147,14 @@ export function FleetSection() {
                 </div>
 
                 {/* Conteudo textual do card. */}
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   <h3 className="text-xl font-bold text-white mb-2">
                     {bus.name}
                   </h3>
                   <p className="text-sm text-ice/60 mb-4">{bus.description}</p>
 
                   {/* Especificacoes rapidas: capacidade, ano e Wi-Fi. */}
-                  <div className="grid grid-cols-3 gap-2 mb-4 text-center">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-4 text-center">
                     <div className="p-2 bg-dark/50 rounded-lg">
                       <p className="text-xs text-ice/50">Capacidade</p>
                       <p className="text-sm font-semibold text-cyan">
@@ -198,16 +198,16 @@ export function FleetSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card p-8"
+            className="glass-card p-5 sm:p-8"
           >
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
               <div>
                 <h3 className="text-2xl font-bold text-white">
                   {activeBus.name}
                 </h3>
                 <p className="text-ice/60">Recursos e diferenciais</p>
               </div>
-              <button className="btn-primary flex items-center gap-2 mt-4 md:mt-0">
+              <button className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 md:mt-0">
                 Ver Detalhes
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -221,12 +221,12 @@ export function FleetSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="flex items-center gap-3 p-4 bg-dark/50 rounded-xl"
+                  className="flex items-center gap-3 p-4 bg-dark/50 rounded-xl min-w-0"
                 >
                   <div className="w-10 h-10 rounded-full bg-cyan/20 flex items-center justify-center shrink-0">
                     <feature.icon className="w-5 h-5 text-cyan" />
                   </div>
-                  <span className="text-sm text-ice/80">{feature.label}</span>
+                  <span className="text-sm text-ice/80 leading-snug">{feature.label}</span>
                 </motion.div>
               ))}
             </div>

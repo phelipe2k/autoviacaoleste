@@ -41,8 +41,8 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-dark/90 backdrop-blur-xl border-b border-white/5 py-3"
-            : "bg-transparent py-5"
+            ? "bg-dark/90 backdrop-blur-xl border-b border-white/5 py-2.5 lg:py-3"
+            : "bg-dark/60 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-0 py-4 lg:py-5"
         )}
       >
         <div className="section-padding">
@@ -53,7 +53,7 @@ export function Navbar() {
                 alt="Auto Viação Leste"
                 width={56}
                 height={56}
-                className="h-14 w-14 object-contain transition-opacity group-hover:opacity-90"
+                className="h-12 w-12 sm:h-14 sm:w-14 object-contain transition-opacity group-hover:opacity-90"
               />
               <div className="sr-only">
                 <p className="text-sm font-semibold text-ice font-display tracking-wider">
@@ -104,7 +104,7 @@ export function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10"
+              className="lg:hidden relative w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10"
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5 text-cyan" />
@@ -134,7 +134,7 @@ export function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="absolute top-24 left-4 right-4 bg-dark-lighter/90 backdrop-blur-xl rounded-2xl border border-white/10 p-6 shadow-deep"
+              className="absolute top-20 sm:top-24 left-5 right-5 bg-dark-lighter/95 backdrop-blur-xl rounded-2xl border border-white/10 p-4 sm:p-6 shadow-deep"
             >
               <div className="flex flex-col gap-2">
                 {navItems.map((item, index) => (

@@ -103,15 +103,15 @@ a {
   }
   
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24;
+    @apply px-5 sm:px-6 lg:px-8 xl:px-16 2xl:px-24;
   }
   
   .heading-xl {
-    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight;
+    @apply text-[2.65rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[0.98] sm:leading-tight;
   }
   
   .heading-lg {
-    @apply text-3xl sm:text-4xl md:text-5xl font-bold font-display leading-tight;
+    @apply text-[2rem] sm:text-4xl md:text-5xl font-bold font-display leading-tight;
   }
   
   .heading-md {
@@ -119,7 +119,7 @@ a {
   }
   
   .body-lg {
-    @apply text-lg text-ice/80 leading-relaxed;
+    @apply text-base sm:text-lg text-ice/80 leading-relaxed;
   }
   
   .body-md {
