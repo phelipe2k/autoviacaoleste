@@ -2,29 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-  ArrowRight,
-  Bus,
-} from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from "lucide-react";
 
-// Links agrupados por coluna para manter o rodape facil de atualizar.
 const footerLinks = {
   servicos: [
-    { href: "/passagens", label: "Comprar Passagens" },
+    { href: "/passagens", label: "Solicitar viagem" },
     { href: "/frota", label: "Nossa Frota" },
-    { href: "/destinos", label: "Destinos" },
+    { href: "/destinos", label: "Área de Atuação" },
     { href: "/servicos", label: "Serviços" },
-    { href: "/fretamento", label: "Fretamento" },
-    { href: "/turismo", label: "Turismo" },
+    { href: "/servicos", label: "Fretamento" },
+    { href: "/servicos", label: "Turismo" },
   ],
   empresa: [
     { href: "/institucional", label: "Quem Somos" },
@@ -36,15 +23,14 @@ const footerLinks = {
   ],
   suporte: [
     { href: "/faq", label: "Perguntas Frequentes" },
-    { href: "/minhas-viagens", label: "Minhas Viagens" },
-    { href: "/horarios", label: "Horários" },
+    { href: "/passagens", label: "Solicitações" },
+    { href: "/horarios", label: "Disponibilidade" },
     { href: "/politica-de-privacidade", label: "Política de Privacidade" },
     { href: "/termos-de-uso", label: "Termos de Uso" },
-    { href: "/reembolso", label: "Reembolso" },
+    { href: "/contato", label: "Atendimento" },
   ],
 };
 
-// Redes sociais exibidas como botoes circulares com Icones.
 const socialLinks = [
   { href: "#", icon: Facebook, label: "Facebook" },
   { href: "#", icon: Instagram, label: "Instagram" },
@@ -52,27 +38,23 @@ const socialLinks = [
   { href: "#", icon: Youtube, label: "YouTube" },
 ];
 
-// Rodape global com newsletter, navegacao secundaria, contato e informacoes legais.
 export function Footer() {
   return (
     <footer className="relative overflow-hidden">
-      {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark-light to-dark" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-glow-cyan opacity-30 blur-3xl" />
 
       <div className="relative section-padding pt-20 pb-8">
-        {/* Newsletter: captura e-mail para ofertas e novidades. */}
         <div className="max-w-6xl mx-auto mb-16">
           <div className="glass-card p-8 md:p-12 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/20 to-cyan/20 rounded-full blur-3xl" />
             <div className="relative grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="heading-md text-white mb-3">
-                  Receba ofertas exclusivas
+                  Receba novidades da Auto Viação Leste
                 </h3>
                 <p className="body-md">
-                  Cadastre-se e seja o primeiro a saber sobre promoções e novas
-                  rotas.
+                  Cadastre-se para saber sobre serviços, atendimento e futuras atualizações de rotas.
                 </p>
               </div>
               <form className="flex flex-col sm:flex-row gap-3">
@@ -93,10 +75,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Conteudo principal do rodape. */}
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-            {/* Coluna com marca, descricao e redes sociais. */}
             <div className="lg:col-span-2">
               <Link href="/" className="flex items-center gap-3 mb-6">
                 <Image
@@ -114,8 +94,7 @@ export function Footer() {
                 </div>
               </Link>
               <p className="body-md mb-6 max-w-sm">
-                Há mais de 30 anos conectando destinos com segurança, conforto e
-                pontualidade. Sua viagem começa aqui.
+                Transporte rodoviário com foco em segurança, conforto, frota moderna e atendimento sob consulta para viagens e serviços personalizados.
               </p>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
@@ -131,18 +110,14 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Colunas de links renderizadas a partir do objeto footerLinks. */}
             <div>
               <h4 className="text-sm font-semibold text-ice mb-4 uppercase tracking-wider">
                 Serviços
               </h4>
               <ul className="space-y-3">
                 {footerLinks.servicos.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-ice/60 hover:text-cyan transition-colors duration-300"
-                    >
+                  <li key={`${link.href}-${link.label}`}>
+                    <Link href={link.href} className="text-sm text-ice/60 hover:text-cyan transition-colors duration-300">
                       {link.label}
                     </Link>
                   </li>
@@ -157,10 +132,7 @@ export function Footer() {
               <ul className="space-y-3">
                 {footerLinks.empresa.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-ice/60 hover:text-cyan transition-colors duration-300"
-                    >
+                    <Link href={link.href} className="text-sm text-ice/60 hover:text-cyan transition-colors duration-300">
                       {link.label}
                     </Link>
                   </li>
@@ -183,45 +155,34 @@ export function Footer() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-cyan shrink-0" />
-                  <span className="text-sm text-ice/60">
-                    (11) 3000-0000
-                  </span>
+                  <span className="text-sm text-ice/60">(11) 3000-0000</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-cyan shrink-0" />
-                  <span className="text-sm text-ice/60">
-                    contato@viacaoleste.com.br
-                  </span>
+                  <span className="text-sm text-ice/60">contato@viacaoleste.com.br</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Clock className="w-4 h-4 text-cyan mt-1 shrink-0" />
                   <span className="text-sm text-ice/60">
-                    Seg - Sex: 6h às 22h
+                    Seg - Sex: 8h às 18h
                     <br />
-                    Sáb - Dom: 7h às 20h
+                    Atendimento sob consulta
                   </span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Faixa final com copyright e links legais. */}
           <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-ice/40 text-center md:text-left">
-                © 2024 Auto Viação Leste. Todos os direitos reservados.
+                © 2026 Auto Viação Leste. Todos os direitos reservados.
               </p>
               <div className="flex items-center gap-6">
-                <Link
-                  href="/politica-de-privacidade"
-                  className="text-xs text-ice/40 hover:text-cyan transition-colors"
-                >
+                <Link href="/politica-de-privacidade" className="text-xs text-ice/40 hover:text-cyan transition-colors">
                   Política de Privacidade
                 </Link>
-                <Link
-                  href="/termos-de-uso"
-                  className="text-xs text-ice/40 hover:text-cyan transition-colors"
-                >
+                <Link href="/termos-de-uso" className="text-xs text-ice/40 hover:text-cyan transition-colors">
                   Termos de Uso
                 </Link>
               </div>

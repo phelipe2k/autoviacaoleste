@@ -20,7 +20,7 @@ export default function Home() {
       <FleetSection />
       <ServicesSection />
       <TestimonialsSection />
-      {/* Chamada final para estimular compra ou contato. */}
+      {/* Chamada final para estimular solicitação ou contato. */}
       <CTASection />
       <Footer />
     </main>

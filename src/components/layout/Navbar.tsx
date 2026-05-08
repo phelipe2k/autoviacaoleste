@@ -8,24 +8,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, User, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Lista centralizada dos links de navegacao; facilita alterar nomes ou rotas em um unico lugar.
 const navItems = [
   { href: "/", label: "Início" },
-  { href: "/passagens", label: "Passagens" },
+  { href: "/passagens", label: "Solicitações" },
   { href: "/frota", label: "Frota" },
-  { href: "/destinos", label: "Destinos" },
+  { href: "/destinos", label: "Atuação" },
   { href: "/servicos", label: "Serviços" },
   { href: "/institucional", label: "Institucional" },
   { href: "/contato", label: "Contato" },
 ];
 
 export function Navbar() {
-  // isScrolled muda o visual do cabecalho apos a rolagem; isMobileMenuOpen controla o menu mobile.
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Observa o scroll da janela para aplicar fundo e borda quando o usuario sai do topo.
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -43,13 +40,12 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ?"bg-dark/90 backdrop-blur-xl border-b border-white/5 py-3"
+            ? "bg-dark/90 backdrop-blur-xl border-b border-white/5 py-3"
             : "bg-transparent py-5"
         )}
       >
         <div className="section-padding">
           <nav className="flex items-center justify-between">
-            {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <Image
                 src="/images/logo-transparente.png"
@@ -67,7 +63,6 @@ export function Navbar() {
               </div>
             </Link>
 
-            {/* Menu desktop: destaca automaticamente o link da rota atual. */}
             <div className="hidden lg:flex items-center gap-8">
               {navItems.map((item) => (
                 <Link
@@ -76,7 +71,7 @@ export function Navbar() {
                   className={cn(
                     "relative text-sm font-medium transition-all duration-300 py-2",
                     pathname === item.href
-                      ?"text-cyan"
+                      ? "text-cyan"
                       : "text-ice/70 hover:text-ice"
                   )}
                 >
@@ -92,10 +87,9 @@ export function Navbar() {
               ))}
             </div>
 
-            {/* Client Area Button */}
             <div className="hidden lg:block">
               <Link
-                href="/area-do-cliente"
+                href="/contato"
                 className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -103,17 +97,16 @@ export function Navbar() {
                 <div className="absolute inset-0 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.3)] transition-shadow duration-300" />
                 <User className="w-4 h-4 text-cyan" />
                 <span className="text-sm font-medium text-ice">
-                  ÁREA DO CLIENTE
+                  ATENDIMENTO
                 </span>
               </Link>
             </div>
 
-            {/* Botao do menu mobile: alterna entre icone de abrir e fechar. */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10"
             >
-              {isMobileMenuOpen ?(
+              {isMobileMenuOpen ? (
                 <X className="w-5 h-5 text-cyan" />
               ) : (
                 <Menu className="w-5 h-5 text-ice" />
@@ -123,7 +116,6 @@ export function Navbar() {
         </div>
       </motion.header>
 
-      {/* Menu mobile animado, exibido apenas quando isMobileMenuOpen esta ativo. */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -158,7 +150,7 @@ export function Navbar() {
                       className={cn(
                         "flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300",
                         pathname === item.href
-                          ?"bg-primary/10 text-cyan border border-primary/20"
+                          ? "bg-primary/10 text-cyan border border-primary/20"
                           : "text-ice/70 hover:bg-white/5 hover:text-ice"
                       )}
                     >
@@ -169,12 +161,12 @@ export function Navbar() {
                 ))}
                 <div className="border-t border-white/10 my-3" />
                 <Link
-                  href="/area-do-cliente"
+                  href="/contato"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-primary/20 to-cyan/20 rounded-xl border border-cyan/30 text-cyan font-medium"
                 >
                   <User className="w-4 h-4" />
-                  ÁREA DO CLIENTE
+                  ATENDIMENTO
                 </Link>
               </div>
             </motion.nav>

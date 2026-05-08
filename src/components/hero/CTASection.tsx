@@ -3,14 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 
-// Secao final de conversao com botoes de acao e canais rapidos de contato.
 export function CTASection() {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Fundo da secao, normalmente com degrade escuro. */}
       <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-lighter to-dark" />
-      
-      {/* Decorative Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-glow-cyan opacity-30 blur-3xl" />
 
       <div className="relative section-padding">
@@ -22,19 +18,17 @@ export function CTASection() {
             transition={{ duration: 0.6 }}
             className="glass-card p-8 md:p-16 text-center relative overflow-hidden"
           >
-            {/* Padrao discreto no fundo para dar profundidade sem competir com o texto. */}
             <div className="absolute inset-0 opacity-10">
-              <div 
+              <div
                 className="absolute inset-0"
                 style={{
                   backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,212,255,0.15) 1px, transparent 0)`,
-                  backgroundSize: '40px 40px',
+                  backgroundSize: "40px 40px",
                 }}
               />
             </div>
 
             <div className="relative z-10">
-              {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -43,11 +37,10 @@ export function CTASection() {
                 className="inline-block px-4 py-2 rounded-full bg-cyan/10 border border-cyan/30 mb-6"
               >
                 <span className="text-sm font-medium text-cyan">
-                  Comece sua jornada
+                  Atendimento sob consulta
                 </span>
               </motion.div>
 
-              {/* Titulo do card. */}
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -55,11 +48,10 @@ export function CTASection() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
               >
-                Pronto para Viajar
-                <span className="block text-gradient">com Conforto?</span>
+                Planeje sua Viagem
+                <span className="block text-gradient">com a Auto Viação Leste</span>
               </motion.h2>
 
-              {/* Descricao curta do card. */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -67,11 +59,9 @@ export function CTASection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-lg text-ice/70 mb-10 max-w-2xl mx-auto"
               >
-                Entre em contato conosco e descubra por que milhões de
-                passageiros escolhem a Auto Viação Leste para suas viagens.
+                Entre em contato para solicitar informações, consultar disponibilidade ou pedir um orçamento para viagens, grupos e fretamento.
               </motion.p>
 
-              {/* Botoes principais direcionam para compra de passagem ou atendimento. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -80,15 +70,14 @@ export function CTASection() {
                 className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
               >
                 <button className="btn-primary flex items-center gap-2 px-8 py-4 text-lg">
-                  Comprar Passagem
+                  Solicitar orçamento
                   <ArrowRight className="w-5 h-5" />
                 </button>
                 <button className="btn-outline flex items-center gap-2 px-8 py-4 text-lg">
-                  Falar com Especialista
+                  Fale conosco
                 </button>
               </motion.div>
 
-              {/* Canais de contato exibidos como links praticos. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

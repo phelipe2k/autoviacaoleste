@@ -32,7 +32,7 @@ const detailedServices = [
       "Seguro viagem incluso",
       "Paradas estratégicas programadas",
       "Descontos para grupos grandes",
-      "Pacotes promocionais",
+      "Orçamento sob consulta",
     ],
     cta: "Ver Roteiros",
   },

@@ -4,12 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import {
   Play,
-  ArrowRight,
   Armchair,
   Shield,
   Clock,
   Wifi,
-  ChevronRight,
   Route,
   Users,
   Bus,
@@ -17,7 +15,6 @@ import {
 } from "lucide-react";
 import { BookingSearch } from "@/components/booking/BookingSearch";
 
-// Diferenciais exibidos abaixo da chamada principal do hero.
 const features = [
   {
     icon: Armchair,
@@ -27,37 +24,34 @@ const features = [
   {
     icon: Shield,
     title: "SEGURANÇA",
-    description: "Frota moderna e segura, com motoristas treinados e equipe qualificada",
+    description: "Frota segura, motoristas treinados e equipe qualificada",
   },
   {
     icon: Clock,
-    title: "PONTUALIDADE",
-    description: "Respeito ao seu tempo, sempre no horário",
+    title: "PLANEJAMENTO",
+    description: "Viagens combinadas conforme necessidade",
   },
   {
     icon: Wifi,
     title: "CONECTIVIDADE",
-    description: "Wi-Fi a bordo e carregadores USB",
+    description: "Estrutura preparada para viagens confortáveis",
   },
 ];
 
-// Numeros de apoio que reforcam escala, frota e seguranca da empresa.
 const stats = [
-  { icon: Route, value: "+120", label: "ROTAS", sublabel: "Conectamos destinos" },
-  { icon: Users, value: "+1 MILHÃO", label: "PASSAGEIROS", sublabel: "De passageiros transportados" },
-  { icon: Bus, value: "50+", label: "FROTA MODERNA", sublabel: "Ônibus novos e revisados" },
-  { icon: ShieldCheck, value: "99%", label: "VIAGENS SEGURAS", sublabel: "Sua tranquilidade em 1º lugar" },
+  { icon: Route, value: "Sob consulta", label: "ROTAS FUTURAS", sublabel: "Estrutura preparada" },
+  { icon: Users, value: "Atendimento", label: "GRUPOS E EMPRESAS", sublabel: "Solicitações personalizadas" },
+  { icon: Bus, value: "Frota", label: "ÔNIBUS REVISADOS", sublabel: "Veículos para diferentes perfis" },
+  { icon: ShieldCheck, value: "Cuidado", label: "VIAGENS SEGURAS", sublabel: "Prioridade em cada trajeto" },
 ];
 
-// Hero da home: combina imagem de fundo, texto principal, busca de passagens e indicadores.
 export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Camadas de fundo: imagem principal, degrades de leitura e efeitos visuais. */}
       <div className="absolute inset-0">
         <Image
           src="/images/banner-home.png"
-          alt="Onibus executivo viajando pela estrada"
+          alt="Ônibus executivo viajando pela estrada"
           fill
           priority
           sizes="100vw"
@@ -66,29 +60,23 @@ export function HeroSection() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/65 to-dark/10 z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/45 via-transparent to-dark/80 z-10" />
-        
-        {/* Padrao de grade sutil para dar textura ao hero. */}
-        <div 
+
+        <div
           className="absolute inset-0 z-15 opacity-20"
           style={{
             backgroundImage: `linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
                               linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)`,
-            backgroundSize: '100px 100px',
+            backgroundSize: "100px 100px",
           }}
         />
 
-        {/* Brilho decorativo que reforca a paleta neon. */}
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-glow-teal opacity-20 blur-3xl z-20" />
       </div>
 
-      {/* Container principal mantem o conteudo acima das camadas de fundo. */}
       <div className="relative z-30 section-padding pt-32 pb-12">
         <div className="max-w-7xl mx-auto">
-          {/* Conteudo principal do hero em duas colunas no desktop. */}
           <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(280px,0.8fr)] gap-12 items-center min-h-[60vh]">
-            {/* Coluna esquerda com chamada, descricao e diferenciais. */}
             <div>
-              {/* Frase curta acima do titulo para posicionar a marca. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -100,7 +88,6 @@ export function HeroSection() {
                 </span>
               </motion.div>
 
-              {/* Titulo principal da primeira dobra. */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -112,25 +99,21 @@ export function HeroSection() {
                 <span className="text-gradient">CONECTA DESTINOS.</span>
               </motion.h1>
 
-              {/* Descricao curta do card. */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="body-lg mb-8 max-w-lg"
               >
-                Viagens intermunicipais com segurança, pontualidade e o
-                conforto que você merece.
+                Transporte rodoviário com foco institucional, atendimento sob consulta, frota moderna e estrutura preparada para crescer com segurança.
               </motion.p>
 
-              {/* Icones dos diferenciais de conforto, seguranca e conectividade. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8"
               >
-                {/* Cada diferencial usa o icone definido no array features. */}
                 {features.map((feature, index) => (
                   <motion.div
                     key={feature.title}
@@ -157,10 +140,8 @@ export function HeroSection() {
 
             <div className="hidden lg:block" aria-hidden="true">
               <div>
-                {/* Brilho atras da area reservada para imagem do onibus. */}
                 <div className="absolute inset-0 bg-gradient-radial from-cyan/20 via-transparent to-transparent blur-2xl" />
-                
-                {/* Espaco temporario para substituir por uma imagem real do onibus. */}
+
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full bg-gradient-to-br from-teal/30 to-cyan/20 rounded-2xl border border-cyan/20 flex items-center justify-center">
                     <div className="text-center">
@@ -173,7 +154,6 @@ export function HeroSection() {
                   </div>
                 </div>
 
-                {/* Selo flutuante com tempo de experiencia da empresa. */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -187,20 +167,16 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Busca de passagens posicionada logo abaixo da chamada principal. */}
           <div className="mt-8 lg:mt-0">
-            {/* Formulario reutilizavel para iniciar a compra ou consulta de viagem. */}
             <BookingSearch />
           </div>
 
-          {/* Estatisticas inferiores que reforcam credibilidade. */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4"
           >
-            {/* Cards de estatisticas gerados a partir do array stats. */}
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -221,7 +197,6 @@ export function HeroSection() {
             ))}
           </motion.div>
 
-          {/* Chamada para video institucional. */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

@@ -7,28 +7,25 @@ import {
   Calendar,
   Users,
   ArrowRight,
-  Ticket,
+  ClipboardList,
   Briefcase,
   Clock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Define as abas permitidas no formulario para manter o estado tipado e evitar valores invalidos.
-type TabType = "passagens" | "viagens" | "horarios";
+type TabType = "solicitacao" | "atendimento" | "disponibilidade";
 
 export function BookingSearch() {
-  // Estados controlam a aba ativa e os campos digitados pelo usuario na busca.
-  const [activeTab, setActiveTab] = useState<TabType>("passagens");
+  const [activeTab, setActiveTab] = useState<TabType>("solicitacao");
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [passengers, setPassengers] = useState(1);
 
-  // Configuracao das abas: cada item informa o identificador, texto e icone exibido.
   const tabs = [
-    { id: "passagens" as TabType, label: "Passagens", icon: Ticket },
-    { id: "viagens" as TabType, label: "Minhas Viagens", icon: Briefcase },
-    { id: "horarios" as TabType, label: "Horários", icon: Clock },
+    { id: "solicitacao" as TabType, label: "Solicitar viagem", icon: ClipboardList },
+    { id: "atendimento" as TabType, label: "Atendimento", icon: Briefcase },
+    { id: "disponibilidade" as TabType, label: "Disponibilidade", icon: Clock },
   ];
 
   return (
@@ -39,16 +36,15 @@ export function BookingSearch() {
       className="relative z-20"
     >
       <div className="glass-card overflow-hidden">
-        {/* Abas superiores alternam entre compra de passagens, viagens e consulta de horarios. */}
-        <div className="flex border-b border-white/10">
+        <div className="flex border-b border-white/10 overflow-x-auto">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
-                "flex items-center gap-2 px-6 py-4 text-sm font-medium transition-all duration-300",
+                "flex items-center gap-2 px-6 py-4 text-sm font-medium transition-all duration-300 whitespace-nowrap",
                 activeTab === tab.id
-                  ?"text-cyan border-b-2 border-cyan bg-cyan/5"
+                  ? "text-cyan border-b-2 border-cyan bg-cyan/5"
                   : "text-ice/60 hover:text-ice hover:bg-white/5"
               )}
             >
@@ -58,16 +54,13 @@ export function BookingSearch() {
           ))}
         </div>
 
-        {/* Form Content */}
         <div className="p-6">
-          {/* Formulario principal de busca de passagens. */}
-          {activeTab === "passagens" && (
+          {activeTab === "solicitacao" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4"
             >
-              {/* Origin */}
               <div className="relative group">
                 <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
                   Origem
@@ -84,7 +77,6 @@ export function BookingSearch() {
                 </div>
               </div>
 
-              {/* Destination */}
               <div className="relative group">
                 <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
                   Destino
@@ -101,10 +93,9 @@ export function BookingSearch() {
                 </div>
               </div>
 
-              {/* Date */}
               <div className="relative group">
                 <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
-                  Data da Viagem
+                  Data desejada
                 </label>
                 <div className="relative">
                   <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
@@ -117,10 +108,9 @@ export function BookingSearch() {
                 </div>
               </div>
 
-              {/* Passengers */}
               <div className="relative group">
                 <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
-                  Passageiros
+                  Pessoas
                 </label>
                 <div className="relative">
                   <Users className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
@@ -131,42 +121,39 @@ export function BookingSearch() {
                   >
                     {[1, 2, 3, 4, 5, 6].map((num) => (
                       <option key={num} value={num}>
-                        {num} {num === 1 ?"passageiro" : "passageiros"}
+                        {num} {num === 1 ? "pessoa" : "pessoas"}
                       </option>
                     ))}
                   </select>
                 </div>
               </div>
 
-              {/* Search Button */}
               <div className="flex items-end">
                 <button className="w-full btn-primary flex items-center justify-center gap-2 py-3.5">
-                  Buscar
+                  Solicitar viagem
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </motion.div>
           )}
 
-          {/* Atalho para a area onde o cliente acompanha compras ja realizadas. */}
-          {activeTab === "viagens" && (
+          {activeTab === "atendimento" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="text-center py-8"
             >
               <p className="text-ice/60 mb-4">
-                Acesse suas viagens e bilhetes comprados
+                Fale com nossa equipe para tirar dúvidas, pedir orçamento ou acompanhar uma solicitação.
               </p>
               <button className="btn-outline inline-flex items-center gap-2">
                 <Briefcase className="w-4 h-4" />
-                Entrar na Área do Cliente
+                Fale conosco
               </button>
             </motion.div>
           )}
 
-          {/* Consulta simplificada para verificar horarios entre duas cidades. */}
-          {activeTab === "horarios" && (
+          {activeTab === "disponibilidade" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -201,7 +188,7 @@ export function BookingSearch() {
               <div className="flex items-end">
                 <button className="w-full btn-primary flex items-center justify-center gap-2 py-3.5">
                   <Clock className="w-5 h-5" />
-                  Ver Horários
+                  Consultar disponibilidade
                 </button>
               </div>
             </motion.div>

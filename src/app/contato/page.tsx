@@ -16,7 +16,7 @@ const contactInfo = [
 
 // Assuntos disponiveis no select do formulario de contato.
 const subjects = [
-  "Dúvidas sobre passagens",
+  "Solicitação de viagem",
   "Fretamento e serviços corporativos",
   "Reclamações",
   "Sugestões",

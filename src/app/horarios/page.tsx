@@ -4,43 +4,30 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BookingSearch } from "@/components/booking/BookingSearch";
-import { MapPin, ArrowRight, Clock, Calendar, Bus, ChevronRight, Star } from "lucide-react";
+import { MapPin, ArrowRight, Clock, Calendar, Bus, Star } from "lucide-react";
 
-// Horarios simulados exibidos na tabela de consulta.
-const schedules = [
-  { from: "São Paulo", to: "Rio de Janeiro", departure: "06:00", arrival: "12:00", duration: "6h", price: "R$ 89,90", busType: "Leito", seats: 24 },
-  { from: "São Paulo", to: "Rio de Janeiro", departure: "08:00", arrival: "14:00", duration: "6h", price: "R$ 99,90", busType: "Executivo", seats: 36 },
-  { from: "São Paulo", to: "Rio de Janeiro", departure: "10:00", arrival: "16:00", duration: "6h", price: "R$ 89,90", busType: "Convencional", seats: 42 },
-  { from: "São Paulo", to: "Rio de Janeiro", departure: "14:00", arrival: "20:00", duration: "6h", price: "R$ 109,90", busType: "Leito Premium", seats: 18 },
-  { from: "São Paulo", to: "Rio de Janeiro", departure: "18:00", arrival: "00:00", duration: "6h", price: "R$ 99,90", busType: "Executivo", seats: 36 },
-  { from: "São Paulo", to: "Rio de Janeiro", departure: "22:00", arrival: "04:00", duration: "6h", price: "R$ 119,90", busType: "Leito Premium", seats: 18 },
-  { from: "São Paulo", to: "Curitiba", departure: "07:00", arrival: "12:30", duration: "5h 30min", price: "R$ 99,90", busType: "Executivo", seats: 36 },
-  { from: "São Paulo", to: "Curitiba", departure: "13:00", arrival: "18:30", duration: "5h 30min", price: "R$ 89,90", busType: "Convencional", seats: 42 },
-  { from: "São Paulo", to: "Curitiba", departure: "19:00", arrival: "00:30", duration: "5h 30min", price: "R$ 109,90", busType: "Leito", seats: 24 },
-  { from: "São Paulo", to: "Belo Horizonte", departure: "08:00", arrival: "15:00", duration: "7h", price: "R$ 79,90", busType: "Executivo", seats: 36 },
-  { from: "São Paulo", to: "Belo Horizonte", departure: "14:00", arrival: "21:00", duration: "7h", price: "R$ 69,90", busType: "Convencional", seats: 42 },
-  { from: "São Paulo", to: "Florianópolis", departure: "06:00", arrival: "16:00", duration: "10h", price: "R$ 149,90", busType: "Leito", seats: 24 },
+const futureSchedules = [
+  { from: "Origem a definir", to: "Destino a definir", departure: "Sob consulta", arrival: "Sob consulta", duration: "A combinar", status: "Em estruturação", busType: "Executivo" },
+  { from: "Atendimento empresarial", to: "Roteiro dedicado", departure: "Agenda flexível", arrival: "Conforme roteiro", duration: "Sob orçamento", status: "Disponível para consulta", busType: "Fretamento" },
+  { from: "Grupo particular", to: "Evento ou excursão", departure: "Data desejada", arrival: "Conforme roteiro", duration: "Planejamento", status: "Sob consulta", busType: "Turismo" },
 ];
 
-// Rotas destacadas com maior frequencia de saida.
-const popularDestinations = [
-  { from: "São Paulo", to: "Rio de Janeiro", frequency: "12x/dia" },
-  { from: "São Paulo", to: "Curitiba", frequency: "8x/dia" },
-  { from: "São Paulo", to: "Belo Horizonte", frequency: "6x/dia" },
-  { from: "São Paulo", to: "Florianópolis", frequency: "4x/dia" },
+const serviceOptions = [
+  { from: "Empresas", to: "Fretamento", frequency: "Agenda sob consulta" },
+  { from: "Grupos", to: "Excursões", frequency: "Roteiro personalizado" },
+  { from: "Eventos", to: "Transporte dedicado", frequency: "Horário combinado" },
+  { from: "Turismo", to: "Viagem planejada", frequency: "Sob orçamento" },
 ];
 
-// Pagina de horarios: combina busca, rotas populares e tabela detalhada de saidas.
 export default function HorariosPage() {
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
-      
-      {/* Hero da pagina com titulo e contexto da funcionalidade. */}
+
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
-        
+
         <div className="relative section-padding">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -49,13 +36,13 @@ export default function HorariosPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                Consulta de Horários
+                Disponibilidade
               </span>
               <h1 className="heading-lg text-white mt-4 mb-4">
-                Horários e <span className="text-gradient">Rotas</span>
+                Estrutura futura de <span className="text-gradient">Rotas e Horários</span>
               </h1>
               <p className="body-lg max-w-2xl mx-auto">
-                Consulte os horários disponíveis e planeje sua viagem com antecedência.
+                Esta área está preparada para futuras linhas regulares. Por enquanto, as viagens são tratadas por consulta e atendimento comercial.
               </p>
             </motion.div>
 
@@ -71,7 +58,6 @@ export default function HorariosPage() {
         </div>
       </section>
 
-      {/* Rotas populares ajudam o usuario a encontrar rapidamente trajetos comuns. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
@@ -82,12 +68,12 @@ export default function HorariosPage() {
               viewport={{ once: true }}
               className="mb-8"
             >
-              <h2 className="heading-md text-white mb-2">Rotas Mais Buscadas</h2>
-              <p className="text-ice/60">Horários frequentes para destinos populares</p>
+              <h2 className="heading-md text-white mb-2">Consultas Disponíveis</h2>
+              <p className="text-ice/60">Opções de atendimento para viagens sob demanda e planejamento futuro.</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-              {popularDestinations.map((route, index) => (
+              {serviceOptions.map((route, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -96,7 +82,7 @@ export default function HorariosPage() {
                   transition={{ delay: index * 0.1 }}
                   className="glass-card p-4"
                 >
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
                     <MapPin className="w-4 h-4 text-cyan" />
                     <span className="text-white font-medium">{route.from}</span>
                     <ArrowRight className="w-4 h-4 text-ice/40" />
@@ -111,7 +97,6 @@ export default function HorariosPage() {
               ))}
             </div>
 
-            {/* Tabela principal com saida, chegada, duracao, tipo de onibus e preco. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +106,7 @@ export default function HorariosPage() {
               <div className="p-6 border-b border-white/10">
                 <h3 className="text-xl font-bold text-white flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-cyan" />
-                  Horários Disponíveis
+                  Quadro preparado para futuras operações
                 </h3>
               </div>
 
@@ -129,43 +114,37 @@ export default function HorariosPage() {
                 <table className="w-full">
                   <thead className="bg-white/5">
                     <tr>
-                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Rota</th>
-                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Saída</th>
-                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Chegada</th>
-                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Duração</th>
                       <th className="text-left p-4 text-ice/60 text-sm font-medium">Tipo</th>
-                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Preço</th>
+                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Origem</th>
+                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Destino</th>
+                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Saída</th>
+                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Retorno/Chegada</th>
+                      <th className="text-left p-4 text-ice/60 text-sm font-medium">Status</th>
                       <th className="text-right p-4 text-ice/60 text-sm font-medium">Ação</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {schedules.map((schedule, index) => (
+                    {futureSchedules.map((schedule, index) => (
                       <tr key={index} className="border-t border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="p-4">
-                          <div className="flex items-center gap-2">
-                            <span className="text-white font-medium">{schedule.from}</span>
-                            <ArrowRight className="w-4 h-4 text-ice/40" />
-                            <span className="text-white font-medium">{schedule.to}</span>
-                          </div>
-                        </td>
-                        <td className="p-4 text-ice/80">{schedule.departure}</td>
-                        <td className="p-4 text-ice/80">{schedule.arrival}</td>
-                        <td className="p-4 text-ice/80">{schedule.duration}</td>
                         <td className="p-4">
                           <div className="flex items-center gap-2">
                             <Bus className="w-4 h-4 text-cyan" />
                             <span className="text-ice/80">{schedule.busType}</span>
-                            {schedule.busType.includes("Premium") && (
+                            {schedule.busType.includes("Executivo") && (
                               <Star className="w-4 h-4 text-primary fill-current" />
                             )}
                           </div>
                         </td>
+                        <td className="p-4 text-ice/80">{schedule.from}</td>
+                        <td className="p-4 text-ice/80">{schedule.to}</td>
+                        <td className="p-4 text-ice/80">{schedule.departure}</td>
+                        <td className="p-4 text-ice/80">{schedule.arrival}</td>
                         <td className="p-4">
-                          <span className="text-cyan font-semibold">{schedule.price}</span>
+                          <span className="text-cyan font-semibold">{schedule.status}</span>
                         </td>
                         <td className="p-4 text-right">
                           <button className="btn-primary text-sm px-4 py-2">
-                            Comprar
+                            Consultar
                           </button>
                         </td>
                       </tr>
@@ -175,7 +154,6 @@ export default function HorariosPage() {
               </div>
             </motion.div>
 
-            {/* Info Note */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -183,10 +161,7 @@ export default function HorariosPage() {
               className="mt-6 glass-card p-6"
             >
               <p className="text-ice/60 text-sm">
-                <strong className="text-white">Observação:</strong> Os horários podem sofrer alterações 
-                devido a condições de trânsito, clima ou outros fatores externos. Recomendamos chegar 
-                ao terminal com 30 minutos de antecedência. Horários em verão podem incluir paradas 
-                adicionais.
+                <strong className="text-white">Observação:</strong> rotas regulares, horários fixos e venda direta de passagens serão ativados somente quando a documentação e as autorizações necessárias estiverem concluídas. Até lá, nossa equipe atende solicitações e orçamentos sob consulta.
               </p>
             </motion.div>
           </div>
