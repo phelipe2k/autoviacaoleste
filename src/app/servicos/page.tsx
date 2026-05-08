@@ -3,61 +3,60 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ServicesSection } from "@/components/services/ServicesSection";
 import { Building2, Users, Briefcase, Bus, ArrowRight, CheckCircle } from "lucide-react";
 
 // Versao detalhada dos servicos, usada na pagina especifica de servicos.
 const detailedServices = [
   {
     icon: Building2,
-    title: "Fretamento Empresarial",
-    description: "Solu??es completas de transporte para empresas de todos os portes. Deslocamento de funcion�rios, eventos corporativos e mais.",
+    title: "Excursões turísticas",
+    description: "Roteiros turísticos para grupos, excursões, passeios e eventos especiais sob consulta.",
     features: [
-      "Contratos flex?veis e personalizados",
+      "Contratos flexíveis e personalizados",
       "Frota dedicada exclusiva",
       "Motoristas uniformizados e treinados",
       "Rastreamento GPS em tempo real",
-      "Relat?rios de utiliza??o detalhados",
+      "Relatórios de utilização detalhados",
       "Atendimento 24 horas",
     ],
-    cta: "Solicitar Or?amento",
+    cta: "Solicitar Orçamento",
   },
   {
     icon: Users,
-    title: "Turismo e Excurs�es",
-    description: "Roteiros especiais para grupos, com conforto e seguran?a. Ideal para ag?ncias de turismo, escolas e grupos de amigos.",
+    title: "Turismo e Excursões",
+    description: "Roteiros especiais para grupos, com conforto e segurança. Ideal para agências de turismo, escolas e grupos de amigos.",
     features: [
       "Roteiros personalizados",
       "Guias de turismo especializados",
       "Seguro viagem incluso",
-      "Paradas estrat?gicas programadas",
+      "Paradas estratégicas programadas",
       "Descontos para grupos grandes",
-      "Or?amento sob consulta",
+      "Orçamento sob consulta",
     ],
     cta: "Ver Roteiros",
   },
   {
     icon: Briefcase,
-    title: "Viagens Corporativas",
-    description: "Transporte executivo para reuni?es, eventos e deslocamentos de neg?cios com m?xima pontualidade.",
+    title: "Passeios turísticos",
+    description: "Viagens turísticas para eventos, encontros, praias, cidades históricas e experiências culturais.",
     features: [
       "Pontualidade garantida",
       "Wi-Fi premium de alta velocidade",
       "Ambiente silencioso para trabalho",
       "Atendimento VIP exclusivo",
-      "Flexibilidade de hor?rios",
+      "Flexibilidade de horários",
       "Faturamento facilitado",
     ],
     cta: "Conhecer Mais",
   },
   {
     icon: Bus,
-    title: "Transporte Escolar",
-    description: "Seguran?a m?xima no transporte de estudantes, com rigorosos padr?es de qualidade e certifica??es.",
+    title: "Grupos turísticos",
+    description: "Segurança máxima no transporte de estudantes, com rigorosos padrões de qualidade e certificações.",
     features: [
-      "Motoristas especializados em transporte escolar",
-      "Ve?culos monitorados constantemente",
-      "Certifica??o de seguran?a veicular",
+      "Motoristas experientes em viagens turísticas",
+      "Veículos monitorados constantemente",
+      "Certificação de segurança veicular",
       "Rastreamento GPS para pais",
       "Aplicativo de acompanhamento",
       "Monitores a bordo (opcional)",
@@ -85,13 +84,13 @@ export default function ServicosPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                Servi?os
+                Serviços
               </span>
               <h1 className="heading-lg text-white mt-4 mb-4">
-                Solu??es <span className="text-gradient">Completas</span>
+                Soluções <span className="text-gradient">Completas</span>
               </h1>
               <p className="body-lg max-w-2xl mx-auto">
-                Oferecemos uma variedade de servi?os de transporte para atender
+                Oferecemos uma variedade de serviços de transporte para atender
                 todas as suas necessidades de mobilidade.
               </p>
             </motion.div>
@@ -155,11 +154,11 @@ export default function ServicosPage() {
               className="glass-card p-12 text-center"
             >
               <h2 className="heading-md text-white mb-4">
-                N?o encontrou o que procura?
+                Não encontrou o que procura?
               </h2>
               <p className="text-ice/70 mb-8 max-w-xl mx-auto">
-                Entre em contato conosco e desenvolveremos uma solu��o
-                personalizada para sua necessidade espec?fica.
+                Entre em contato conosco e desenvolveremos uma solução
+                personalizada para sua necessidade específica.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="btn-primary flex items-center justify-center gap-2">
@@ -167,7 +166,7 @@ export default function ServicosPage() {
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button className="btn-outline flex items-center justify-center gap-2">
-                  Ver Todos os Servi?os
+                  Ver Todos os Serviços
                 </button>
               </div>
             </motion.div>

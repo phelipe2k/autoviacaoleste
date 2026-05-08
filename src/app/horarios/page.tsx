@@ -8,12 +8,12 @@ import { MapPin, ArrowRight, Clock, Calendar, Bus, Star } from "lucide-react";
 
 const futureSchedules = [
   { from: "Origem a definir", to: "Destino a definir", departure: "Sob consulta", arrival: "Sob consulta", duration: "A combinar", status: "Em estruturação", busType: "Executivo" },
-  { from: "Atendimento empresarial", to: "Roteiro dedicado", departure: "Agenda flexível", arrival: "Conforme roteiro", duration: "Sob orçamento", status: "Disponível para consulta", busType: "Fretamento" },
+  { from: "Excursão turística", to: "Roteiro personalizado", departure: "Agenda flexível", arrival: "Conforme roteiro", duration: "Sob orçamento", status: "Disponível para consulta", busType: "Turismo" },
   { from: "Grupo particular", to: "Evento ou excursão", departure: "Data desejada", arrival: "Conforme roteiro", duration: "Planejamento", status: "Sob consulta", busType: "Turismo" },
 ];
 
 const serviceOptions = [
-  { from: "Empresas", to: "Fretamento", frequency: "Agenda sob consulta" },
+  { from: "Empresas", to: "Turismo", frequency: "Agenda sob consulta" },
   { from: "Grupos", to: "Excursões", frequency: "Roteiro personalizado" },
   { from: "Eventos", to: "Transporte dedicado", frequency: "Horário combinado" },
   { from: "Turismo", to: "Viagem planejada", frequency: "Sob orçamento" },
@@ -42,7 +42,7 @@ export default function HorariosPage() {
                 Estrutura futura de <span className="text-gradient">Rotas e Horários</span>
               </h1>
               <p className="body-lg max-w-2xl mx-auto">
-                Esta área está preparada para futuras linhas regulares. Por enquanto, as viagens são tratadas por consulta e atendimento comercial.
+                Esta área apresenta apenas viagens turísticas sob consulta. Orçamentos são organizados conforme destino, data e grupo.
               </p>
             </motion.div>
 
@@ -161,7 +161,7 @@ export default function HorariosPage() {
               className="mt-6 glass-card p-6"
             >
               <p className="text-ice/60 text-sm">
-                <strong className="text-white">Observação:</strong> rotas regulares, horários fixos e venda direta de passagens serão ativados somente quando a documentação e as autorizações necessárias estiverem concluídas. Até lá, nossa equipe atende solicitações e orçamentos sob consulta.
+                <strong className="text-white">Observação:</strong> esta página apresenta somente ideias de viagens turísticas sob consulta. O atendimento é exclusivo para excursões, passeios e roteiros personalizados.
               </p>
             </motion.div>
           </div>

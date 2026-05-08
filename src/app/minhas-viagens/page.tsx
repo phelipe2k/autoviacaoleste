@@ -7,9 +7,9 @@ import { Calendar, Clock, MapPin, Bus, Eye, Search, Filter } from "lucide-react"
 import { useState } from "react";
 
 const requests = [
-  { id: "AVL-2026-001", route: "S?o Paulo -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "open", detail: "Grupo empresarial" },
-  { id: "AVL-2026-002", route: "Rio de Janeiro -> S?o Paulo", date: "20/06/2026", time: "A combinar", status: "open", detail: "Or?amento solicitado" },
-  { id: "AVL-2026-003", route: "S?o Paulo -> Curitiba", date: "05/07/2026", time: "Planejamento", status: "completed", detail: "Atendimento conclu?do" },
+  { id: "AVL-2026-001", route: "São Paulo -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "open", detail: "Grupo turístico" },
+  { id: "AVL-2026-002", route: "Rio de Janeiro -> São Paulo", date: "20/06/2026", time: "A combinar", status: "open", detail: "Orçamento solicitado" },
+  { id: "AVL-2026-003", route: "São Paulo -> Curitiba", date: "05/07/2026", time: "Planejamento", status: "completed", detail: "Atendimento concluído" },
 ];
 
 export default function MinhasViagensPage() {
@@ -40,13 +40,13 @@ export default function MinhasViagensPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                ?rea do Cliente
+                Área do Cliente
               </span>
               <h1 className="heading-lg text-white mt-4 mb-4">
-                Minhas <span className="text-gradient">Solicita??es</span>
+                Minhas <span className="text-gradient">Solicitações</span>
               </h1>
               <p className="body-lg max-w-2xl">
-                Acompanhe pedidos de or?amento, disponibilidade e informa??es sobre viagens.
+                Acompanhe pedidos de orçamento, disponibilidade e informações sobre viagens.
               </p>
             </motion.div>
           </div>
@@ -62,7 +62,7 @@ export default function MinhasViagensPage() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
                 <input
                   type="text"
-                  placeholder="Buscar solicita??o..."
+                  placeholder="Buscar solicitação..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-12 pr-4 py-3 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50"
@@ -77,7 +77,7 @@ export default function MinhasViagensPage() {
                 >
                   <option value="all">Todas</option>
                   <option value="open">Em andamento</option>
-                  <option value="completed">Conclu?das</option>
+                  <option value="completed">Concluídas</option>
                 </select>
               </div>
             </div>
@@ -124,9 +124,9 @@ export default function MinhasViagensPage() {
                             : "bg-emerald-500/20 text-emerald-400"
                         }`}
                       >
-                        {request.status === "open" ? "Em andamento" : "Conclu?da"}
+                        {request.status === "open" ? "Em andamento" : "Concluída"}
                       </span>
-                      <button className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors" title="Ver solicita??o">
+                      <button className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors" title="Ver solicitação">
                         <Eye className="w-5 h-5 text-cyan" />
                       </button>
                     </div>
@@ -138,7 +138,7 @@ export default function MinhasViagensPage() {
             {filteredRequests.length === 0 && (
               <div className="text-center py-16">
                 <Bus className="w-16 h-16 text-cyan/20 mx-auto mb-4" />
-                <p className="text-ice/60">Nenhuma solicita??o encontrada</p>
+                <p className="text-ice/60">Nenhuma solicitação encontrada</p>
               </div>
             )}
           </div>

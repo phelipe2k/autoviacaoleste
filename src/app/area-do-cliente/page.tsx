@@ -6,16 +6,16 @@ import { Footer } from "@/components/layout/Footer";
 import { User, ClipboardList, Clock, Bell, Settings, ChevronRight, Bus, MessageCircle } from "lucide-react";
 
 const menuItems = [
-  { icon: ClipboardList, label: "Minhas Solicita??es", href: "#" },
-  { icon: Clock, label: "Hist?rico de Atendimento", href: "#" },
-  { icon: Bell, label: "Notifica??es", href: "#" },
+  { icon: ClipboardList, label: "Minhas Solicitações", href: "#" },
+  { icon: Clock, label: "Histórico de Atendimento", href: "#" },
+  { icon: Bell, label: "Notificações", href: "#" },
   { icon: User, label: "Dados Pessoais", href: "#" },
-  { icon: Settings, label: "Configura??es", href: "#" },
+  { icon: Settings, label: "Configurações", href: "#" },
 ];
 
 const requests = [
-  { id: "AVL001", route: "S?o Paulo -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "Em an?lise" },
-  { id: "AVL002", route: "Grupo empresarial -> Evento", date: "20/06/2026", time: "A combinar", status: "Aguardando retorno" },
+  { id: "AVL001", route: "São Paulo -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "Em análise" },
+  { id: "AVL002", route: "Grupo turístico -> Evento", date: "20/06/2026", time: "A combinar", status: "Aguardando retorno" },
 ];
 
 export default function AreaDoClientePage() {
@@ -39,9 +39,9 @@ export default function AreaDoClientePage() {
                 <User className="w-10 h-10 text-dark" />
               </div>
               <div>
-                <span className="text-cyan text-sm font-medium">?rea de atendimento</span>
-                <h1 className="text-3xl font-bold text-white">Solicita??es</h1>
-                <p className="text-ice/60 text-sm">Acompanhe pedidos de informa??o, or?amento e disponibilidade.</p>
+                <span className="text-cyan text-sm font-medium">Área de atendimento</span>
+                <h1 className="text-3xl font-bold text-white">Solicitações</h1>
+                <p className="text-ice/60 text-sm">Acompanhe pedidos de informação, orçamento e disponibilidade.</p>
               </div>
             </motion.div>
           </div>
@@ -85,11 +85,11 @@ export default function AreaDoClientePage() {
                 <div className="grid grid-cols-3 gap-4">
                   <div className="glass-card p-6 text-center">
                     <p className="text-3xl font-bold text-gradient">2</p>
-                    <p className="text-sm text-ice/60">Solicita??es abertas</p>
+                    <p className="text-sm text-ice/60">Solicitações abertas</p>
                   </div>
                   <div className="glass-card p-6 text-center">
                     <p className="text-3xl font-bold text-gradient">1</p>
-                    <p className="text-sm text-ice/60">Or?amento em an�lise</p>
+                    <p className="text-sm text-ice/60">Orçamento em análise</p>
                   </div>
                   <div className="glass-card p-6 text-center">
                     <p className="text-3xl font-bold text-gradient">24h</p>
@@ -101,7 +101,7 @@ export default function AreaDoClientePage() {
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <Bus className="w-5 h-5 text-cyan" />
-                      Solicita??es Recentes
+                      Solicitações Recentes
                     </h2>
                     <button className="text-sm text-cyan hover:underline">
                       Ver todas
@@ -121,7 +121,7 @@ export default function AreaDoClientePage() {
                           <div>
                             <p className="text-white font-semibold">{request.route}</p>
                             <p className="text-sm text-ice/60">
-                              {request.date} " {request.time}
+                              {request.date} - {request.time}
                             </p>
                           </div>
                         </div>
@@ -130,7 +130,7 @@ export default function AreaDoClientePage() {
                             {request.status}
                           </span>
                           <button className="btn-outline text-sm px-4 py-2">
-                            Ver solicita??o
+                            Ver solicitação
                           </button>
                         </div>
                       </div>
@@ -141,12 +141,12 @@ export default function AreaDoClientePage() {
                 <div className="glass-card p-6 bg-gradient-to-r from-primary/10 to-cyan/10">
                   <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <div>
-                      <span className="text-cyan text-sm font-semibold">ATENDIMENTO</span>
+                      <span className="text-cyan text-sm font-semibold">WHATSAPP</span>
                       <h3 className="text-xl font-bold text-white mt-1">
-                        Precisa atualizar uma solicita??o?
+                        Precisa atualizar uma solicitação?
                       </h3>
                       <p className="text-ice/60 text-sm mt-1">
-                        Envie novas informa??es sobre data, destino, quantidade de pessoas ou roteiro.
+                        Envie novas informações sobre data, destino, quantidade de pessoas ou roteiro.
                       </p>
                     </div>
                     <button className="btn-primary whitespace-nowrap inline-flex items-center gap-2">

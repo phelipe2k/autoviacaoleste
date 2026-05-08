@@ -8,10 +8,10 @@ import { MapPin, ArrowRight, Clock, Calendar, Filter, MessageCircle } from "luci
 import { useState } from "react";
 
 const serviceProfiles = [
-  { from: "Viagem empresarial", to: "Fretamento sob demanda", status: "Sob consulta", timing: "Data combinada" },
-  { from: "Grupo particular", to: "Evento ou excurs�o", status: "Sob or?amento", timing: "Agenda flex�vel" },
+  { from: "Grupo turístico", to: "Roteiro personalizado", status: "Sob consulta", timing: "Data combinada" },
+  { from: "Grupo particular", to: "Evento ou excursão", status: "Sob orçamento", timing: "Agenda flexível" },
   { from: "Turismo", to: "Roteiro personalizado", status: "Planejamento", timing: "Conforme roteiro" },
-  { from: "Transporte executivo", to: "Disponibilidade dedicada", status: "Sob consulta", timing: "Hor?rio reservado" },
+  { from: "Excursão especial", to: "Destino sob consulta", status: "Sob consulta", timing: "Data reservada" },
 ];
 
 export default function PassagensPage() {
@@ -33,13 +33,13 @@ export default function PassagensPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                Or?amento de turismo
+                Orçamento de turismo
               </span>
               <h1 className="heading-lg text-white mt-4 mb-4">
                 Consulte uma <span className="text-gradient">Viagem Sob Demanda</span>
               </h1>
               <p className="body-lg max-w-2xl mx-auto">
-                Informe origem, destino, data desejada e quantidade de pessoas. Nossa equipe retorna com disponibilidade, orienta��o e or?amento personalizado.
+                Informe origem, destino, data desejada e quantidade de pessoas. Nossa equipe retorna com disponibilidade, orientação e orçamento personalizado.
               </p>
             </motion.div>
 
@@ -69,7 +69,7 @@ export default function PassagensPage() {
               <div>
                 <h2 className="heading-md text-white">Formatos de Atendimento</h2>
                 <p className="text-ice/60 mt-2">
-                  Estrutura pronta para consulta comercial, sem venda direta de passagem nesta fase.
+                  Atendimento voltado exclusivamente para orçamento de viagens turísticas sob consulta.
                 </p>
               </div>
               <button className="btn-outline flex items-center gap-2 text-sm">
@@ -118,7 +118,7 @@ export default function PassagensPage() {
                       </div>
                     </div>
                     <button className="text-sm text-cyan hover:underline mt-1 whitespace-nowrap">
-                      Solicitar or?amento
+                      Solicitar orçamento
                     </button>
                   </div>
                 </motion.div>
@@ -133,12 +133,12 @@ export default function PassagensPage() {
             >
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
-                  <span className="text-primary text-sm font-semibold">ATENDIMENTO COMERCIAL</span>
+                  <span className="text-primary text-sm font-semibold">WHATSAPP COMERCIAL</span>
                   <h3 className="text-xl font-bold text-white mt-1">
                     Precisa planejar uma viagem?
                   </h3>
                   <p className="text-ice/60 text-sm mt-1">
-                    Conte o trajeto, a data e o perfil do grupo para avaliarmos a melhor op??o dispon?vel.
+                    Conte o trajeto, a data e o perfil do grupo para avaliarmos a melhor opção disponível.
                   </p>
                 </div>
                 <button className="btn-primary whitespace-nowrap inline-flex items-center gap-2">

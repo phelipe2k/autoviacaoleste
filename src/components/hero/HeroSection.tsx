@@ -40,7 +40,7 @@ const features = [
 
 const stats = [
   { icon: Route, value: "Sob consulta", label: "ROTEIROS TURÍSTICOS", sublabel: "Viagens planejadas" },
-  { icon: Users, value: "Atendimento", label: "GRUPOS E EMPRESAS", sublabel: "Orçamentos personalizados" },
+  { icon: Users, value: "Atendimento", label: "GRUPOS TURÍSTICOS", sublabel: "Roteiros personalizados" },
   { icon: Bus, value: "Frota", label: "ÔNIBUS REVISADOS", sublabel: "Veículos para diferentes perfis" },
   { icon: ShieldCheck, value: "Cuidado", label: "VIAGENS SEGURAS", sublabel: "Prioridade em cada trajeto" },
 ];
@@ -51,7 +51,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/images/banner-home.png"
-          alt="Ônibus executivo viajando pela estrada"
+          alt="Ônibus de turismo viajando pela estrada"
           fill
           priority
           sizes="100vw"
@@ -84,7 +84,7 @@ export function HeroSection() {
                 className="mb-6"
               >
                 <span className="text-cyan text-xs sm:text-sm tracking-[0.3em] font-medium uppercase">
-                  SEU DESTINO. NOSSA MISSÃO.
+                  TURISMO EM GRUPO SOB CONSULTA.
                 </span>
               </motion.div>
 
@@ -94,9 +94,9 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="heading-xl mb-6"
               >
-                <span className="text-white">CONFORTO QUE</span>
+                <span className="text-white">VIAGENS TURÍSTICAS</span>
                 <br />
-                <span className="text-gradient">CONECTA DESTINOS.</span>
+                <span className="text-gradient">COM CONFORTO.</span>
               </motion.h1>
 
               <motion.p
@@ -105,7 +105,7 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="body-lg mb-8 max-w-lg"
               >
-                Turismo, excursões e fretamento sob consulta, com frota moderna, equipe qualificada e planejamento para cada roteiro.
+                Turismo rodoviário sob consulta para excursões, grupos, passeios e roteiros personalizados com conforto e planejamento.
               </motion.p>
 
               <motion.div
@@ -209,7 +209,7 @@ export function HeroSection() {
               </div>
               <div className="text-left">
                 <p className="text-sm font-medium text-ice">
-                  VIAJE COM QUEM ENTENDE DE ESTRADA.
+                  VIAJE COM QUEM PLANEJA CADA ROTEIRO.
                 </p>
                 <p className="text-xs text-cyan">Assista ao vídeo</p>
               </div>

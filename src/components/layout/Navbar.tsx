@@ -9,11 +9,11 @@ import { Menu, X, User, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/", label: "In?cio" },
-  { href: "/passagens", label: "Or?amento" },
+  { href: "/", label: "Início" },
+  { href: "/passagens", label: "Orçamento" },
   { href: "/frota", label: "Frota" },
-  { href: "/destinos", label: "Turismo" },
-  { href: "/servicos", label: "Servi?os" },
+  { href: "/destinos", label: "Roteiros" },
+  { href: "/servicos", label: "Serviços" },
   { href: "/institucional", label: "Institucional" },
   { href: "/contato", label: "Contato" },
 ];
@@ -49,7 +49,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-3 group">
               <Image
                 src="/images/logo-transparente.png"
-                alt="Auto Via??o Leste"
+                alt="Auto Viação Leste"
                 width={56}
                 height={56}
                 priority
@@ -57,7 +57,7 @@ export function Navbar() {
               />
               <div className="sr-only">
                 <p className="text-sm font-semibold text-ice font-display tracking-wider">
-                  AUTO VIA��O
+                  AUTO VIAÇÃO
                 </p>
                 <p className="text-xs text-cyan tracking-[0.2em]">LESTE</p>
               </div>
@@ -97,7 +97,7 @@ export function Navbar() {
                 <div className="absolute inset-0 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.3)] transition-shadow duration-300" />
                 <User className="w-4 h-4 text-cyan" />
                 <span className="text-sm font-medium text-ice">
-                  ATENDIMENTO
+                  WHATSAPP
                 </span>
               </Link>
             </div>
@@ -166,7 +166,7 @@ export function Navbar() {
                   className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-primary/20 to-cyan/20 rounded-xl border border-cyan/30 text-cyan font-medium"
                 >
                   <User className="w-4 h-4" />
-                  ATENDIMENTO
+                  WHATSAPP
                 </Link>
               </div>
             </motion.nav>

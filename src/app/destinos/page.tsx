@@ -49,13 +49,13 @@ export default function DestinosPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                Turismo e fretamento
+                Turismo e excursões
               </span>
               <h1 className="heading-lg text-white mt-4 mb-4">
                 Roteiros sob <span className="text-gradient">Consulta</span>
               </h1>
               <p className="body-lg max-w-2xl mx-auto">
-                Consulte nossa equipe para avaliar excursões, eventos, viagens em grupo e fretamentos por região.
+                Consulte nossa equipe para avaliar excursões, passeios, eventos turísticos e viagens em grupo por região.
               </p>
             </motion.div>
 

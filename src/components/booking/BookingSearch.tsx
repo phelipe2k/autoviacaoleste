@@ -8,24 +8,24 @@ import {
   Users,
   ArrowRight,
   ClipboardList,
-  Briefcase,
-  Clock,
+  MessageCircle,
+  Route,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type TabType = "solicitacao" | "atendimento" | "disponibilidade";
+type TabType = "orcamento" | "roteiro" | "whatsapp";
 
 export function BookingSearch() {
-  const [activeTab, setActiveTab] = useState<TabType>("solicitacao");
+  const [activeTab, setActiveTab] = useState<TabType>("orcamento");
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
-  const [passengers, setPassengers] = useState(1);
+  const [passengers, setPassengers] = useState(15);
 
   const tabs = [
-    { id: "solicitacao" as TabType, label: "Solicitar or?amento", icon: ClipboardList },
-    { id: "atendimento" as TabType, label: "Atendimento", icon: Briefcase },
-    { id: "disponibilidade" as TabType, label: "Disponibilidade", icon: Clock },
+    { id: "orcamento" as TabType, label: "Orçamento turístico", icon: ClipboardList },
+    { id: "roteiro" as TabType, label: "Montar roteiro", icon: Route },
+    { id: "whatsapp" as TabType, label: "WhatsApp", icon: MessageCircle },
   ];
 
   return (
@@ -55,7 +55,7 @@ export function BookingSearch() {
         </div>
 
         <div className="p-6">
-          {activeTab === "solicitacao" && (
+          {activeTab === "orcamento" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -63,13 +63,13 @@ export function BookingSearch() {
             >
               <div className="relative group">
                 <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
-                  Origem
+                  Saída
                 </label>
                 <div className="relative">
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
                   <input
                     type="text"
-                    placeholder="De onde voc? sai?"
+                    placeholder="Cidade de saída"
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
                     className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
@@ -79,13 +79,13 @@ export function BookingSearch() {
 
               <div className="relative group">
                 <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
-                  Destino
+                  Destino turístico
                 </label>
                 <div className="relative">
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
                   <input
                     type="text"
-                    placeholder="Para onde voc? vai?"
+                    placeholder="Praia, cidade ou evento"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
@@ -95,7 +95,7 @@ export function BookingSearch() {
 
               <div className="relative group">
                 <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
-                  Data desejada
+                  Data da viagem
                 </label>
                 <div className="relative">
                   <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
@@ -119,9 +119,9 @@ export function BookingSearch() {
                     onChange={(e) => setPassengers(Number(e.target.value))}
                     className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300 appearance-none cursor-pointer"
                   >
-                    {[1, 2, 3, 4, 5, 6].map((num) => (
+                    {[15, 25, 35, 45, 50].map((num) => (
                       <option key={num} value={num}>
-                        {num} {num === 1 ? "pessoa" : "pessoas"}
+                        Até {num} pessoas
                       </option>
                     ))}
                   </select>
@@ -130,67 +130,42 @@ export function BookingSearch() {
 
               <div className="flex items-end">
                 <button className="w-full btn-primary flex items-center justify-center gap-2 py-3.5">
-                  Solicitar or?amento
+                  Solicitar orçamento
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </motion.div>
           )}
 
-          {activeTab === "atendimento" && (
+          {activeTab === "roteiro" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="text-center py-8"
             >
               <p className="text-ice/60 mb-4">
-                Fale com nossa equipe para tirar d?vidas, pedir or?amento ou acompanhar uma solicita??o.
+                Informe o destino desejado, quantidade de pessoas, cidade de saída e duração da viagem. A equipe ajuda a organizar uma proposta turística sob consulta.
               </p>
               <button className="btn-outline inline-flex items-center gap-2">
-                <Briefcase className="w-4 h-4" />
-                Fale conosco
+                <Route className="w-4 h-4" />
+                Planejar roteiro turístico
               </button>
             </motion.div>
           )}
 
-          {activeTab === "disponibilidade" && (
+          {activeTab === "whatsapp" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-4"
+              className="text-center py-8"
             >
-              <div className="relative">
-                <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
-                  Origem
-                </label>
-                <div className="relative">
-                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
-                  <input
-                    type="text"
-                    placeholder="Cidade de origem"
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50"
-                  />
-                </div>
-              </div>
-              <div className="relative">
-                <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
-                  Destino
-                </label>
-                <div className="relative">
-                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
-                  <input
-                    type="text"
-                    placeholder="Cidade de destino"
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50"
-                  />
-                </div>
-              </div>
-              <div className="flex items-end">
-                <button className="w-full btn-primary flex items-center justify-center gap-2 py-3.5">
-                  <Clock className="w-5 h-5" />
-                  Consultar disponibilidade
-                </button>
-              </div>
+              <p className="text-ice/60 mb-4">
+                Prefere atendimento direto? Chame pelo WhatsApp para falar sobre excursões, grupos e destinos turísticos.
+              </p>
+              <button className="btn-primary inline-flex items-center gap-2">
+                <MessageCircle className="w-5 h-5" />
+                Falar no WhatsApp
+              </button>
             </motion.div>
           )}
         </div>

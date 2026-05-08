@@ -7,10 +7,10 @@ import { useState } from "react";
 const destinations = [
   {
     id: 1,
-    city: "S?o Paulo",
+    city: "São Paulo",
     state: "SP",
     duration: "Sob consulta",
-    frequency: "Roteiro flex�vel",
+    frequency: "Roteiro flexível",
     status: "Turismo e grupos",
     popular: true,
   },
@@ -18,8 +18,8 @@ const destinations = [
     id: 2,
     city: "Rio de Janeiro",
     state: "RJ",
-    duration: "Sob or?amento",
-    frequency: "Excurs�es",
+    duration: "Sob orçamento",
+    frequency: "Excursões",
     status: "Turismo sob consulta",
     popular: true,
   },
@@ -34,9 +34,9 @@ const destinations = [
   },
   {
     id: 4,
-    city: "Florian?polis",
+    city: "Florianópolis",
     state: "SC",
-    duration: "Sob or?amento",
+    duration: "Sob orçamento",
     frequency: "Roteiro combinado",
     status: "Turismo e grupos",
     popular: true,
@@ -55,8 +55,8 @@ const destinations = [
     city: "Outras cidades",
     state: "BR",
     duration: "Sob consulta",
-    frequency: "Conforme solicita??o",
-    status: "Avalia??o comercial",
+    frequency: "Conforme solicitação",
+    status: "Avaliação comercial",
     popular: false,
   },
 ];
@@ -85,7 +85,7 @@ export function DestinationsSection() {
               Roteiros e <span className="text-gradient">Possibilidades</span>
             </h2>
             <p className="body-lg max-w-2xl mx-auto">
-              Consulte excurs?es, viagens em grupo, eventos e roteiros personalizados para diferentes regi?es.
+              Consulte excursões, viagens em grupo, eventos e roteiros personalizados para diferentes regiões.
             </p>
           </motion.div>
 

@@ -12,11 +12,11 @@ const sections = [
   },
   {
     title: "2. Serviços Apresentados",
-    content: `O site apresenta informações institucionais, frota, serviços, canais de contato e formulários para solicitação de informações, disponibilidade e orçamento. A venda direta de passagens e a divulgação de rotas regulares somente serão ativadas quando a empresa concluir a documentação e as autorizações necessárias.`,
+    content: `O site apresenta informações institucionais, frota, roteiros turísticos, canais de contato e formulários para solicitação de orçamento turístico sob consulta. O atendimento atual é exclusivo para turismo, excursões, passeios e roteiros personalizados.`,
   },
   {
     title: "3. Solicitações e Orçamentos",
-    content: `O envio de uma solicitação pelo site não representa reserva, venda, emissão de bilhete ou confirmação de viagem. Toda disponibilidade, valor, roteiro, data e condição operacional dependem de análise e confirmação formal pela equipe da Auto Viação Leste.`,
+    content: `O envio de uma solicitação pelo site não representa confirmação automática de viagem. Todo valor, roteiro, data e condição operacional dependem de análise e confirmação formal pela equipe da Auto Viação Leste.`,
   },
   {
     title: "4. Informações do Usuário",
@@ -83,7 +83,7 @@ export default function TermosDeUsoPage() {
                 <h2 className="text-xl font-bold text-white">Importante</h2>
               </div>
               <p className="text-ice/70 leading-relaxed">
-                Este site funciona como canal institucional e comercial. Recursos de rotas regulares, horários fixos e venda online podem existir como estrutura futura, mas permanecem sem ativação comercial até a regularização correspondente.
+                Este site funciona como canal institucional e turístico. O atendimento atual é exclusivo para excursões, passeios, grupos e roteiros sob consulta.
               </p>
             </motion.div>
 

@@ -59,7 +59,7 @@ export function CTASection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-lg text-ice/70 mb-10 max-w-2xl mx-auto"
               >
-                Entre em contato para solicitar informações, consultar disponibilidade ou pedir um orçamento para viagens, grupos e fretamento.
+                Entre em contato para solicitar orçamento de excursões, passeios e roteiros turísticos para grupos.
               </motion.p>
 
               <motion.div

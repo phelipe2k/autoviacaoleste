@@ -2,101 +2,89 @@
 
 import { motion } from "framer-motion";
 import {
-  Building2,
+  MapPinned,
   Users,
-  Plane,
-  Briefcase,
-  Bus,
+  CalendarCheck,
+  Camera,
   ArrowRight,
-  Star,
   CheckCircle,
-  Clock,
-  Shield,
-  Wifi,
-  Coffee,
 } from "lucide-react";
 import { useState } from "react";
 
-// Servicos comerciais apresentados na home, com icone, beneficios e destaque.
 const services = [
   {
     id: 1,
-    icon: Building2,
-    title: "Fretamento",
+    icon: MapPinned,
+    title: "Excursões turísticas",
     description:
-      "Transporte sob medida para empresas, eventos e equipes, com frota moderna e equipe especializada.",
+      "Viagens em grupo para destinos turísticos, eventos, praias, cidades históricas e experiências culturais.",
     features: [
-      "Contratos flex?veis",
-      "Frota dedicada",
-      "Motoristas treinados",
-      "Rastreamento em tempo real",
+      "Roteiros sob consulta",
+      "Planejamento de ida e volta",
+      "Paradas combinadas",
+      "Atendimento para grupos",
     ],
     color: "from-primary to-cyan",
-    highlight: "Ideal para empresas",
+    highlight: "Para grupos",
   },
   {
     id: 2,
     icon: Users,
-    title: "Turismo",
+    title: "Viagens personalizadas",
     description:
-      "Passeios, excurs?es e roteiros personalizados com conforto e seguran?a para grupos de todos os tamanhos.",
+      "Organização de viagens turísticas conforme origem, destino, data, quantidade de pessoas e perfil do grupo.",
     features: [
-      "Roteiros personalizados",
-      "Atendimento para excurs?es",
-      "Planejamento por demanda",
-      "Paradas programadas",
+      "Orçamento personalizado",
+      "Roteiro flexível",
+      "Apoio no planejamento",
+      "Conforto durante a viagem",
     ],
     color: "from-cyan to-teal-neon",
-    highlight: "Experi?ncias �nicas",
+    highlight: "Sob medida",
   },
   {
     id: 3,
-    icon: Briefcase,
-    title: "Viagens Corporativas",
+    icon: CalendarCheck,
+    title: "Passeios e eventos",
     description:
-      "Transporte executivo para reuni?es, eventos e deslocamentos de neg?cios.",
+      "Transporte turístico para passeios, encontros, feiras, shows, eventos religiosos e datas especiais.",
     features: [
-      "Pontualidade garantida",
-      "Agenda sob consulta",
-      "Ambiente confort�vel",
-      "Atendimento comercial",
+      "Datas sob consulta",
+      "Embarque combinado",
+      "Acompanhamento comercial",
+      "Confirmação por WhatsApp",
     ],
     color: "from-teal-neon to-primary",
-    highlight: "Para executivos",
+    highlight: "Agenda turística",
   },
   {
     id: 4,
-    icon: Bus,
-    title: "Transporte Escolar",
+    icon: Camera,
+    title: "Experiências de viagem",
     description:
-      "Seguran?a e confiabilidade no transporte de estudantes, com rigorosos padr?es de qualidade.",
+      "Viagens com foco em conforto, segurança e uma experiência tranquila para quem quer aproveitar o destino.",
     features: [
-      "Motoristas especializados",
-      "Ve?culos monitorados",
-      "Seguran?a certificada",
-      "Rastreamento GPS",
+      "Frota revisada",
+      "Motoristas qualificados",
+      "Viagens confortáveis",
+      "Atenção ao grupo",
     ],
     color: "from-primary-light to-cyan",
-    highlight: "Seguran?a m?xima",
+    highlight: "Turismo com cuidado",
   },
 ];
 
 export function ServicesSection() {
-  // Controla qual servico esta em hover para aplicar brilho e reforco visual.
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Fundo da secao, normalmente com degrade escuro. */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
-      
-      {/* Elementos decorativos de brilho no fundo da secao. */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-glow-cyan opacity-15 blur-3xl" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-glow-teal opacity-15 blur-3xl" />
 
       <div className="relative section-padding">
         <div className="max-w-7xl mx-auto">
-          {/* Cabecalho da secao com etiqueta, titulo e descricao. */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -105,18 +93,16 @@ export function ServicesSection() {
             className="text-center mb-16"
           >
             <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-              Nossos Servi?os
+              Turismo rodoviário
             </span>
             <h2 className="heading-lg text-white mt-4 mb-4">
-              Solu??es <span className="text-gradient">Completas</span> em Transporte
+              Viagens <span className="text-gradient">turísticas</span> sob consulta
             </h2>
             <p className="body-lg max-w-2xl mx-auto">
-              Nesta primeira fase, atendemos principalmente turismo, excurs?es,
-              eventos, grupos e fretamentos sob consulta.
+              Atendimento exclusivo para excursões, passeios, grupos e roteiros turísticos personalizados.
             </p>
           </motion.div>
 
-          {/* Grade de servicos gerada a partir do array services. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <motion.div
@@ -132,37 +118,31 @@ export function ServicesSection() {
                 <div
                   className={`glass-card p-8 h-full transition-all duration-500 ${
                     hoveredId === service.id
-                      ?"shadow-glow-cyan border-cyan/30"
+                      ? "shadow-glow-cyan border-cyan/30"
                       : ""
                   }`}
                 >
-                  {/* icone principal do servico. */}
                   <div
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}
                   >
                     <service.icon className="w-8 h-8 text-dark" />
                   </div>
 
-                  {/* Etiqueta curta que resume o melhor uso do servico. */}
                   <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
                     <span className="text-xs font-medium text-cyan">
                       {service.highlight}
                     </span>
                   </div>
 
-                  {/* Titulo do card. */}
                   <h3 className="text-2xl font-bold text-white mb-3">
                     {service.title}
                   </h3>
-
-                  {/* Descricao curta do card. */}
                   <p className="text-ice/60 mb-6">{service.description}</p>
 
-                  {/* Lista de beneficios de cada servico. */}
                   <ul className="space-y-3 mb-8">
-                    {service.features.map((feature, i) => (
+                    {service.features.map((feature) => (
                       <li
-                        key={i}
+                        key={feature}
                         className="flex items-center gap-3 text-sm text-ice/70"
                       >
                         <CheckCircle className="w-4 h-4 text-cyan shrink-0" />
@@ -171,13 +151,11 @@ export function ServicesSection() {
                     ))}
                   </ul>
 
-                  {/* Chamada de acao da secao. */}
                   <button className="flex items-center gap-2 text-cyan font-medium group-hover:gap-4 transition-all duration-300">
-                    Saiba mais
+                    Consultar viagem
                     <ArrowRight className="w-4 h-4" />
                   </button>
 
-                  {/* Brilho aparece no hover para destacar o card. */}
                   <div
                     className={`absolute -inset-px rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10`}
                   />
@@ -186,7 +164,6 @@ export function ServicesSection() {
             ))}
           </div>
 
-          {/* Chamada inferior para solucao personalizada. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -197,15 +174,14 @@ export function ServicesSection() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Precisa de uma solu��o personalizada?
+                  Quer montar uma viagem turística?
                 </h3>
                 <p className="text-ice/60">
-                  Entre em contato conosco e desenvolveremos a melhor solu��o
-                  para voc?.
+                  Conte o destino, a data e o tamanho do grupo para receber orientação e orçamento.
                 </p>
               </div>
               <button className="btn-primary flex items-center gap-2 px-8 py-4 whitespace-nowrap">
-                Solicitar Or?amento
+                Solicitar orçamento turístico
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

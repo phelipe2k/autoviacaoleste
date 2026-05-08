@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import("tailwindcss").Config} */
+const config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -49,25 +48,32 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-gradient": "linear-gradient(135deg, rgba(5,8,22,0.95) 0%, rgba(10,15,30,0.8) 50%, rgba(5,8,22,0.9) 100%)",
-        "glow-cyan": "radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%)",
-        "glow-teal": "radial-gradient(circle, rgba(0,255,200,0.12) 0%, transparent 70%)",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "hero-gradient":
+          "linear-gradient(135deg, rgba(5,8,22,0.95) 0%, rgba(10,15,30,0.8) 50%, rgba(5,8,22,0.9) 100%)",
+        "glow-cyan":
+          "radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%)",
+        "glow-teal":
+          "radial-gradient(circle, rgba(0,255,200,0.12) 0%, transparent 70%)",
       },
       boxShadow: {
-        "glow-cyan": "0 0 40px rgba(0,212,255,0.3), 0 0 80px rgba(0,212,255,0.1)",
-        "glow-teal": "0 0 40px rgba(0,255,200,0.25), 0 0 80px rgba(0,255,200,0.08)",
-        "glow-primary": "0 0 30px rgba(0,212,170,0.35), 0 0 60px rgba(0,212,170,0.15)",
-        "deep": "0 25px 50px -12px rgba(0,0,0,0.7)",
-        "card": "0 8px 32px rgba(0,0,0,0.4)",
-        "glass": "0 8px 32px 0 rgba(0,0,0,0.37)",
+        "glow-cyan":
+          "0 0 40px rgba(0,212,255,0.3), 0 0 80px rgba(0,212,255,0.1)",
+        "glow-teal":
+          "0 0 40px rgba(0,255,200,0.25), 0 0 80px rgba(0,255,200,0.08)",
+        "glow-primary":
+          "0 0 30px rgba(0,212,170,0.35), 0 0 60px rgba(0,212,170,0.15)",
+        deep: "0 25px 50px -12px rgba(0,0,0,0.7)",
+        card: "0 8px 32px rgba(0,0,0,0.4)",
+        glass: "0 8px 32px 0 rgba(0,0,0,0.37)",
       },
       animation: {
         "fade-up": "fadeUp 0.6s ease-out forwards",
         "fade-in": "fadeIn 0.5s ease-out forwards",
         "slide-in": "slideIn 0.5s ease-out forwards",
         "glow-pulse": "glowPulse 2s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
         "gradient-shift": "gradientShift 8s ease infinite",
       },
       keyframes: {

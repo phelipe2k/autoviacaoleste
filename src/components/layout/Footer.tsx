@@ -10,8 +10,8 @@ const footerLinks = {
     { href: "/frota", label: "Nossa Frota" },
     { href: "/destinos", label: "Roteiros sob consulta" },
     { href: "/servicos", label: "Turismo" },
-    { href: "/servicos", label: "Fretamento" },
-    { href: "/contato", label: "Atendimento comercial" },
+    { href: "/servicos", label: "Excursões" },
+    { href: "/contato", label: "WhatsApp" },
   ],
   empresa: [
     { href: "/institucional", label: "Quem Somos" },
@@ -23,8 +23,8 @@ const footerLinks = {
   ],
   suporte: [
     { href: "/faq", label: "Perguntas Frequentes" },
-    { href: "/passagens", label: "Orçamentos" },
-    { href: "/contato", label: "Disponibilidade" },
+    { href: "/passagens", label: "Orçamento turístico" },
+    { href: "/contato", label: "Atendimento turístico" },
     { href: "/politica-de-privacidade", label: "Política de Privacidade" },
     { href: "/termos-de-uso", label: "Termos de Uso" },
     { href: "/contato", label: "Atendimento" },
@@ -54,7 +54,7 @@ export function Footer() {
                   Receba novidades da Auto Viação Leste
                 </h3>
                 <p className="body-md">
-                  Cadastre-se para saber sobre serviços, atendimento, turismo e futuras atualizações da empresa.
+                  Cadastre-se para receber novidades sobre excursões, roteiros turísticos e próximas viagens sob consulta.
                 </p>
               </div>
               <form className="flex flex-col sm:flex-row gap-3">
@@ -94,7 +94,7 @@ export function Footer() {
                 </div>
               </Link>
               <p className="body-md mb-6 max-w-sm">
-                Transporte rodoviário com foco em turismo, fretamento, segurança, conforto e atendimento sob consulta para viagens personalizadas.
+                Turismo rodoviário sob consulta, com foco em excursões, grupos, roteiros personalizados, segurança e conforto.
               </p>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (

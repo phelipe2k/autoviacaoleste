@@ -10,17 +10,7 @@ import {
   Armchair,
   Tv,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  Check,
 } from "lucide-react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import type { Swiper as SwiperType } from "swiper";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 // Catalogo resumido da frota; cada onibus informa categoria, recursos e especificacoes.
 const fleet = [
@@ -30,7 +20,7 @@ const fleet = [
     category: "Premium",
     image: "/images/fleet/executivo-plus.jpg",
     features: [
-      { icon: Armchair, label: "Poltrona 160? reclin�vel" },
+      { icon: Armchair, label: "Poltrona 160° reclinável" },
       { icon: Wifi, label: "Wi-Fi Premium" },
       { icon: Usb, label: "USB e tomadas individuais" },
       { icon: Tv, label: "Entretenimento a bordo" },
@@ -39,10 +29,10 @@ const fleet = [
     specs: {
       capacity: "42 poltronas",
       age: "2023/2024",
-      wifi: "Inclu?do",
+      wifi: "Incluído",
     },
     description:
-      "Experi?ncia premium de viagem com m�ximo conforto e tecnologia de ponta.",
+      "Experiência premium de viagem com máximo conforto e tecnologia de ponta.",
   },
   {
     id: 2,
@@ -50,7 +40,7 @@ const fleet = [
     category: "Executivo",
     image: "/images/fleet/executivo.jpg",
     features: [
-      { icon: Armchair, label: "Poltrona 140? reclin�vel" },
+      { icon: Armchair, label: "Poltrona 140° reclinável" },
       { icon: Wifi, label: "Wi-Fi gratuito" },
       { icon: Usb, label: "USB individuais" },
       { icon: Snowflake, label: "Ar-condicionado" },
@@ -58,35 +48,34 @@ const fleet = [
     specs: {
       capacity: "46 poltronas",
       age: "2022/2023",
-      wifi: "Inclu?do",
+      wifi: "Incluído",
     },
     description:
-      "Conforto executivo ideal para viagens de neg?cios ou lazer.",
+      "Conforto ideal para viagens turísticas em grupo.",
   },
   {
     id: 3,
     name: "Convencional",
-    category: "Econ?mico",
+    category: "Econômico",
     image: "/images/fleet/convencional.jpg",
     features: [
-      { icon: Armchair, label: "Poltrona reclin�vel" },
+      { icon: Armchair, label: "Poltrona reclinável" },
       { icon: Snowflake, label: "Ar-condicionado" },
       { icon: Usb, label: "Carregadores USB" },
     ],
     specs: {
       capacity: "50 poltronas",
       age: "2021/2022",
-      wifi: "Dispon?vel",
+      wifi: "Disponível",
     },
     description:
-      "Qualidade e economia para suas viagens di?rias.",
+      "Qualidade e economia para suas viagens diárias.",
   },
 ];
 
 export function FleetSection() {
-  // activeIndex define o onibus selecionado; swiper fica reservado para controles do carrossel.
+  // activeIndex define o onibus selecionado na grade.
   const [activeIndex, setActiveIndex] = useState(0);
-  const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
   // A area de detalhes sempre usa o onibus atualmente selecionado.
   const activeBus = fleet[activeIndex];
@@ -113,10 +102,10 @@ export function FleetSection() {
               Nossa Frota
             </span>
             <h2 className="heading-lg text-white mt-4 mb-4">
-              Frota <span className="text-gradient">Moderna</span> e Confort�vel
+              Frota <span className="text-gradient">Moderna</span> e Confortável
             </h2>
             <p className="body-lg max-w-2xl mx-auto">
-              ?nibus novos, revisados e equipados com o que h? de mais moderno
+              ônibus novos, revisados e equipados com o que há de mais moderno
               em tecnologia e conforto.
             </p>
           </motion.div>
