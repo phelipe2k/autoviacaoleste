@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
+// Servicos comerciais apresentados na home, com icone, beneficios e destaque.
 const services = [
   {
     id: 1,
@@ -81,20 +82,21 @@ const services = [
 ];
 
 export function ServicesSection() {
+  // Controla qual servico esta em hover para aplicar brilho e reforco visual.
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background */}
+      {/* Fundo da secao, normalmente com degrade escuro. */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
       
-      {/* Decorative Elements */}
+      {/* Elementos decorativos de brilho no fundo da secao. */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-glow-cyan opacity-15 blur-3xl" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-glow-teal opacity-15 blur-3xl" />
 
       <div className="relative section-padding">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
+          {/* Cabecalho da secao com etiqueta, titulo e descricao. */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -114,7 +116,7 @@ export function ServicesSection() {
             </p>
           </motion.div>
 
-          {/* Services Grid */}
+          {/* Grade de servicos gerada a partir do array services. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <motion.div
@@ -130,33 +132,33 @@ export function ServicesSection() {
                 <div
                   className={`glass-card p-8 h-full transition-all duration-500 ${
                     hoveredId === service.id
-                      ? "shadow-glow-cyan border-cyan/30"
+                      ?"shadow-glow-cyan border-cyan/30"
                       : ""
                   }`}
                 >
-                  {/* Icon */}
+                  {/* icone principal do servico. */}
                   <div
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}
                   >
                     <service.icon className="w-8 h-8 text-dark" />
                   </div>
 
-                  {/* Highlight Badge */}
+                  {/* Etiqueta curta que resume o melhor uso do servico. */}
                   <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
                     <span className="text-xs font-medium text-cyan">
                       {service.highlight}
                     </span>
                   </div>
 
-                  {/* Title */}
+                  {/* Titulo do card. */}
                   <h3 className="text-2xl font-bold text-white mb-3">
                     {service.title}
                   </h3>
 
-                  {/* Description */}
+                  {/* Descricao curta do card. */}
                   <p className="text-ice/60 mb-6">{service.description}</p>
 
-                  {/* Features */}
+                  {/* Lista de beneficios de cada servico. */}
                   <ul className="space-y-3 mb-8">
                     {service.features.map((feature, i) => (
                       <li
@@ -169,13 +171,13 @@ export function ServicesSection() {
                     ))}
                   </ul>
 
-                  {/* CTA */}
+                  {/* Chamada de acao da secao. */}
                   <button className="flex items-center gap-2 text-cyan font-medium group-hover:gap-4 transition-all duration-300">
                     Saiba mais
                     <ArrowRight className="w-4 h-4" />
                   </button>
 
-                  {/* Glow Effect */}
+                  {/* Brilho aparece no hover para destacar o card. */}
                   <div
                     className={`absolute -inset-px rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10`}
                   />
@@ -184,7 +186,7 @@ export function ServicesSection() {
             ))}
           </div>
 
-          {/* Bottom CTA */}
+          {/* Chamada inferior para solucao personalizada. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

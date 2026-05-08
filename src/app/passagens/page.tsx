@@ -7,6 +7,7 @@ import { BookingSearch } from "@/components/booking/BookingSearch";
 import { MapPin, ArrowRight, Clock, Calendar, Filter } from "lucide-react";
 import { useState } from "react";
 
+// Rotas populares usadas como sugestaes rapidas de compra.
 const popularRoutes = [
   { from: "São Paulo", to: "Rio de Janeiro", price: "R$ 89,90", duration: "6h", frequency: "12x/dia" },
   { from: "São Paulo", to: "Curitiba", price: "R$ 99,90", duration: "5h 30min", frequency: "8x/dia" },
@@ -15,13 +16,14 @@ const popularRoutes = [
 ];
 
 export default function PassagensPage() {
+  // Guarda a rota selecionada para destacar visualmente o card clicado.
   const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
 
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -56,7 +58,7 @@ export default function PassagensPage() {
         </div>
       </section>
 
-      {/* Popular Routes */}
+      {/* Sugestaes de rotas frequentes para acelerar a escolha do usuario. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         
@@ -86,7 +88,7 @@ export default function PassagensPage() {
                   onClick={() => setSelectedRoute(`${route.from}-${route.to}`)}
                   className={`glass-card p-6 cursor-pointer transition-all duration-300 ${
                     selectedRoute === `${route.from}-${route.to}`
-                      ? "border-cyan/50 shadow-glow-cyan"
+                      ?"border-cyan/50 shadow-glow-cyan"
                       : "hover:border-cyan/30"
                   }`}
                 >
@@ -125,7 +127,7 @@ export default function PassagensPage() {
               ))}
             </div>
 
-            {/* Promotions Banner */}
+            {/* Banner promocional estatico para campanhas comerciais. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

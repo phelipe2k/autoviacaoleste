@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FileText, AlertCircle, Calendar, Scale } from "lucide-react";
 
+// Secoes dos termos de uso, mantidas em dados para evitar repeticao de markup.
 const sections = [
   {
     title: "1. Aceitação dos Termos",
@@ -99,12 +100,13 @@ const sections = [
   },
 ];
 
+// Pagina legal com condicoes de uso dos servicos da Auto Viacao Leste.
 export default function TermosDeUsoPage() {
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -131,12 +133,12 @@ export default function TermosDeUsoPage() {
         </div>
       </section>
 
-      {/* Content */}
+      {/* Conteudo textual do card. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
           <div className="max-w-4xl mx-auto">
-            {/* Info Banner */}
+            {/* Banner mostra data, vigencia e versao do documento. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -157,7 +159,7 @@ export default function TermosDeUsoPage() {
               </div>
             </motion.div>
 
-            {/* Introduction */}
+            {/* Introducao contextual do documento legal. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -182,7 +184,7 @@ export default function TermosDeUsoPage() {
               </p>
             </motion.div>
 
-            {/* Sections */}
+            {/* Renderiza os topicos legais preservando paragrafos e listas. */}
             <div className="space-y-6">
               {sections.map((section, index) => (
                 <motion.div
@@ -201,7 +203,7 @@ export default function TermosDeUsoPage() {
               ))}
             </div>
 
-            {/* Contact */}
+            {/* Contato para duvidas sobre o documento. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Search, ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
+// Categorias usadas para filtrar as perguntas frequentes.
 const categories = [
   { id: "geral", label: "Geral" },
   { id: "passagens", label: "Passagens" },
@@ -14,6 +15,7 @@ const categories = [
   { id: "cancelamento", label: "Cancelamento" },
 ];
 
+// Base local de perguntas e respostas; pode ser substituida por uma API futuramente.
 const faqs = [
   {
     id: 1,
@@ -78,10 +80,12 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+  // Estados controlam busca, categoria ativa e qual pergunta esta aberta.
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("todos");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  // Filtra por texto e categoria antes de renderizar a lista.
   const filteredFaqs = faqs.filter((faq) => {
     const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
@@ -93,7 +97,7 @@ export default function FAQPage() {
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -143,7 +147,7 @@ export default function FAQPage() {
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
           <div className="max-w-4xl mx-auto">
-            {/* Categories */}
+            {/* Botoes de categoria mudam o filtro sem sair da pagina. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -154,7 +158,7 @@ export default function FAQPage() {
                 onClick={() => setActiveCategory("todos")}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   activeCategory === "todos"
-                    ? "bg-cyan text-dark"
+                    ?"bg-cyan text-dark"
                     : "bg-white/5 text-ice/70 hover:bg-white/10"
                 }`}
               >
@@ -166,7 +170,7 @@ export default function FAQPage() {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     activeCategory === cat.id
-                      ? "bg-cyan text-dark"
+                      ?"bg-cyan text-dark"
                       : "bg-white/5 text-ice/70 hover:bg-white/10"
                   }`}
                 >
@@ -175,7 +179,7 @@ export default function FAQPage() {
               ))}
             </motion.div>
 
-            {/* FAQ Items */}
+            {/* Accordion: clicar na pergunta abre ou fecha a resposta correspondente. */}
             <div className="space-y-4">
               {filteredFaqs.map((faq, index) => (
                 <motion.div
@@ -187,13 +191,13 @@ export default function FAQPage() {
                   className="glass-card overflow-hidden"
                 >
                   <button
-                    onClick={() => setOpenFaq(openFaq === faq.id ? null : faq.id)}
+                    onClick={() => setOpenFaq(openFaq === faq.id ?null : faq.id)}
                     className="w-full flex items-center justify-between p-6 text-left"
                   >
                     <span className="text-white font-medium pr-4">{faq.question}</span>
                     <ChevronDown
                       className={`w-5 h-5 text-cyan shrink-0 transition-transform ${
-                        openFaq === faq.id ? "rotate-180" : ""
+                        openFaq === faq.id ?"rotate-180" : ""
                       }`}
                     />
                   </button>
@@ -216,7 +220,7 @@ export default function FAQPage() {
               </div>
             )}
 
-            {/* Contact CTA */}
+            {/* Chamada para contato quando a FAQ nao resolve a duvida. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

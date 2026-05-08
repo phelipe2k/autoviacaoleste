@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Calendar, Clock, MapPin, Bus, Download, Eye, Search, Filter } from "lucide-react";
 import { useState } from "react";
 
+// Historico e proximas viagens simuladas do cliente.
 const trips = [
   { id: "AVL-2024-001", route: "São Paulo → Rio de Janeiro", date: "15/01/2024", time: "08:00", status: "completed", seat: "15A", price: "R$ 89,90" },
   { id: "AVL-2024-002", route: "Rio de Janeiro → São Paulo", date: "20/01/2024", time: "14:00", status: "completed", seat: "12B", price: "R$ 89,90" },
@@ -17,9 +18,11 @@ const trips = [
 ];
 
 export default function MinhasViagensPage() {
+  // searchTerm busca por rota/codigo; filter separa viagens realizadas e proximas.
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("all");
 
+  // Aplica busca textual e filtro de status antes de montar a lista.
   const filteredTrips = trips.filter((trip) => {
     const matchesSearch = trip.route.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          trip.id.toLowerCase().includes(searchTerm.toLowerCase());
@@ -31,7 +34,7 @@ export default function MinhasViagensPage() {
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero */}
+      {/* Hero da pagina com titulo e contexto da funcionalidade. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -57,7 +60,7 @@ export default function MinhasViagensPage() {
         </div>
       </section>
 
-      {/* Filters & Search */}
+      {/* Busca e filtro permitem localizar passagens especificas rapidamente. */}
       <section className="py-8 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
@@ -87,7 +90,7 @@ export default function MinhasViagensPage() {
               </div>
             </div>
 
-            {/* Trips List */}
+            {/* Lista renderiza os bilhetes encontrados depois dos filtros. */}
             <div className="space-y-4">
               {filteredTrips.map((trip, index) => (
                 <motion.div
@@ -125,10 +128,10 @@ export default function MinhasViagensPage() {
                     <div className="flex items-center gap-4">
                       <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                         trip.status === "upcoming" 
-                          ? "bg-cyan/20 text-cyan" 
+                          ?"bg-cyan/20 text-cyan" 
                           : "bg-emerald-500/20 text-emerald-400"
                       }`}>
-                        {trip.status === "upcoming" ? "Próxima" : "Realizada"}
+                        {trip.status === "upcoming" ?"Próxima" : "Realizada"}
                       </span>
                       <span className="text-white font-semibold">{trip.price}</span>
                       <div className="flex gap-2">

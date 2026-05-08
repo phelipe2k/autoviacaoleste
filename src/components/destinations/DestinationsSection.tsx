@@ -5,6 +5,7 @@ import Image from "next/image";
 import { MapPin, ArrowRight, Clock, Calendar } from "lucide-react";
 import { useState } from "react";
 
+// Destinos destacados na home; em producao esses dados podem vir de uma API/CMS.
 const destinations = [
   {
     id: 1,
@@ -69,19 +70,20 @@ const destinations = [
 ];
 
 export function DestinationsSection() {
+  // Guarda qual card esta com hover para intensificar overlay, borda e animacao.
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background */}
+      {/* Fundo da secao, normalmente com degrade escuro. */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
       
-      {/* Decorative Elements */}
+      {/* Elementos decorativos de brilho no fundo da secao. */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-glow-cyan opacity-20 blur-3xl" />
 
       <div className="relative section-padding">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
+          {/* Cabecalho da secao com etiqueta, titulo e descricao. */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -101,7 +103,7 @@ export function DestinationsSection() {
             </p>
           </motion.div>
 
-          {/* Destinations Grid */}
+          {/* Grade de destinos: cada card usa os dados do array destinations. */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destinations.map((destination, index) => (
               <motion.div
@@ -114,7 +116,7 @@ export function DestinationsSection() {
                 onMouseLeave={() => setHoveredId(null)}
                 className="group relative h-[400px] rounded-2xl overflow-hidden cursor-pointer"
               >
-                {/* Background Image Placeholder */}
+                {/* Espaco visual temporario para imagem do destino. */}
                 <div className="absolute inset-0 bg-gradient-to-br from-dark-lighter to-dark flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="w-16 h-16 text-cyan/30 mx-auto mb-4" />
@@ -123,26 +125,26 @@ export function DestinationsSection() {
                   </div>
                 </div>
 
-                {/* Dark Overlay */}
+                {/* Overlay escuro melhora a leitura do texto sobre o fundo. */}
                 <div 
                   className={`absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent transition-opacity duration-500 ${
-                    hoveredId === destination.id ? 'opacity-90' : 'opacity-70'
+                    hoveredId === destination.id ?'opacity-90' : 'opacity-70'
                   }`} 
                 />
 
-                {/* Popular Badge */}
+                {/* Selo exibido apenas para destinos marcados como populares. */}
                 {destination.popular && (
                   <div className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-primary to-cyan rounded-full">
                     <span className="text-xs font-semibold text-dark">POPULAR</span>
                   </div>
                 )}
 
-                {/* Content */}
+                {/* Conteudo textual do card. */}
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
                   <motion.div
                     animate={{ 
-                      y: hoveredId === destination.id ? 0 : 10,
-                      opacity: hoveredId === destination.id ? 1 : 0.8 
+                      y: hoveredId === destination.id ?0 : 10,
+                      opacity: hoveredId === destination.id ?1 : 0.8 
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -177,8 +179,8 @@ export function DestinationsSection() {
                       </div>
                       <motion.div
                         animate={{ 
-                          x: hoveredId === destination.id ? 5 : 0,
-                          opacity: hoveredId === destination.id ? 1 : 0.7 
+                          x: hoveredId === destination.id ?5 : 0,
+                          opacity: hoveredId === destination.id ?1 : 0.7 
                         }}
                         className="w-12 h-12 rounded-full bg-cyan/20 flex items-center justify-center"
                       >
@@ -188,11 +190,11 @@ export function DestinationsSection() {
                   </motion.div>
                 </div>
 
-                {/* Hover Border Effect */}
+                {/* Borda luminosa aparece quando o usuario passa o mouse no card. */}
                 <div 
                   className={`absolute inset-0 rounded-2xl border-2 transition-all duration-500 ${
                     hoveredId === destination.id 
-                      ? 'border-cyan/50 shadow-[0_0_30px_rgba(0,212,255,0.2)]' 
+                      ?'border-cyan/50 shadow-[0_0_30px_rgba(0,212,255,0.2)]' 
                       : 'border-transparent'
                   }`} 
                 />
@@ -200,7 +202,7 @@ export function DestinationsSection() {
             ))}
           </div>
 
-          {/* View All Button */}
+          {/* Botao para levar o usuario a lista completa de destinos. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -22,6 +22,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+// Catalogo resumido da frota; cada onibus informa categoria, recursos e especificacoes.
 const fleet = [
   {
     id: 1,
@@ -83,22 +84,24 @@ const fleet = [
 ];
 
 export function FleetSection() {
+  // activeIndex define o onibus selecionado; swiper fica reservado para controles do carrossel.
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
+  // A area de detalhes sempre usa o onibus atualmente selecionado.
   const activeBus = fleet[activeIndex];
 
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background */}
+      {/* Fundo da secao, normalmente com degrade escuro. */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-lighter to-dark" />
 
-      {/* Decorative Elements */}
+      {/* Elementos decorativos de brilho no fundo da secao. */}
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-glow-teal opacity-20 blur-3xl transform -translate-y-1/2" />
 
       <div className="relative section-padding">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
+          {/* Cabecalho da secao com etiqueta, titulo e descricao. */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +121,7 @@ export function FleetSection() {
             </p>
           </motion.div>
 
-          {/* Fleet Cards Grid */}
+          {/* Cards da frota: clicar em um card muda os detalhes exibidos abaixo. */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {fleet.map((bus, index) => (
               <motion.div
@@ -130,11 +133,11 @@ export function FleetSection() {
                 onClick={() => setActiveIndex(index)}
                 className={`glass-card overflow-hidden cursor-pointer transition-all duration-500 ${
                   activeIndex === index
-                    ? "ring-2 ring-cyan/50 shadow-glow-cyan"
+                    ?"ring-2 ring-cyan/50 shadow-glow-cyan"
                     : "hover:ring-2 hover:ring-cyan/30"
                 }`}
               >
-                {/* Image Area */}
+                {/* area visual do card do onibus. */}
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-teal/20 to-cyan/10 flex items-center justify-center">
                     <Bus className="w-20 h-20 text-cyan/30" />
@@ -143,9 +146,9 @@ export function FleetSection() {
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${
                         bus.category === "Premium"
-                          ? "bg-primary text-dark"
+                          ?"bg-primary text-dark"
                           : bus.category === "Executivo"
-                          ? "bg-cyan text-dark"
+                          ?"bg-cyan text-dark"
                           : "bg-white/20 text-ice"
                       }`}
                     >
@@ -154,14 +157,14 @@ export function FleetSection() {
                   </div>
                 </div>
 
-                {/* Content */}
+                {/* Conteudo textual do card. */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">
                     {bus.name}
                   </h3>
                   <p className="text-sm text-ice/60 mb-4">{bus.description}</p>
 
-                  {/* Specs */}
+                  {/* Especificacoes rapidas: capacidade, ano e Wi-Fi. */}
                   <div className="grid grid-cols-3 gap-2 mb-4 text-center">
                     <div className="p-2 bg-dark/50 rounded-lg">
                       <p className="text-xs text-ice/50">Capacidade</p>
@@ -183,7 +186,7 @@ export function FleetSection() {
                     </div>
                   </div>
 
-                  {/* Features Preview */}
+                  {/* Previa dos principais recursos do onibus. */}
                   <div className="flex flex-wrap gap-2">
                     {bus.features.slice(0, 3).map((feature, i) => (
                       <div
@@ -200,7 +203,7 @@ export function FleetSection() {
             ))}
           </div>
 
-          {/* Detailed Features */}
+          {/* Detalhes do veiculo selecionado, atualizados conforme activeIndex. */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -240,7 +243,7 @@ export function FleetSection() {
             </div>
           </motion.div>
 
-          {/* CTA */}
+          {/* Chamada de acao da secao. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

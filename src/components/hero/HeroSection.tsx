@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { BookingSearch } from "@/components/booking/BookingSearch";
 
+// Diferenciais exibidos abaixo da chamada principal do hero.
 const features = [
   {
     icon: Armchair,
@@ -40,6 +41,7 @@ const features = [
   },
 ];
 
+// Numeros de apoio que reforcam escala, frota e seguranca da empresa.
 const stats = [
   { icon: Route, value: "+120", label: "ROTAS", sublabel: "Conectamos destinos" },
   { icon: Users, value: "+1 MILHÃO", label: "PASSAGEIROS", sublabel: "De passageiros transportados" },
@@ -47,10 +49,11 @@ const stats = [
   { icon: ShieldCheck, value: "99%", label: "VIAGENS SEGURAS", sublabel: "Sua tranquilidade em 1º lugar" },
 ];
 
+// Hero da home: combina imagem de fundo, texto principal, busca de passagens e indicadores.
 export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Background Layers */}
+      {/* Camadas de fundo: imagem principal, degrades de leitura e efeitos visuais. */}
       <div className="absolute inset-0">
         <Image
           src="/images/banner-home.png"
@@ -64,7 +67,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/65 to-dark/10 z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/45 via-transparent to-dark/80 z-10" />
         
-        {/* Animated Grid Pattern */}
+        {/* Padrao de grade sutil para dar textura ao hero. */}
         <div 
           className="absolute inset-0 z-15 opacity-20"
           style={{
@@ -74,18 +77,18 @@ export function HeroSection() {
           }}
         />
 
-        {/* Glow Effects */}
+        {/* Brilho decorativo que reforca a paleta neon. */}
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-glow-teal opacity-20 blur-3xl z-20" />
       </div>
 
-      {/* Content Container */}
+      {/* Container principal mantem o conteudo acima das camadas de fundo. */}
       <div className="relative z-30 section-padding pt-32 pb-12">
         <div className="max-w-7xl mx-auto">
-          {/* Main Hero Content */}
+          {/* Conteudo principal do hero em duas colunas no desktop. */}
           <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(280px,0.8fr)] gap-12 items-center min-h-[60vh]">
-            {/* Left Column - Text */}
+            {/* Coluna esquerda com chamada, descricao e diferenciais. */}
             <div>
-              {/* Tagline */}
+              {/* Frase curta acima do titulo para posicionar a marca. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -97,7 +100,7 @@ export function HeroSection() {
                 </span>
               </motion.div>
 
-              {/* Headline */}
+              {/* Titulo principal da primeira dobra. */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -109,7 +112,7 @@ export function HeroSection() {
                 <span className="text-gradient">CONECTA DESTINOS.</span>
               </motion.h1>
 
-              {/* Description */}
+              {/* Descricao curta do card. */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -120,13 +123,14 @@ export function HeroSection() {
                 conforto que você merece.
               </motion.p>
 
-              {/* Feature Icons */}
+              {/* Icones dos diferenciais de conforto, seguranca e conectividade. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8"
               >
+                {/* Cada diferencial usa o icone definido no array features. */}
                 {features.map((feature, index) => (
                   <motion.div
                     key={feature.title}
@@ -153,10 +157,10 @@ export function HeroSection() {
 
             <div className="hidden lg:block" aria-hidden="true">
               <div>
-                {/* Glow behind bus */}
+                {/* Brilho atras da area reservada para imagem do onibus. */}
                 <div className="absolute inset-0 bg-gradient-radial from-cyan/20 via-transparent to-transparent blur-2xl" />
                 
-                {/* Bus Image Placeholder - Replace with actual bus image */}
+                {/* Espaco temporario para substituir por uma imagem real do onibus. */}
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full bg-gradient-to-br from-teal/30 to-cyan/20 rounded-2xl border border-cyan/20 flex items-center justify-center">
                     <div className="text-center">
@@ -169,7 +173,7 @@ export function HeroSection() {
                   </div>
                 </div>
 
-                {/* Floating Badge */}
+                {/* Selo flutuante com tempo de experiencia da empresa. */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -183,18 +187,20 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Booking Search */}
+          {/* Busca de passagens posicionada logo abaixo da chamada principal. */}
           <div className="mt-8 lg:mt-0">
+            {/* Formulario reutilizavel para iniciar a compra ou consulta de viagem. */}
             <BookingSearch />
           </div>
 
-          {/* Bottom Stats */}
+          {/* Estatisticas inferiores que reforcam credibilidade. */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4"
           >
+            {/* Cards de estatisticas gerados a partir do array stats. */}
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -215,7 +221,7 @@ export function HeroSection() {
             ))}
           </motion.div>
 
-          {/* Video CTA */}
+          {/* Chamada para video institucional. */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

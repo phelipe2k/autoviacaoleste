@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { BookingSearch } from "@/components/booking/BookingSearch";
 import { MapPin, ArrowRight, Clock, Calendar, Bus, ChevronRight, Star } from "lucide-react";
 
+// Horarios simulados exibidos na tabela de consulta.
 const schedules = [
   { from: "São Paulo", to: "Rio de Janeiro", departure: "06:00", arrival: "12:00", duration: "6h", price: "R$ 89,90", busType: "Leito", seats: 24 },
   { from: "São Paulo", to: "Rio de Janeiro", departure: "08:00", arrival: "14:00", duration: "6h", price: "R$ 99,90", busType: "Executivo", seats: 36 },
@@ -21,6 +22,7 @@ const schedules = [
   { from: "São Paulo", to: "Florianópolis", departure: "06:00", arrival: "16:00", duration: "10h", price: "R$ 149,90", busType: "Leito", seats: 24 },
 ];
 
+// Rotas destacadas com maior frequencia de saida.
 const popularDestinations = [
   { from: "São Paulo", to: "Rio de Janeiro", frequency: "12x/dia" },
   { from: "São Paulo", to: "Curitiba", frequency: "8x/dia" },
@@ -28,12 +30,13 @@ const popularDestinations = [
   { from: "São Paulo", to: "Florianópolis", frequency: "4x/dia" },
 ];
 
+// Pagina de horarios: combina busca, rotas populares e tabela detalhada de saidas.
 export default function HorariosPage() {
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero */}
+      {/* Hero da pagina com titulo e contexto da funcionalidade. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -68,7 +71,7 @@ export default function HorariosPage() {
         </div>
       </section>
 
-      {/* Popular Routes */}
+      {/* Rotas populares ajudam o usuario a encontrar rapidamente trajetos comuns. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
@@ -108,7 +111,7 @@ export default function HorariosPage() {
               ))}
             </div>
 
-            {/* Schedule Table */}
+            {/* Tabela principal com saida, chegada, duracao, tipo de onibus e preco. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

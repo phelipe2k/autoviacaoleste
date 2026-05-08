@@ -7,6 +7,7 @@ import { DestinationsSection } from "@/components/destinations/DestinationsSecti
 import { MapPin, Search, Filter, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
+// Lista completa de destinos usada para busca e filtro por regiao.
 const allDestinations = [
   { city: "São Paulo", state: "SP", routes: 45, image: "/images/destinations/sp.jpg" },
   { city: "Rio de Janeiro", state: "RJ", routes: 32, image: "/images/destinations/rj.jpg" },
@@ -23,9 +24,11 @@ const allDestinations = [
 ];
 
 export default function DestinosPage() {
+  // searchTerm filtra por texto; selectedRegion filtra por grupos de estados.
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("todos");
 
+  // Calcula os destinos visiveis combinando busca por cidade/estado e regiao selecionada.
   const filteredDestinations = allDestinations.filter((dest) => {
     const matchesSearch = dest.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          dest.state.toLowerCase().includes(searchTerm.toLowerCase());
@@ -41,7 +44,7 @@ export default function DestinosPage() {
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -64,7 +67,7 @@ export default function DestinosPage() {
               </p>
             </motion.div>
 
-            {/* Search & Filter */}
+            {/* Campo de busca e filtro regional atualizam a lista em tempo real. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,7 +100,7 @@ export default function DestinosPage() {
         </div>
       </section>
 
-      {/* Destinations Grid */}
+      {/* Grade renderiza somente os destinos filtrados. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">

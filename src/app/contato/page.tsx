@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
+// Canais de atendimento exibidos nos cards do topo.
 const contactInfo = [
   { icon: Phone, title: "Telefone", content: "(11) 3000-0000", subcontent: "Segunda a Sexta, 8h às 20h" },
   { icon: Mail, title: "E-mail", content: "contato@viacaoleste.com.br", subcontent: "Respondemos em 24h" },
@@ -13,6 +14,7 @@ const contactInfo = [
   { icon: Clock, title: "Horário", content: "Atendimento 24h", subcontent: "Central de atendimento" },
 ];
 
+// Assuntos disponiveis no select do formulario de contato.
 const subjects = [
   "Dúvidas sobre passagens",
   "Fretamento e serviços corporativos",
@@ -22,6 +24,7 @@ const subjects = [
 ];
 
 export default function ContatoPage() {
+  // Estado unico guarda todos os campos do formulario para facilitar atualizacao e envio.
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,6 +33,7 @@ export default function ContatoPage() {
     message: "",
   });
 
+  // Envio temporario: impede recarregar a pagina e registra os dados; aqui entra a integracao real.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -39,7 +43,7 @@ export default function ContatoPage() {
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -66,7 +70,7 @@ export default function ContatoPage() {
         </div>
       </section>
 
-      {/* Contact Info Cards */}
+      {/* Cards com telefone, e-mail, endereco e horario de atendimento. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
@@ -94,13 +98,13 @@ export default function ContatoPage() {
         </div>
       </section>
 
-      {/* Contact Form & WhatsApp */}
+      {/* area com formulario e canais alternativos de atendimento. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-dark to-dark-light" />
         <div className="relative section-padding">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Form */}
+              {/* Formulario controlado: cada campo atualiza uma propriedade de formData. */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -179,7 +183,7 @@ export default function ContatoPage() {
                 </form>
               </motion.div>
 
-              {/* WhatsApp CTA */}
+              {/* Blocos alternativos para contato rapido via WhatsApp e Ouvidoria. */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -194,7 +198,7 @@ export default function ContatoPage() {
                     Atendimento via WhatsApp
                   </h3>
                   <p className="text-ice/70 mb-6">
-                    Prefere conversar pelo WhatsApp? Nossa equipe está disponível
+                    Prefere conversar pelo WhatsApp?Nossa equipe está disponível
                     para atender você em horário comercial.
                   </p>
                   <button className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold transition-colors flex items-center justify-center gap-2">

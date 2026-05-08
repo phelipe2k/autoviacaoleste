@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FleetSection } from "@/components/fleet/FleetSection";
 import { Bus, Shield, Wrench, Award } from "lucide-react";
 
+// Certificacoes e garantias exibidas antes dos detalhes da frota.
 const certifications = [
   { icon: Shield, title: "ISO 9001", description: "Gestão de Qualidade" },
   { icon: Award, title: "Selo Ouro", description: "Programa Bem-Estar no Ônibus" },
@@ -13,12 +14,13 @@ const certifications = [
   { icon: Bus, title: "Frota 5 estrelas", description: "Avaliação ANTT" },
 ];
 
+// Pagina da frota: apresenta confianca, tipos de onibus e rotina de manutencao.
 export default function FrotaPage() {
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-glow-teal opacity-20 blur-3xl" />
@@ -45,7 +47,7 @@ export default function FrotaPage() {
         </div>
       </section>
 
-      {/* Certifications */}
+      {/* Cards de certificacoes reforcam seguranca, manutencao e qualidade. */}
       <section className="py-12 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
@@ -70,10 +72,10 @@ export default function FrotaPage() {
         </div>
       </section>
 
-      {/* Fleet Details */}
+      {/* Componente reutilizado com os modelos de onibus e recursos de cada um. */}
       <FleetSection />
 
-      {/* Maintenance Section */}
+      {/* Explica os processos de manutencao preventiva e seguranca operacional. */}
       <section className="py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-dark to-dark-light" />
         <div className="relative section-padding">

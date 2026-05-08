@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Shield, Lock, Eye, FileText, Calendar } from "lucide-react";
 
+// Secoes do documento legal, renderizadas como blocos de texto reutilizaveis.
 const sections = [
   {
     title: "1. Coleta de Dados",
@@ -89,12 +90,13 @@ const sections = [
   },
 ];
 
+// Pagina legal de privacidade com resumo, versao e conteudo completo da politica.
 export default function PoliticaPrivacidadePage() {
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -121,12 +123,12 @@ export default function PoliticaPrivacidadePage() {
         </div>
       </section>
 
-      {/* Content */}
+      {/* Conteudo textual do card. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
           <div className="max-w-4xl mx-auto">
-            {/* Info Banner */}
+            {/* Banner resume versao, data de atualizacao e conformidade com LGPD. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -147,7 +149,7 @@ export default function PoliticaPrivacidadePage() {
               </div>
             </motion.div>
 
-            {/* Introduction */}
+            {/* Introducao contextual do documento legal. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +170,7 @@ export default function PoliticaPrivacidadePage() {
               </p>
             </motion.div>
 
-            {/* Sections */}
+            {/* Renderiza cada secao da politica preservando quebras de linha do texto. */}
             <div className="space-y-6">
               {sections.map((section, index) => (
                 <motion.div
@@ -187,7 +189,7 @@ export default function PoliticaPrivacidadePage() {
               ))}
             </div>
 
-            {/* Contact Section */}
+            {/* Contato especifico para assuntos de privacidade. */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

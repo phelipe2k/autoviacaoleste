@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight, User } from "lucide-react";
 
+// Depoimentos usados no carrossel de prova social.
 const testimonials = [
   {
     id: 1,
@@ -44,8 +45,10 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
+  // Indice do depoimento atualmente visivel no carrossel.
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Avanca e volta de forma circular, sem estourar os limites do array.
   const nextTestimonial = () => {
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
   };
@@ -56,15 +59,15 @@ export function TestimonialsSection() {
 
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background */}
+      {/* Fundo da secao, normalmente com degrade escuro. */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
       
-      {/* Decorative Elements */}
+      {/* Elementos decorativos de brilho no fundo da secao. */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-glow-cyan opacity-10 blur-3xl" />
 
       <div className="relative section-padding">
         <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
+          {/* Cabecalho da secao com etiqueta, titulo e descricao. */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,14 +95,14 @@ export function TestimonialsSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="glass-card p-8 md:p-12 relative"
             >
-              {/* Quote Icon */}
+              {/* icone decorativo de citacao. */}
               <div className="absolute top-8 left-8 w-16 h-16 rounded-full bg-cyan/10 flex items-center justify-center">
                 <Quote className="w-8 h-8 text-cyan" />
               </div>
 
-              {/* Testimonial Content */}
+              {/* Conteudo do depoimento ativo. */}
               <div className="pt-16 text-center">
-                {/* Stars */}
+                {/* Estrelas geradas conforme a nota do depoimento. */}
                 <div className="flex items-center justify-center gap-1 mb-6">
                   {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
                     <Star
@@ -109,19 +112,19 @@ export function TestimonialsSection() {
                   ))}
                 </div>
 
-                {/* Text */}
+                {/* Texto do depoimento. */}
                 <p className="text-xl md:text-2xl text-ice/90 leading-relaxed mb-8 max-w-3xl mx-auto">
                   &ldquo;{testimonials[activeIndex].text}&rdquo;
                 </p>
 
-                {/* Route Badge */}
+                {/* Rota relacionada ao depoimento. */}
                 <div className="inline-block px-4 py-2 rounded-full bg-cyan/10 border border-cyan/30 mb-6">
                   <span className="text-sm text-cyan">
                     {testimonials[activeIndex].route}
                   </span>
                 </div>
 
-                {/* Author */}
+                {/* Nome e perfil de quem deu o depoimento. */}
                 <div className="flex items-center justify-center gap-4">
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan/30 to-primary/30 flex items-center justify-center">
                     <User className="w-7 h-7 text-cyan" />
@@ -137,7 +140,7 @@ export function TestimonialsSection() {
                 </div>
               </div>
 
-              {/* Navigation Buttons */}
+              {/* Botoes laterais navegam entre os depoimentos. */}
               <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
                 <button
                   onClick={prevTestimonial}
@@ -154,7 +157,7 @@ export function TestimonialsSection() {
               </div>
             </motion.div>
 
-            {/* Dots Navigation */}
+            {/* Indicadores inferiores permitem pular diretamente para um depoimento. */}
             <div className="flex items-center justify-center gap-2 mt-8">
               {testimonials.map((_, index) => (
                 <button
@@ -162,7 +165,7 @@ export function TestimonialsSection() {
                   onClick={() => setActiveIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === activeIndex
-                      ? "bg-cyan w-8"
+                      ?"bg-cyan w-8"
                       : "bg-ice/20 hover:bg-ice/40"
                   }`}
                 />
@@ -170,7 +173,7 @@ export function TestimonialsSection() {
             </div>
           </div>
 
-          {/* Stats Row */}
+          {/* Linha de estatisticas de satisfacao. */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

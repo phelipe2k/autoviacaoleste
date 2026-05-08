@@ -46,7 +46,7 @@ a {
   text-decoration: none;
 }
 
-/* Custom scrollbar */
+/* Barra de rolagem personalizada para combinar com a identidade visual. */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -65,13 +65,13 @@ a {
   background: linear-gradient(180deg, var(--color-primary-light), var(--color-cyan));
 }
 
-/* Selection */
+/* Cor aplicada quando o usuario seleciona texto na pagina. */
 ::selection {
   background: rgba(0, 212, 170, 0.3);
   color: var(--color-ice);
 }
 
-/* Glassmorphism utilities */
+/* Utilitarios de glassmorphism e componentes visuais reutilizaveis. */
 @layer components {
   .glass {
     @apply bg-dark-card/80 backdrop-blur-xl border border-white/10;
@@ -132,7 +132,7 @@ a {
   }
 }
 
-/* Swiper custom styles */
+/* Ajustes visuais dos indicadores do Swiper. */
 .swiper-pagination-bullet {
   background: rgba(255, 255, 255, 0.3) !important;
   width: 10px !important;
@@ -144,7 +144,7 @@ a {
   box-shadow: 0 0 10px var(--color-primary);
 }
 
-/* Animation utilities */
+/* Utilitarios simples para atrasar animacoes quando necessario. */
 @layer utilities {
   .animate-delay-100 {
     animation-delay: 100ms;

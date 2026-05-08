@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { User, Ticket, Clock, CreditCard, Bell, Settings, ChevronRight, Bus } from "lucide-react";
 import { useState } from "react";
 
+// Menu lateral do painel do cliente; cada item aponta para uma area da conta.
 const menuItems = [
   { icon: Ticket, label: "Minhas Passagens", href: "#" },
   { icon: Clock, label: "Histórico de Viagens", href: "#" },
@@ -15,19 +16,21 @@ const menuItems = [
   { icon: Settings, label: "Configurações", href: "#" },
 ];
 
+// Viagens futuras exibidas no dashboard como dados simulados.
 const upcomingTrips = [
   { id: "AVL001", route: "São Paulo → Rio de Janeiro", date: "15/06/2026", time: "08:00", seat: "15A", status: "Confirmado" },
   { id: "AVL002", route: "Rio de Janeiro → São Paulo", date: "20/06/2026", time: "14:00", seat: "12B", status: "Confirmado" },
 ];
 
 export default function AreaDoClientePage() {
+  // Mantido para futuras abas do painel; hoje a tela foca no resumo de viagens.
   const [activeTab, setActiveTab] = useState("trips");
 
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -53,13 +56,13 @@ export default function AreaDoClientePage() {
         </div>
       </section>
 
-      {/* Dashboard */}
+      {/* area principal do painel do cliente. */}
       <section className="py-8 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-4 gap-6">
-              {/* Sidebar Menu */}
+              {/* Menu lateral com atalhos para recursos da conta do passageiro. */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -72,7 +75,7 @@ export default function AreaDoClientePage() {
                       key={item.label}
                       href={item.href}
                       className={`flex items-center gap-3 px-6 py-4 transition-colors ${
-                        index !== menuItems.length - 1 ? "border-b border-white/5" : ""
+                        index !== menuItems.length - 1 ?"border-b border-white/5" : ""
                       } hover:bg-white/5`}
                     >
                       <item.icon className="w-5 h-5 text-cyan" />
@@ -83,14 +86,14 @@ export default function AreaDoClientePage() {
                 </div>
               </motion.div>
 
-              {/* Main Content */}
+              {/* Conteudo principal ao lado do menu. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="md:col-span-3 space-y-6"
               >
-                {/* Quick Stats */}
+                {/* Indicadores rapidos do cliente. */}
                 <div className="grid grid-cols-3 gap-4">
                   <div className="glass-card p-6 text-center">
                     <p className="text-3xl font-bold text-gradient">12</p>
@@ -106,7 +109,7 @@ export default function AreaDoClientePage() {
                   </div>
                 </div>
 
-                {/* Upcoming Trips */}
+                {/* Lista das proximas viagens confirmadas. */}
                 <div className="glass-card p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
@@ -148,7 +151,7 @@ export default function AreaDoClientePage() {
                   </div>
                 </div>
 
-                {/* Promotions */}
+                {/* Card promocional dentro do painel. */}
                 <div className="glass-card p-6 bg-gradient-to-r from-primary/10 to-cyan/10">
                   <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <div>

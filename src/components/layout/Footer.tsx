@@ -15,6 +15,7 @@ import {
   Bus,
 } from "lucide-react";
 
+// Links agrupados por coluna para manter o rodape facil de atualizar.
 const footerLinks = {
   servicos: [
     { href: "/passagens", label: "Comprar Passagens" },
@@ -42,6 +43,7 @@ const footerLinks = {
   ],
 };
 
+// Redes sociais exibidas como botoes circulares com Icones.
 const socialLinks = [
   { href: "#", icon: Facebook, label: "Facebook" },
   { href: "#", icon: Instagram, label: "Instagram" },
@@ -49,6 +51,7 @@ const socialLinks = [
   { href: "#", icon: Youtube, label: "YouTube" },
 ];
 
+// Rodape global com newsletter, navegacao secundaria, contato e informacoes legais.
 export function Footer() {
   return (
     <footer className="relative overflow-hidden">
@@ -57,7 +60,7 @@ export function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-glow-cyan opacity-30 blur-3xl" />
 
       <div className="relative section-padding pt-20 pb-8">
-        {/* Newsletter Section */}
+        {/* Newsletter: captura e-mail para ofertas e novidades. */}
         <div className="max-w-6xl mx-auto mb-16">
           <div className="glass-card p-8 md:p-12 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/20 to-cyan/20 rounded-full blur-3xl" />
@@ -89,10 +92,10 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Main Footer Content */}
+        {/* Conteudo principal do rodape. */}
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-            {/* Brand Column */}
+            {/* Coluna com marca, descricao e redes sociais. */}
             <div className="lg:col-span-2">
               <Link href="/" className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 flex items-center justify-center relative">
@@ -127,7 +130,7 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Links Columns */}
+            {/* Colunas de links renderizadas a partir do objeto footerLinks. */}
             <div>
               <h4 className="text-sm font-semibold text-ice mb-4 uppercase tracking-wider">
                 Serviços
@@ -201,7 +204,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Bottom Bar */}
+          {/* Faixa final com copyright e links legais. */}
           <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-ice/40 text-center md:text-left">

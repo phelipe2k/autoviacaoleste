@@ -13,15 +13,18 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Define as abas permitidas no formulario para manter o estado tipado e evitar valores invalidos.
 type TabType = "passagens" | "viagens" | "horarios";
 
 export function BookingSearch() {
+  // Estados controlam a aba ativa e os campos digitados pelo usuario na busca.
   const [activeTab, setActiveTab] = useState<TabType>("passagens");
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [passengers, setPassengers] = useState(1);
 
+  // Configuracao das abas: cada item informa o identificador, texto e icone exibido.
   const tabs = [
     { id: "passagens" as TabType, label: "Passagens", icon: Ticket },
     { id: "viagens" as TabType, label: "Minhas Viagens", icon: Briefcase },
@@ -36,7 +39,7 @@ export function BookingSearch() {
       className="relative z-20"
     >
       <div className="glass-card overflow-hidden">
-        {/* Tabs */}
+        {/* Abas superiores alternam entre compra de passagens, viagens e consulta de horarios. */}
         <div className="flex border-b border-white/10">
           {tabs.map((tab) => (
             <button
@@ -45,7 +48,7 @@ export function BookingSearch() {
               className={cn(
                 "flex items-center gap-2 px-6 py-4 text-sm font-medium transition-all duration-300",
                 activeTab === tab.id
-                  ? "text-cyan border-b-2 border-cyan bg-cyan/5"
+                  ?"text-cyan border-b-2 border-cyan bg-cyan/5"
                   : "text-ice/60 hover:text-ice hover:bg-white/5"
               )}
             >
@@ -57,6 +60,7 @@ export function BookingSearch() {
 
         {/* Form Content */}
         <div className="p-6">
+          {/* Formulario principal de busca de passagens. */}
           {activeTab === "passagens" && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -127,7 +131,7 @@ export function BookingSearch() {
                   >
                     {[1, 2, 3, 4, 5, 6].map((num) => (
                       <option key={num} value={num}>
-                        {num} {num === 1 ? "passageiro" : "passageiros"}
+                        {num} {num === 1 ?"passageiro" : "passageiros"}
                       </option>
                     ))}
                   </select>
@@ -144,6 +148,7 @@ export function BookingSearch() {
             </motion.div>
           )}
 
+          {/* Atalho para a area onde o cliente acompanha compras ja realizadas. */}
           {activeTab === "viagens" && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -160,6 +165,7 @@ export function BookingSearch() {
             </motion.div>
           )}
 
+          {/* Consulta simplificada para verificar horarios entre duas cidades. */}
           {activeTab === "horarios" && (
             <motion.div
               initial={{ opacity: 0 }}

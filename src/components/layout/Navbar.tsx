@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, User, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Lista centralizada dos links de navegacao; facilita alterar nomes ou rotas em um unico lugar.
 const navItems = [
   { href: "/", label: "Início" },
   { href: "/passagens", label: "Passagens" },
@@ -18,10 +19,12 @@ const navItems = [
 ];
 
 export function Navbar() {
+  // isScrolled muda o visual do cabecalho apos a rolagem; isMobileMenuOpen controla o menu mobile.
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Observa o scroll da janela para aplicar fundo e borda quando o usuario sai do topo.
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -39,7 +42,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-dark/90 backdrop-blur-xl border-b border-white/5 py-3"
+            ?"bg-dark/90 backdrop-blur-xl border-b border-white/5 py-3"
             : "bg-transparent py-5"
         )}
       >
@@ -62,7 +65,7 @@ export function Navbar() {
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Menu desktop: destaca automaticamente o link da rota atual. */}
             <div className="hidden lg:flex items-center gap-8">
               {navItems.map((item) => (
                 <Link
@@ -71,7 +74,7 @@ export function Navbar() {
                   className={cn(
                     "relative text-sm font-medium transition-all duration-300 py-2",
                     pathname === item.href
-                      ? "text-cyan"
+                      ?"text-cyan"
                       : "text-ice/70 hover:text-ice"
                   )}
                 >
@@ -103,12 +106,12 @@ export function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Botao do menu mobile: alterna entre icone de abrir e fechar. */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10"
             >
-              {isMobileMenuOpen ? (
+              {isMobileMenuOpen ?(
                 <X className="w-5 h-5 text-cyan" />
               ) : (
                 <Menu className="w-5 h-5 text-ice" />
@@ -118,7 +121,7 @@ export function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Menu mobile animado, exibido apenas quando isMobileMenuOpen esta ativo. */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -153,7 +156,7 @@ export function Navbar() {
                       className={cn(
                         "flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300",
                         pathname === item.href
-                          ? "bg-primary/10 text-cyan border border-primary/20"
+                          ?"bg-primary/10 text-cyan border border-primary/20"
                           : "text-ice/70 hover:bg-white/5 hover:text-ice"
                       )}
                     >

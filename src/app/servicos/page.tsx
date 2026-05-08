@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ServicesSection } from "@/components/services/ServicesSection";
 import { Building2, Users, Briefcase, Bus, ArrowRight, CheckCircle } from "lucide-react";
 
+// Versao detalhada dos servicos, usada na pagina especifica de servicos.
 const detailedServices = [
   {
     icon: Building2,
@@ -65,12 +66,13 @@ const detailedServices = [
   },
 ];
 
+// Pagina de servicos: detalha solucoes comerciais e leva o usuario para contato.
 export default function ServicosPage() {
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero da pagina: apresenta o assunto principal da rota. */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
@@ -97,7 +99,7 @@ export default function ServicosPage() {
         </div>
       </section>
 
-      {/* Detailed Services */}
+      {/* Cards detalhados com descricao, beneficios e chamada de acao de cada servico. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
@@ -141,7 +143,7 @@ export default function ServicosPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Chamada final para demandas personalizadas que nao aparecem nos cards. */}
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-dark to-dark-light" />
         <div className="relative section-padding">

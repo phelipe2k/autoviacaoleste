@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 
+// Secao final de conversao com botoes de acao e canais rapidos de contato.
 export function CTASection() {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background */}
+      {/* Fundo da secao, normalmente com degrade escuro. */}
       <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-lighter to-dark" />
       
       {/* Decorative Glow */}
@@ -21,7 +22,7 @@ export function CTASection() {
             transition={{ duration: 0.6 }}
             className="glass-card p-8 md:p-16 text-center relative overflow-hidden"
           >
-            {/* Background Pattern */}
+            {/* Padrao discreto no fundo para dar profundidade sem competir com o texto. */}
             <div className="absolute inset-0 opacity-10">
               <div 
                 className="absolute inset-0"
@@ -46,7 +47,7 @@ export function CTASection() {
                 </span>
               </motion.div>
 
-              {/* Title */}
+              {/* Titulo do card. */}
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +59,7 @@ export function CTASection() {
                 <span className="block text-gradient">com Conforto?</span>
               </motion.h2>
 
-              {/* Description */}
+              {/* Descricao curta do card. */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +71,7 @@ export function CTASection() {
                 passageiros escolhem a Auto Viação Leste para suas viagens.
               </motion.p>
 
-              {/* CTA Buttons */}
+              {/* Botoes principais direcionam para compra de passagem ou atendimento. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +88,7 @@ export function CTASection() {
                 </button>
               </motion.div>
 
-              {/* Contact Info */}
+              {/* Canais de contato exibidos como links praticos. */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
