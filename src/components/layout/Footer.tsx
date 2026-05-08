@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   MapPin,
@@ -98,14 +99,14 @@ export function Footer() {
             {/* Coluna com marca, descricao e redes sociais. */}
             <div className="lg:col-span-2">
               <Link href="/" className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary to-cyan rounded-full opacity-20" />
-                  <div className="absolute inset-0 border border-primary/50 rounded-full" />
-                  <span className="text-2xl font-bold text-gradient font-display">
-                    AVL
-                  </span>
-                </div>
-                <div>
+                <Image
+                  src="/images/logo-transparente.png"
+                  alt="Auto Viação Leste"
+                  width={64}
+                  height={64}
+                  className="h-16 w-16 object-contain"
+                />
+                <div className="sr-only">
                   <p className="text-sm font-semibold text-ice font-display tracking-wider">
                     AUTO VIAÇÃO
                   </p>

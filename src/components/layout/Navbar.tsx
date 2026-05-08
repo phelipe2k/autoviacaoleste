@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, User, ChevronRight } from "lucide-react";
@@ -50,14 +51,15 @@ export function Navbar() {
           <nav className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary to-cyan rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
-                <div className="absolute inset-0 border border-primary/50 rounded-full" />
-                <span className="text-2xl font-bold text-gradient font-display">
-                  AVL
-                </span>
-              </div>
-              <div className="hidden sm:block">
+              <Image
+                src="/images/logo-transparente.png"
+                alt="Auto Viação Leste"
+                width={56}
+                height={56}
+                priority
+                className="h-14 w-14 object-contain transition-opacity group-hover:opacity-90"
+              />
+              <div className="sr-only">
                 <p className="text-sm font-semibold text-ice font-display tracking-wider">
                   AUTO VIAÇÃO
                 </p>

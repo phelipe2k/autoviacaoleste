@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description: "Viagens intermunicipais com segurança, pontualidade e o conforto que você merece. Mais de 120 rotas conectando destinos com frota moderna.",
   keywords: ["ônibus", "viagem", "transporte", "intermunicipal", "fretamento", "turismo", "Auto Viação Leste"],
   authors: [{ name: "Auto Viação Leste" }],
+  icons: {
+    icon: "/images/favicon-64.png",
+    shortcut: "/images/favicon-32.png",
+    apple: "/images/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Auto Viação Leste | Conforto que Conecta Destinos",
     description: "Viagens intermunicipais com segurança, pontualidade e conforto.",

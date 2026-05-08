@@ -28,5 +28,19 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9.17.0",
     "eslint-config-next": "15.1.0"
-  }
+  },
+  "description": "",
+  "main": "script.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phelipe2k/autoviacaoleste.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/phelipe2k/autoviacaoleste/issues"
+  },
+  "homepage": "https://github.com/phelipe2k/autoviacaoleste#readme"
 }
