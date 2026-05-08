@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "@/styles/globals.css";
+import { publicPath } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,9 +22,9 @@ export const metadata: Metadata = {
   keywords: ["ônibus", "turismo", "excursão", "roteiros turísticos", "viagens em grupo", "Auto Viação Leste"],
   authors: [{ name: "Auto Viação Leste" }],
   icons: {
-    icon: "/images/favicon-64.png",
-    shortcut: "/images/favicon-32.png",
-    apple: "/images/apple-touch-icon.png",
+    icon: publicPath("/images/favicon-64.png"),
+    shortcut: publicPath("/images/favicon-32.png"),
+    apple: publicPath("/images/apple-touch-icon.png"),
   },
   openGraph: {
     title: "Auto Viação Leste | Turismo Rodoviário e Excursões",

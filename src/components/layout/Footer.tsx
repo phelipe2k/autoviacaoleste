@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from "lucide-react";
+import { publicPath } from "@/lib/site";
 
 const footerLinks = {
   servicos: [
@@ -80,7 +81,7 @@ export function Footer() {
             <div className="lg:col-span-2">
               <Link href="/" className="flex items-center gap-3 mb-6">
                 <Image
-                  src="/images/logo-transparente.webp"
+                  src={publicPath("/images/logo-transparente.webp")}
                   alt="Auto Viação Leste"
                   width={64}
                   height={64}

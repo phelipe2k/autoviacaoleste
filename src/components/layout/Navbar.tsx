@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, User, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { publicPath } from "@/lib/site";
 
 const navItems = [
   { href: "/", label: "Início" },
@@ -48,7 +49,7 @@ export function Navbar() {
           <nav className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 group">
               <Image
-                src="/images/logo-transparente.webp"
+                src={publicPath("/images/logo-transparente.webp")}
                 alt="Auto Viação Leste"
                 width={56}
                 height={56}
