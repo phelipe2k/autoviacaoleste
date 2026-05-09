@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -12,12 +13,12 @@ const detailedServices = [
     title: "Excursões turísticas",
     description: "Roteiros turísticos para grupos, excursões, passeios e eventos especiais sob consulta.",
     features: [
-      "Contratos flexíveis e personalizados",
-      "Frota dedicada exclusiva",
-      "Motoristas uniformizados e treinados",
-      "Rastreamento GPS em tempo real",
-      "Relatórios de utilização detalhados",
-      "Atendimento 24 horas",
+      "Roteiros flexíveis e personalizados",
+      "Frota adequada ao perfil do grupo",
+      "Motoristas treinados para viagens",
+      "Embarque e retorno combinados",
+      "Paradas planejadas conforme roteiro",
+      "Atendimento comercial por WhatsApp",
     ],
     cta: "Solicitar Orçamento",
   },
@@ -40,26 +41,26 @@ const detailedServices = [
     title: "Passeios turísticos",
     description: "Viagens turísticas para eventos, encontros, praias, cidades históricas e experiências culturais.",
     features: [
-      "Pontualidade garantida",
-      "Wi-Fi premium de alta velocidade",
-      "Ambiente silencioso para trabalho",
-      "Atendimento VIP exclusivo",
-      "Flexibilidade de horários",
-      "Faturamento facilitado",
+      "Planejamento de ida e volta",
+      "Apoio para definir horários",
+      "Conforto durante o trajeto",
+      "Atendimento para eventos e grupos",
+      "Flexibilidade conforme disponibilidade",
+      "Orçamento alinhado ao roteiro",
     ],
     cta: "Conhecer Mais",
   },
   {
     icon: Bus,
     title: "Grupos turísticos",
-    description: "Segurança máxima no transporte de estudantes, com rigorosos padrões de qualidade e certificações.",
+    description: "Transporte turístico para grupos que precisam de conforto, segurança e orientação comercial clara.",
     features: [
       "Motoristas experientes em viagens turísticas",
       "Veículos monitorados constantemente",
-      "Certificação de segurança veicular",
-      "Rastreamento GPS para pais",
-      "Aplicativo de acompanhamento",
-      "Monitores a bordo (opcional)",
+      "Rotina de manutenção preventiva",
+      "Apoio antes da confirmação da viagem",
+      "Comunicação direta com a equipe",
+      "Acompanhamento comercial opcional",
     ],
     cta: "Saiba Mais",
   },
@@ -131,10 +132,10 @@ export default function ServicosPage() {
                     ))}
                   </ul>
                   
-                  <button className="btn-primary flex items-center gap-2">
+                  <Link href="/contato" className="btn-primary flex items-center gap-2">
                     {service.cta}
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -161,13 +162,13 @@ export default function ServicosPage() {
                 personalizada para sua necessidade específica.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="btn-primary flex items-center justify-center gap-2">
+                <Link href="/contato" className="btn-primary flex items-center justify-center gap-2">
                   Falar com Especialista
                   <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="btn-outline flex items-center justify-center gap-2">
+                </Link>
+                <Link href="/servicos" className="btn-outline flex items-center justify-center gap-2">
                   Ver Todos os Serviços
-                </button>
+                </Link>
               </div>
             </motion.div>
           </div>

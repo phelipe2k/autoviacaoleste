@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight, Clock, Calendar } from "lucide-react";
 import { useState } from "react";
@@ -189,10 +190,10 @@ export function DestinationsSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center mt-12"
           >
-            <button className="btn-outline inline-flex items-center gap-2 px-8 py-4 text-base">
+            <Link href="/destinos" className="btn-outline inline-flex items-center gap-2 px-8 py-4 text-base">
               Consultar roteiro
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </motion.div>
         </div>
       </div>

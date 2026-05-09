@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import { companyContact } from "@/lib/contact";
 
 export function CTASection() {
   return (
@@ -69,13 +71,13 @@ export function CTASection() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
               >
-                <button className="btn-primary flex items-center gap-2 px-8 py-4 text-lg">
+                <Link href="/passagens" className="btn-primary flex items-center gap-2 px-8 py-4 text-lg">
                   Solicitar orçamento
                   <ArrowRight className="w-5 h-5" />
-                </button>
-                <button className="btn-outline flex items-center gap-2 px-8 py-4 text-lg">
+                </Link>
+                <Link href="/contato" className="btn-outline flex items-center gap-2 px-8 py-4 text-lg">
                   Fale conosco
-                </button>
+                </Link>
               </motion.div>
 
               <motion.div
@@ -86,22 +88,22 @@ export function CTASection() {
                 className="flex flex-col md:flex-row items-center justify-center gap-8 pt-8 border-t border-white/10"
               >
                 <a
-                  href="tel:+553330000000"
+                  href={companyContact.phoneHref}
                   className="flex items-center gap-3 text-ice/70 hover:text-cyan transition-colors"
                 >
                   <div className="w-10 h-10 rounded-full bg-cyan/10 flex items-center justify-center">
                     <Phone className="w-4 h-4 text-cyan" />
                   </div>
-                  <span>(33) 3000-0000</span>
+                  <span>{companyContact.phoneDisplay}</span>
                 </a>
                 <a
-                  href="mailto:contato@viacaoleste.com.br"
+                  href={`mailto:${companyContact.email}`}
                   className="flex items-center gap-3 text-ice/70 hover:text-cyan transition-colors"
                 >
                   <div className="w-10 h-10 rounded-full bg-cyan/10 flex items-center justify-center">
                     <Mail className="w-4 h-4 text-cyan" />
                   </div>
-                  <span>contato@viacaoleste.com.br</span>
+                  <span>{companyContact.email}</span>
                 </a>
                 <div className="flex items-center gap-3 text-ice/70">
                   <div className="w-10 h-10 rounded-full bg-cyan/10 flex items-center justify-center">

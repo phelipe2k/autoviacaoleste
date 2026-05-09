@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MapPin, Search, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
+// Lista base dos destinos exibidos e filtrados na pagina.
 const allDestinations = [
   { city: "Governador Valadares", state: "MG", coverage: "Base de saída", image: "/images/destinations/gv.jpg" },
   { city: "Rio de Janeiro", state: "RJ", coverage: "Turismo sob consulta", image: "/images/destinations/rj.jpg" },
@@ -18,9 +20,12 @@ const allDestinations = [
 ];
 
 export default function DestinosPage() {
+  // Texto digitado no campo de busca por cidade ou estado.
   const [searchTerm, setSearchTerm] = useState("");
+  // Regiao selecionada no filtro lateral do campo de busca.
   const [selectedRegion, setSelectedRegion] = useState("todos");
 
+  // Aplica busca textual e filtro regional antes de renderizar os cards.
   const filteredDestinations = allDestinations.filter((dest) => {
     const matchesSearch =
       dest.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -102,21 +107,25 @@ export default function DestinosPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group glass-card overflow-hidden cursor-pointer hover:border-cyan/30 transition-all duration-300"
                 >
-                  <div className="h-40 bg-gradient-to-br from-teal/20 to-cyan/10 flex items-center justify-center">
-                    <MapPin className="w-12 h-12 text-cyan/30" />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-cyan transition-colors">
-                      {dest.city}
-                    </h3>
-                    <p className="text-sm text-ice/60">{dest.state}</p>
-                    <div className="flex items-center justify-between mt-3">
-                      <span className="text-xs text-cyan">{dest.coverage}</span>
-                      <ArrowRight className="w-4 h-4 text-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <Link
+                    href="/contato"
+                    className="group block glass-card overflow-hidden hover:border-cyan/30 transition-all duration-300"
+                  >
+                    <div className="h-40 bg-gradient-to-br from-teal/20 to-cyan/10 flex items-center justify-center">
+                      <MapPin className="w-12 h-12 text-cyan/30" />
                     </div>
-                  </div>
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold text-white group-hover:text-cyan transition-colors">
+                        {dest.city}
+                      </h3>
+                      <p className="text-sm text-ice/60">{dest.state}</p>
+                      <div className="flex items-center justify-between mt-3">
+                        <span className="text-xs text-cyan">{dest.coverage}</span>
+                        <ArrowRight className="w-4 h-4 text-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>

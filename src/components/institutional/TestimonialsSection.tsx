@@ -143,12 +143,16 @@ export function TestimonialsSection() {
               {/* Botoes laterais navegam entre os depoimentos. */}
               <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
                 <button
+                  type="button"
+                  aria-label="Depoimento anterior"
                   onClick={prevTestimonial}
                   className="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-cyan/20 transition-colors pointer-events-auto"
                 >
                   <ChevronLeft className="w-5 h-5 text-cyan" />
                 </button>
                 <button
+                  type="button"
+                  aria-label="Próximo depoimento"
                   onClick={nextTestimonial}
                   className="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-cyan/20 transition-colors pointer-events-auto"
                 >
@@ -162,10 +166,12 @@ export function TestimonialsSection() {
               {testimonials.map((_, index) => (
                 <button
                   key={index}
+                  type="button"
+                  aria-label={`Ver depoimento ${index + 1}`}
                   onClick={() => setActiveIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === activeIndex
-                      ?"bg-cyan w-8"
+                      ? "bg-cyan w-8"
                       : "bg-ice/20 hover:bg-ice/40"
                   }`}
                 />

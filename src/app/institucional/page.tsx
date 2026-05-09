@@ -7,7 +7,7 @@ import { Target, Eye, Heart, Award, Users, Clock, MapPin, TrendingUp } from "luc
 
 // Valores institucionais exibidos em cards.
 const values = [
-  { icon: Heart, title: "Compromisso", description: "Dedicação total é satisfação dos nossos passageiros e clientes." },
+  { icon: Heart, title: "Compromisso", description: "Dedicação total à satisfação dos nossos passageiros e clientes." },
   { icon: Award, title: "Excelência", description: "Busca constante pela qualidade em todos os nossos serviços." },
   { icon: Users, title: "Respeito", description: "Valorização das pessoas: passageiros, colaboradores e parceiros." },
   { icon: Clock, title: "Pontualidade", description: "Respeito ao tempo de quem confia em nossos serviços." },
@@ -66,7 +66,7 @@ export default function InstitucionalPage() {
       </section>
 
       {/* Bloco com missao, visao e valores principais da marca. */}
-      <section className="py-16 relative">
+      <section id="valores" className="py-16 relative">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
           <div className="max-w-6xl mx-auto">
@@ -140,7 +140,7 @@ export default function InstitucionalPage() {
               ))}
             </div>
 
-            {/* Stats */}
+            {/* Indicadores resumem a experiencia e o posicionamento atual da empresa. */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
                 <motion.div
@@ -162,7 +162,7 @@ export default function InstitucionalPage() {
       </section>
 
       {/* Linha do tempo visual alterna cards a esquerda e direita no desktop. */}
-      <section className="py-24 relative">
+      <section id="historia" className="py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-dark to-dark-light" />
         <div className="relative section-padding">
           <div className="max-w-4xl mx-auto">
@@ -182,22 +182,22 @@ export default function InstitucionalPage() {
             </motion.div>
 
             <div className="relative">
-              {/* Timeline Line */}
+              {/* Linha central da timeline no desktop. */}
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan via-primary to-cyan transform -translate-x-1/2 hidden md:block" />
 
               <div className="space-y-12">
                 {timeline.map((item, index) => (
                   <motion.div
                     key={item.year}
-                    initial={{ opacity: 0, x: index % 2 === 0 ?-30 : 30 }}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     className={`flex flex-col md:flex-row items-center gap-8 ${
-                      index % 2 === 0 ?"md:flex-row" : "md:flex-row-reverse"
+                      index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                     }`}
                   >
-                    <div className={`flex-1 ${index % 2 === 0 ?"md:text-right" : "md:text-left"}`}>
+                    <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
                       <div className="glass-card p-6 inline-block max-w-md">
                         <h3 className="text-xl font-bold text-cyan mb-2">{item.title}</h3>
                         <p className="text-ice/70">{item.description}</p>

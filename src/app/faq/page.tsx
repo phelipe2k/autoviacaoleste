@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Search, ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
+// Categorias usadas como filtros rapidos da lista de perguntas.
 const categories = [
   { id: "geral", label: "Geral" },
   { id: "solicitacoes", label: "Solicitações" },
@@ -54,10 +56,14 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+  // Termo usado para pesquisar dentro de perguntas e respostas.
   const [searchTerm, setSearchTerm] = useState("");
+  // Categoria selecionada; "todos" mostra todas as perguntas.
   const [activeCategory, setActiveCategory] = useState("todos");
+  // Guarda qual pergunta esta aberta no acordeao.
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  // Combina busca e categoria para exibir somente perguntas relevantes.
   const filteredFaqs = faqs.filter((faq) => {
     const matchesSearch =
       faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -108,6 +114,7 @@ export default function FAQPage() {
           <div className="max-w-4xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-wrap justify-center gap-2 mb-12">
               <button
+                type="button"
                 onClick={() => setActiveCategory("todos")}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   activeCategory === "todos" ? "bg-cyan text-dark" : "bg-white/5 text-ice/70 hover:bg-white/10"
@@ -118,6 +125,7 @@ export default function FAQPage() {
               {categories.map((cat) => (
                 <button
                   key={cat.id}
+                  type="button"
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     activeCategory === cat.id ? "bg-cyan text-dark" : "bg-white/5 text-ice/70 hover:bg-white/10"
@@ -131,7 +139,12 @@ export default function FAQPage() {
             <div className="space-y-4">
               {filteredFaqs.map((faq, index) => (
                 <motion.div key={faq.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }} className="glass-card overflow-hidden">
-                  <button onClick={() => setOpenFaq(openFaq === faq.id ? null : faq.id)} className="w-full flex items-center justify-between p-6 text-left">
+                  <button
+                    type="button"
+                    aria-expanded={openFaq === faq.id}
+                    onClick={() => setOpenFaq(openFaq === faq.id ? null : faq.id)}
+                    className="w-full flex items-center justify-between p-6 text-left"
+                  >
                     <span className="text-white font-medium pr-4">{faq.question}</span>
                     <ChevronDown className={`w-5 h-5 text-cyan shrink-0 transition-transform ${openFaq === faq.id ? "rotate-180" : ""}`} />
                   </button>
@@ -157,8 +170,8 @@ export default function FAQPage() {
               <h3 className="text-xl font-bold text-white mb-2">Não encontrou sua dúvida?</h3>
               <p className="text-ice/70 mb-6">Nossa equipe de atendimento está pronta para ajudar você.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="btn-primary">Falar com Atendente</button>
-                <button className="btn-outline">Ver todos os contatos</button>
+                <Link href="/contato" className="btn-primary">Falar com Atendente</Link>
+                <Link href="/contato" className="btn-outline">Ver todos os contatos</Link>
               </div>
             </motion.div>
           </div>

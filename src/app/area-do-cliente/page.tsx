@@ -1,18 +1,22 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { User, ClipboardList, Clock, Bell, Settings, ChevronRight, Bus, MessageCircle } from "lucide-react";
+import { whatsappUrl } from "@/lib/contact";
 
+// Opcoes do menu lateral apontam para rotas existentes, evitando links vazios.
 const menuItems = [
-  { icon: ClipboardList, label: "Minhas Solicitações", href: "#" },
-  { icon: Clock, label: "Histórico de Atendimento", href: "#" },
-  { icon: Bell, label: "Notificações", href: "#" },
-  { icon: User, label: "Dados Pessoais", href: "#" },
-  { icon: Settings, label: "Configurações", href: "#" },
+  { icon: ClipboardList, label: "Minhas Solicitações", href: "/minhas-viagens" },
+  { icon: Clock, label: "Histórico de Atendimento", href: "/minhas-viagens" },
+  { icon: Bell, label: "Notificações", href: "/contato" },
+  { icon: User, label: "Dados Pessoais", href: "/contato" },
+  { icon: Settings, label: "Configurações", href: "/contato" },
 ];
 
+// Solicitações simuladas para apresentar o estado do acompanhamento.
 const requests = [
   { id: "AVL001", route: "Governador Valadares -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "Em análise" },
   { id: "AVL002", route: "Grupo turístico -> Evento", date: "20/06/2026", time: "A combinar", status: "Aguardando retorno" },
@@ -61,7 +65,7 @@ export default function AreaDoClientePage() {
               >
                 <div className="glass-card overflow-hidden">
                   {menuItems.map((item, index) => (
-                    <a
+                    <Link
                       key={item.label}
                       href={item.href}
                       className={`flex items-center gap-3 px-6 py-4 transition-colors ${
@@ -71,7 +75,7 @@ export default function AreaDoClientePage() {
                       <item.icon className="w-5 h-5 text-cyan" />
                       <span className="text-ice/80 text-sm">{item.label}</span>
                       <ChevronRight className="w-4 h-4 text-ice/40 ml-auto" />
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </motion.div>
@@ -103,9 +107,9 @@ export default function AreaDoClientePage() {
                       <Bus className="w-5 h-5 text-cyan" />
                       Solicitações Recentes
                     </h2>
-                    <button className="text-sm text-cyan hover:underline">
+                    <Link href="/minhas-viagens" className="text-sm text-cyan hover:underline">
                       Ver todas
-                    </button>
+                    </Link>
                   </div>
 
                   <div className="space-y-4">
@@ -129,9 +133,9 @@ export default function AreaDoClientePage() {
                           <span className="px-3 py-1 rounded-full bg-cyan/20 text-cyan text-xs font-medium">
                             {request.status}
                           </span>
-                          <button className="btn-outline text-sm px-4 py-2">
+                          <Link href="/minhas-viagens" className="btn-outline text-sm px-4 py-2">
                             Ver solicitação
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     ))}
@@ -149,10 +153,15 @@ export default function AreaDoClientePage() {
                         Envie novas informações sobre data, destino, quantidade de pessoas ou roteiro.
                       </p>
                     </div>
-                    <button className="btn-primary whitespace-nowrap inline-flex items-center gap-2">
+                    <a
+                      href={whatsappUrl("Olá! Gostaria de atualizar uma solicitação da Auto Viação Leste.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary whitespace-nowrap inline-flex items-center gap-2"
+                    >
                       <MessageCircle className="w-4 h-4" />
                       Fale conosco
-                    </button>
+                    </a>
                   </div>
                 </div>
               </motion.div>

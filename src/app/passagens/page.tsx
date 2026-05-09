@@ -1,12 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BookingSearch } from "@/components/booking/BookingSearch";
-import { MapPin, ArrowRight, Clock, Calendar, Filter, MessageCircle } from "lucide-react";
+import { MapPin, ArrowRight, Clock, Calendar, MessageCircle } from "lucide-react";
 import { useState } from "react";
+import { whatsappUrl } from "@/lib/contact";
 
+// Perfis de atendimento que substituem rotas fixas por orcamentos sob consulta.
 const serviceProfiles = [
   { from: "Grupo turístico", to: "Roteiro personalizado", status: "Sob consulta", timing: "Data combinada" },
   { from: "Grupo particular", to: "Evento ou excursão", status: "Sob orçamento", timing: "Agenda flexível" },
@@ -15,6 +18,7 @@ const serviceProfiles = [
 ];
 
 export default function PassagensPage() {
+  // Card selecionado pelo usuario para dar destaque visual ao perfil escolhido.
   const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
 
   return (
@@ -72,10 +76,6 @@ export default function PassagensPage() {
                   Atendimento voltado exclusivamente para orçamento de viagens turísticas sob consulta.
                 </p>
               </div>
-              <button className="btn-outline flex items-center gap-2 text-sm">
-                <Filter className="w-4 h-4" />
-                Filtrar
-              </button>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -117,9 +117,13 @@ export default function PassagensPage() {
                         </span>
                       </div>
                     </div>
-                    <button className="text-sm text-cyan hover:underline mt-1 whitespace-nowrap">
+                    <Link
+                      href="/contato"
+                      onClick={(event) => event.stopPropagation()}
+                      className="text-sm text-cyan hover:underline mt-1 whitespace-nowrap"
+                    >
                       Solicitar orçamento
-                    </button>
+                    </Link>
                   </div>
                 </motion.div>
               ))}
@@ -141,10 +145,15 @@ export default function PassagensPage() {
                     Conte o trajeto, a data e o perfil do grupo para avaliarmos a melhor opção disponível.
                   </p>
                 </div>
-                <button className="btn-primary whitespace-nowrap inline-flex items-center gap-2">
+                <a
+                  href={whatsappUrl("Olá! Gostaria de planejar uma viagem turística com a Auto Viação Leste.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary whitespace-nowrap inline-flex items-center gap-2"
+                >
                   <MessageCircle className="w-4 h-4" />
                   Fale conosco
-                </button>
+                </a>
               </div>
             </motion.div>
           </div>

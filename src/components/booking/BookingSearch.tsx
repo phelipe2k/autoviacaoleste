@@ -12,21 +12,34 @@ import {
   Route,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { whatsappUrl } from "@/lib/contact";
 
 type TabType = "orcamento" | "roteiro" | "whatsapp";
 
 export function BookingSearch() {
+  // Aba ativa define qual fluxo de atendimento aparece no box.
   const [activeTab, setActiveTab] = useState<TabType>("orcamento");
+  // Campos do pedido rapido de orcamento.
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [passengers, setPassengers] = useState(15);
 
+  // Abas disponiveis no componente de busca/contato.
   const tabs = [
     { id: "orcamento" as TabType, label: "Orçamento turístico", shortLabel: "Orçamento", icon: ClipboardList },
     { id: "roteiro" as TabType, label: "Montar roteiro", shortLabel: "Roteiro", icon: Route },
     { id: "whatsapp" as TabType, label: "WhatsApp", shortLabel: "WhatsApp", icon: MessageCircle },
   ];
+
+  // Mensagem enviada ao WhatsApp quando o usuario usa o formulario rapido.
+  const quoteMessage = [
+    "Olá! Gostaria de solicitar um orçamento turístico.",
+    origin ? `Saída: ${origin}` : "Saída: a definir",
+    destination ? `Destino: ${destination}` : "Destino: a definir",
+    date ? `Data: ${date}` : "Data: a definir",
+    `Grupo: até ${passengers} pessoas`,
+  ].join("\n");
 
   return (
     <motion.div
@@ -35,17 +48,18 @@ export function BookingSearch() {
       transition={{ duration: 0.8, delay: 0.5 }}
       className="relative z-20"
     >
-      <div className="glass-card overflow-hidden shadow-deep">
+      <div className="glass-card bg-dark-lighter/90 border-cyan/20 overflow-hidden shadow-deep">
         <div className="grid grid-cols-3 sm:flex border-b border-white/10">
           {tabs.map((tab) => (
             <button
+              type="button"
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
                 "min-w-0 flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-3.5 sm:py-4 text-[11px] sm:text-sm font-semibold sm:font-medium transition-all duration-300",
                 activeTab === tab.id
                   ? "text-cyan border-b-2 border-cyan bg-cyan/5"
-                  : "text-ice/60 hover:text-ice hover:bg-white/5"
+                  : "text-ice/80 hover:text-ice hover:bg-white/5"
               )}
             >
               <tab.icon className="w-4 h-4 shrink-0" />
@@ -73,7 +87,7 @@ export function BookingSearch() {
                     placeholder="Cidade de saída"
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/55 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -89,7 +103,7 @@ export function BookingSearch() {
                     placeholder="Praia, cidade ou evento"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/55 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -104,7 +118,7 @@ export function BookingSearch() {
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/55 border border-white/10 rounded-xl text-sm sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -118,7 +132,7 @@ export function BookingSearch() {
                   <select
                     value={passengers}
                     onChange={(e) => setPassengers(Number(e.target.value))}
-                    className="w-full pl-12 pr-4 py-3.5 bg-dark/55 border border-white/10 rounded-xl text-sm sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300 appearance-none cursor-pointer"
+                    className="w-full pl-12 pr-4 py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300 appearance-none cursor-pointer"
                   >
                     {[15, 25, 35, 45, 50].map((num) => (
                       <option key={num} value={num}>
@@ -130,10 +144,15 @@ export function BookingSearch() {
               </div>
 
               <div className="flex items-end">
-                <button className="w-full btn-primary flex items-center justify-center gap-2 py-3.5 text-sm sm:text-base">
+                <a
+                  href={whatsappUrl(quoteMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full btn-primary flex items-center justify-center gap-2 py-3.5 text-sm sm:text-base"
+                >
                   Solicitar orçamento
                   <ArrowRight className="w-5 h-5" />
-                </button>
+                </a>
               </div>
             </motion.div>
           )}
@@ -147,10 +166,15 @@ export function BookingSearch() {
               <p className="text-ice/60 mb-4">
                 Informe o destino desejado, quantidade de pessoas, cidade de saída e duração da viagem. A equipe ajuda a organizar uma proposta turística sob consulta.
               </p>
-              <button className="btn-outline inline-flex items-center gap-2">
+              <a
+                href={whatsappUrl("Olá! Gostaria de montar um roteiro turístico com a Auto Viação Leste.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline inline-flex items-center gap-2"
+              >
                 <Route className="w-4 h-4" />
                 Planejar roteiro turístico
-              </button>
+              </a>
             </motion.div>
           )}
 
@@ -163,10 +187,15 @@ export function BookingSearch() {
               <p className="text-ice/60 mb-4">
                 Prefere atendimento direto? Chame pelo WhatsApp para falar sobre excursões, grupos e destinos turísticos.
               </p>
-              <button className="btn-primary inline-flex items-center gap-2">
+              <a
+                href={whatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2"
+              >
                 <MessageCircle className="w-5 h-5" />
                 Falar no WhatsApp
-              </button>
+              </a>
             </motion.div>
           )}
         </div>

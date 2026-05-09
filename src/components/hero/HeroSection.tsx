@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Play,
   Armchair,
@@ -77,8 +78,8 @@ export function HeroSection() {
 
       <div className="relative z-30 section-padding pt-24 sm:pt-32 pb-10 sm:pb-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(280px,0.8fr)] gap-10 lg:gap-12 items-center min-h-[48vh] sm:min-h-[60vh]">
-            <div>
+          <div className="min-h-[48vh] sm:min-h-[60vh] flex items-center">
+            <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -122,7 +123,7 @@ export function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                    className="flex items-center sm:items-start gap-2.5 sm:gap-3 rounded-xl border border-white/10 bg-dark/40 p-3 sm:border-0 sm:bg-transparent sm:p-0 group"
+                    className="flex items-center sm:items-start gap-2.5 sm:gap-3 rounded-xl border border-white/10 bg-dark/60 p-3 backdrop-blur-md group"
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-cyan/10 border border-cyan/30 flex items-center justify-center shrink-0 group-hover:bg-cyan/20 transition-colors">
                       <feature.icon className="w-4 sm:w-5 h-4 sm:h-5 text-cyan" />
@@ -131,41 +132,13 @@ export function HeroSection() {
                       <p className="text-[11px] sm:text-xs font-semibold text-ice/90 leading-tight">
                         {feature.title}
                       </p>
-                      <p className="hidden sm:block text-[10px] text-ice/50 leading-tight mt-1">
+                      <p className="hidden sm:block text-[10px] text-ice/70 leading-tight mt-1">
                         {feature.description}
                       </p>
                     </div>
                   </motion.div>
                 ))}
               </motion.div>
-            </div>
-
-            <div className="hidden lg:block" aria-hidden="true">
-              <div className="relative min-h-[260px]">
-                <div className="absolute inset-0 bg-gradient-radial from-cyan/20 via-transparent to-transparent blur-2xl" />
-
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <div className="w-full h-full bg-gradient-to-br from-teal/30 to-cyan/20 rounded-2xl border border-cyan/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <Bus className="w-24 h-24 text-cyan/40 mx-auto mb-4" />
-                      <p className="text-cyan/60 text-sm">Imagem do ônibus</p>
-                      <p className="text-ice/40 text-xs mt-2">
-                        Substituir por imagem real
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1 }}
-                  className="absolute -bottom-4 -left-4 glass-card p-4"
-                >
-                  <p className="text-2xl font-bold text-gradient">30+</p>
-                  <p className="text-xs text-ice/60">Anos de experiência</p>
-                </motion.div>
-              </div>
             </div>
           </div>
 
@@ -205,7 +178,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 1.2 }}
             className="mt-6 sm:mt-8 flex justify-stretch sm:justify-end"
           >
-            <button className="group w-full sm:w-auto flex items-center gap-3 px-4 sm:px-6 py-3 glass-card hover:bg-cyan/10 transition-colors text-left">
+            <Link href="/institucional" className="group w-full sm:w-auto flex items-center gap-3 px-4 sm:px-6 py-3 glass-card hover:bg-cyan/10 transition-colors text-left">
               <div className="w-10 h-10 rounded-full bg-cyan/20 flex items-center justify-center shrink-0 group-hover:bg-cyan/30 transition-colors">
                 <Play className="w-4 h-4 text-cyan fill-current" />
               </div>
@@ -213,9 +186,9 @@ export function HeroSection() {
                 <p className="text-sm font-semibold text-ice leading-snug">
                   VIAJE COM QUEM PLANEJA CADA ROTEIRO.
                 </p>
-                <p className="text-xs text-cyan">Assista ao vídeo</p>
+                <p className="text-xs text-cyan">Conheça nossa história</p>
               </div>
-            </button>
+            </Link>
           </motion.div>
         </div>
       </div>

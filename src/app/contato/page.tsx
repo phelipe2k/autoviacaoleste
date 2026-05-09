@@ -5,11 +5,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { companyContact, whatsappUrl } from "@/lib/contact";
 
 // Canais de atendimento exibidos nos cards do topo.
 const contactInfo = [
-  { icon: Phone, title: "Telefone", content: "(33) 3000-0000", subcontent: "Segunda a Sexta, 8h às 20h" },
-  { icon: Mail, title: "E-mail", content: "contato@viacaoleste.com.br", subcontent: "Respondemos em 24h" },
+  { icon: Phone, title: "Telefone", content: companyContact.phoneDisplay, subcontent: "Segunda a Sexta, 8h às 20h" },
+  { icon: Mail, title: "E-mail", content: companyContact.email, subcontent: "Respondemos em 24h" },
   { icon: MapPin, title: "Sede", content: "Governador Valadares", subcontent: "Minas Gerais" },
   { icon: Clock, title: "Horário", content: "Atendimento 24h", subcontent: "Central de atendimento" },
 ];
@@ -32,11 +33,25 @@ export default function ContatoPage() {
     subject: "",
     message: "",
   });
+  // Feedback visual depois que o usuario envia a mensagem pelo formulario.
+  const [submitFeedback, setSubmitFeedback] = useState("");
 
-  // Envio temporario: impede recarregar a pagina e registra os dados; aqui entra a integracao real.
+  // Envio sem backend: abre o cliente de e-mail com os dados preenchidos e evita console/debug em producao.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    const emailBody = [
+      `Nome: ${formData.name}`,
+      `E-mail: ${formData.email}`,
+      `Telefone: ${formData.phone || "Não informado"}`,
+      `Assunto: ${formData.subject}`,
+      "",
+      formData.message,
+    ].join("\n");
+
+    window.location.href = `mailto:${companyContact.email}?subject=${encodeURIComponent(
+      formData.subject
+    )}&body=${encodeURIComponent(emailBody)}`;
+    setSubmitFeedback("Abrimos seu aplicativo de e-mail com a mensagem preenchida.");
   };
 
   return (
@@ -117,8 +132,9 @@ export default function ContatoPage() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm text-ice/70 mb-2">Nome</label>
+                      <label htmlFor="contact-name" className="block text-sm text-ice/70 mb-2">Nome</label>
                       <input
+                        id="contact-name"
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -128,8 +144,9 @@ export default function ContatoPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-ice/70 mb-2">E-mail</label>
+                      <label htmlFor="contact-email" className="block text-sm text-ice/70 mb-2">E-mail</label>
                       <input
+                        id="contact-email"
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -141,8 +158,9 @@ export default function ContatoPage() {
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm text-ice/70 mb-2">Telefone</label>
+                      <label htmlFor="contact-phone" className="block text-sm text-ice/70 mb-2">Telefone</label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -151,8 +169,9 @@ export default function ContatoPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-ice/70 mb-2">Assunto</label>
+                      <label htmlFor="contact-subject" className="block text-sm text-ice/70 mb-2">Assunto</label>
                       <select
+                        id="contact-subject"
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                         className="w-full px-4 py-3 bg-dark/50 border border-white/10 rounded-xl text-ice focus:outline-none focus:border-cyan/50"
@@ -166,8 +185,9 @@ export default function ContatoPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm text-ice/70 mb-2">Mensagem</label>
+                    <label htmlFor="contact-message" className="block text-sm text-ice/70 mb-2">Mensagem</label>
                     <textarea
+                      id="contact-message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       rows={5}
@@ -180,6 +200,9 @@ export default function ContatoPage() {
                     <Send className="w-4 h-4" />
                     Enviar Mensagem
                   </button>
+                  {submitFeedback && (
+                    <p className="text-sm text-cyan text-center">{submitFeedback}</p>
+                  )}
                 </form>
               </motion.div>
 
@@ -198,13 +221,18 @@ export default function ContatoPage() {
                     Atendimento via WhatsApp
                   </h3>
                   <p className="text-ice/70 mb-6">
-                    Prefere conversar pelo WhatsApp?Nossa equipe está disponível
+                    Prefere conversar pelo WhatsApp? Nossa equipe está disponível
                     para atender você em horário comercial.
                   </p>
-                  <button className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold transition-colors flex items-center justify-center gap-2">
+                  <a
+                    href={whatsappUrl("Olá! Gostaria de atendimento comercial da Auto Viação Leste.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold transition-colors flex items-center justify-center gap-2"
+                  >
                     <MessageCircle className="w-5 h-5" />
                     Iniciar Conversa
-                  </button>
+                  </a>
                 </div>
 
                 <div className="glass-card p-8">
@@ -215,8 +243,8 @@ export default function ContatoPage() {
                     Se você já entrou em contato com nossos canais de atendimento
                     e não ficou satisfeito, fale com nossa Ouvidoria.
                   </p>
-                  <a href="mailto:ouvidoria@viacaoleste.com.br" className="text-cyan hover:underline flex items-center gap-2">
-                    ouvidoria@viacaoleste.com.br
+                  <a href={`mailto:${companyContact.ombudsmanEmail}`} className="text-cyan hover:underline flex items-center gap-2">
+                    {companyContact.ombudsmanEmail}
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>

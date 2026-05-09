@@ -5,10 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, User, ChevronRight } from "lucide-react";
+import { Menu, X, MessageCircle, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { publicPath } from "@/lib/site";
+import { whatsappUrl } from "@/lib/contact";
 
+// Links principais do menu, usados tanto no desktop quanto no menu mobile.
 const navItems = [
   { href: "/", label: "Início" },
   { href: "/passagens", label: "Orçamento" },
@@ -20,11 +22,14 @@ const navItems = [
 ];
 
 export function Navbar() {
+  // Controla a versao compacta do header depois que o usuario rola a pagina.
   const [isScrolled, setIsScrolled] = useState(false);
+  // Controla a abertura do menu mobile.
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    // Mantem o visual do header sincronizado com a posicao atual da pagina.
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -88,21 +93,25 @@ export function Navbar() {
             </div>
 
             <div className="hidden lg:block">
-              <Link
-                href="/contato"
+              <a
+                href={whatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute inset-0 border border-cyan/50 rounded-full group-hover:border-cyan transition-colors duration-300" />
                 <div className="absolute inset-0 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.3)] transition-shadow duration-300" />
-                <User className="w-4 h-4 text-cyan" />
+                <MessageCircle className="w-4 h-4 text-cyan" />
                 <span className="text-sm font-medium text-ice">
                   WHATSAPP
                 </span>
-              </Link>
+              </a>
             </div>
 
             <button
+              type="button"
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden relative w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10"
             >
@@ -160,14 +169,16 @@ export function Navbar() {
                   </motion.div>
                 ))}
                 <div className="border-t border-white/10 my-3" />
-                <Link
-                  href="/contato"
+                <a
+                  href={whatsappUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-primary/20 to-cyan/20 rounded-xl border border-cyan/30 text-cyan font-medium"
                 >
-                  <User className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4" />
                   WHATSAPP
-                </Link>
+                </a>
               </div>
             </motion.nav>
           </motion.div>

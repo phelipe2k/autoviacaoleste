@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Calendar, Clock, MapPin, Bus, Eye, Search, Filter } from "lucide-react";
 import { useState } from "react";
 
+// Solicitações de exemplo usadas para demonstrar busca e filtro.
 const requests = [
   { id: "AVL-2026-001", route: "Governador Valadares -> Rio de Janeiro", date: "15/06/2026", time: "Sob consulta", status: "open", detail: "Grupo turístico" },
   { id: "AVL-2026-002", route: "Governador Valadares -> Belo Horizonte", date: "20/06/2026", time: "A combinar", status: "open", detail: "Orçamento solicitado" },
@@ -13,9 +15,12 @@ const requests = [
 ];
 
 export default function MinhasViagensPage() {
+  // Texto usado para buscar pelo trajeto ou identificador da solicitacao.
   const [searchTerm, setSearchTerm] = useState("");
+  // Status selecionado no filtro da listagem.
   const [filter, setFilter] = useState("all");
 
+  // Resultado final depois de aplicar busca e status.
   const filteredRequests = requests.filter((request) => {
     const matchesSearch =
       request.route.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -126,9 +131,14 @@ export default function MinhasViagensPage() {
                       >
                         {request.status === "open" ? "Em andamento" : "Concluída"}
                       </span>
-                      <button className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors" title="Ver solicitação">
+                      <Link
+                        href="/contato"
+                        className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                        title="Ver solicitação"
+                        aria-label={`Ver solicitação ${request.id}`}
+                      >
                         <Eye className="w-5 h-5 text-cyan" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

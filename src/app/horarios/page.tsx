@@ -1,17 +1,20 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BookingSearch } from "@/components/booking/BookingSearch";
 import { MapPin, ArrowRight, Clock, Calendar, Bus, Star } from "lucide-react";
 
+// Quadro demonstrativo de consultas futuras para viagens sob demanda.
 const futureSchedules = [
   { from: "Origem a definir", to: "Destino a definir", departure: "Sob consulta", arrival: "Sob consulta", duration: "A combinar", status: "Em estruturação", busType: "Executivo" },
   { from: "Excursão turística", to: "Roteiro personalizado", departure: "Agenda flexível", arrival: "Conforme roteiro", duration: "Sob orçamento", status: "Disponível para consulta", busType: "Turismo" },
   { from: "Grupo particular", to: "Evento ou excursão", departure: "Data desejada", arrival: "Conforme roteiro", duration: "Planejamento", status: "Sob consulta", busType: "Turismo" },
 ];
 
+// Tipos de atendimento exibidos acima da tabela.
 const serviceOptions = [
   { from: "Empresas", to: "Turismo", frequency: "Agenda sob consulta" },
   { from: "Grupos", to: "Excursões", frequency: "Roteiro personalizado" },
@@ -143,9 +146,9 @@ export default function HorariosPage() {
                           <span className="text-cyan font-semibold">{schedule.status}</span>
                         </td>
                         <td className="p-4 text-right">
-                          <button className="btn-primary text-sm px-4 py-2">
+                          <Link href="/contato" className="btn-primary text-sm px-4 py-2">
                             Consultar
-                          </button>
+                          </Link>
                         </td>
                       </tr>
                     ))}

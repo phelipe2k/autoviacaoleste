@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
@@ -69,7 +70,7 @@ const fleet = [
       wifi: "Disponível",
     },
     description:
-      "Qualidade e economia para suas viagens diárias.",
+      "Qualidade e economia para viagens turísticas planejadas.",
   },
 ];
 
@@ -122,7 +123,7 @@ export function FleetSection() {
                 onClick={() => setActiveIndex(index)}
                 className={`glass-card overflow-hidden cursor-pointer transition-all duration-500 ${
                   activeIndex === index
-                    ?"ring-2 ring-cyan/50 shadow-glow-cyan"
+                    ? "ring-2 ring-cyan/50 shadow-glow-cyan"
                     : "hover:ring-2 hover:ring-cyan/30"
                 }`}
               >
@@ -135,9 +136,9 @@ export function FleetSection() {
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${
                         bus.category === "Premium"
-                          ?"bg-primary text-dark"
+                          ? "bg-primary text-dark"
                           : bus.category === "Executivo"
-                          ?"bg-cyan text-dark"
+                          ? "bg-cyan text-dark"
                           : "bg-white/20 text-ice"
                       }`}
                     >
@@ -207,10 +208,10 @@ export function FleetSection() {
                 </h3>
                 <p className="text-ice/60">Recursos e diferenciais</p>
               </div>
-              <button className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 md:mt-0">
+              <Link href="/contato" className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 md:mt-0">
                 Ver Detalhes
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -243,10 +244,10 @@ export function FleetSection() {
             <p className="text-ice/60 mb-4">
               Quer conhecer nossa frota pessoalmente?
             </p>
-            <button className="btn-outline inline-flex items-center gap-2">
+            <Link href="/contato" className="btn-outline inline-flex items-center gap-2">
               Agende uma Visita
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </motion.div>
         </div>
       </div>

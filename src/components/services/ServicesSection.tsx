@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   MapPinned,
@@ -151,10 +152,10 @@ export function ServicesSection() {
                     ))}
                   </ul>
 
-                  <button className="flex items-center gap-2 text-cyan font-medium group-hover:gap-4 transition-all duration-300">
+                  <Link href="/passagens" className="flex items-center gap-2 text-cyan font-medium group-hover:gap-4 transition-all duration-300">
                     Consultar viagem
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
 
                   <div
                     className={`absolute -inset-px rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10`}
@@ -180,10 +181,10 @@ export function ServicesSection() {
                   Conte o destino, a data e o tamanho do grupo para receber orientação e orçamento.
                 </p>
               </div>
-              <button className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-8 py-4 text-sm sm:text-base">
+              <Link href="/passagens" className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-8 py-4 text-sm sm:text-base">
                 Solicitar orçamento turístico
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>
