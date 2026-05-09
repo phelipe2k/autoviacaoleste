@@ -141,7 +141,7 @@ export function HeroSection() {
             </div>
 
             <div className="hidden lg:block" aria-hidden="true">
-              <div>
+              <div className="relative min-h-[260px]">
                 <div className="absolute inset-0 bg-gradient-radial from-cyan/20 via-transparent to-transparent blur-2xl" />
 
                 <div className="relative w-full h-full flex items-center justify-center">
