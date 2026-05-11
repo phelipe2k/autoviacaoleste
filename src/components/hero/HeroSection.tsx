@@ -9,10 +9,9 @@ import {
   Shield,
   Clock,
   Wifi,
-  Route,
-  Users,
-  Bus,
-  ShieldCheck,
+  MapPin,
+  CalendarDays,
+  ArrowRight,
 } from "lucide-react";
 import { BookingSearch } from "@/components/booking/BookingSearch";
 import { publicPath } from "@/lib/site";
@@ -40,16 +39,40 @@ const features = [
   },
 ];
 
-const stats = [
-  { icon: Route, value: "Sob consulta", label: "ROTEIROS TURÍSTICOS", sublabel: "Viagens planejadas" },
-  { icon: Users, value: "Atendimento", label: "GRUPOS TURÍSTICOS", sublabel: "Roteiros personalizados" },
-  { icon: Bus, value: "Frota", label: "ÔNIBUS REVISADOS", sublabel: "Veículos para diferentes perfis" },
-  { icon: ShieldCheck, value: "Cuidado", label: "VIAGENS SEGURAS", sublabel: "Prioridade em cada trajeto" },
+const featuredTrips = [
+  {
+    title: "Rio de Janeiro",
+    origin: "Saídas de Gov. Valadares",
+    date: "Excursão sob consulta",
+    tag: "Praia e lazer",
+    tone: "from-cyan/80 via-primary/45 to-dark",
+  },
+  {
+    title: "Belo Horizonte",
+    origin: "Eventos e grupos",
+    date: "Roteiro personalizado",
+    tag: "Turismo urbano",
+    tone: "from-primary/75 via-teal/45 to-dark",
+  },
+  {
+    title: "Florianópolis",
+    origin: "Viagens em grupo",
+    date: "Agenda flexível",
+    tag: "Excursão",
+    tone: "from-cyan/70 via-teal/40 to-dark",
+  },
+  {
+    title: "Outros destinos",
+    origin: "Monte seu roteiro",
+    date: "Sob orçamento",
+    tag: "Sob consulta",
+    tone: "from-primary/70 via-cyan/35 to-dark",
+  },
 ];
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative overflow-hidden bg-dark">
       <div className="absolute inset-0">
         <Image
           src={publicPath("/images/banner-home.webp")}
@@ -76,9 +99,9 @@ export function HeroSection() {
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-glow-teal opacity-20 blur-3xl z-20" />
       </div>
 
-      <div className="relative z-30 section-padding pt-24 sm:pt-32 pb-10 sm:pb-12">
+      <div className="relative z-30 section-padding pt-20 sm:pt-28 lg:pt-32 pb-8 sm:pb-10">
         <div className="max-w-7xl mx-auto">
-          <div className="min-h-[48vh] sm:min-h-[60vh] flex items-center">
+          <div className="min-h-[30vh] sm:min-h-[42vh] lg:min-h-[44vh] flex items-center">
             <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -106,7 +129,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="body-lg mb-6 sm:mb-8 max-w-[34rem]"
+                className="body-lg mb-5 sm:mb-8 max-w-[34rem]"
               >
                 Turismo rodoviário sob consulta para excursões, grupos, passeios e roteiros personalizados com conforto e planejamento.
               </motion.p>
@@ -115,7 +138,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-7 sm:mb-8"
+                className="hidden sm:grid grid-cols-4 gap-4 mb-8"
               >
                 {features.map((feature, index) => (
                   <motion.div
@@ -142,7 +165,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="mt-4 sm:mt-8 lg:mt-0">
+          <div className="mt-3 sm:mt-6 lg:mt-0">
             <BookingSearch />
           </div>
 
