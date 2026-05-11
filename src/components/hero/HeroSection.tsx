@@ -4,69 +4,46 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Play,
-  Armchair,
-  Shield,
-  Clock,
-  Wifi,
-  MapPin,
-  CalendarDays,
   ArrowRight,
+  CalendarDays,
+  CheckCircle2,
+  MapPin,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+  Users,
 } from "lucide-react";
 import { BookingSearch } from "@/components/booking/BookingSearch";
 import { publicPath } from "@/lib/site";
+import { whatsappUrl } from "@/lib/contact";
 
-const features = [
-  {
-    icon: Armchair,
-    title: "CONFORTO",
-    description: "Poltronas reclináveis e ar-condicionado",
-  },
-  {
-    icon: Shield,
-    title: "SEGURANÇA",
-    description: "Frota segura, motoristas treinados e equipe qualificada",
-  },
-  {
-    icon: Clock,
-    title: "PLANEJAMENTO",
-    description: "Viagens combinadas conforme necessidade",
-  },
-  {
-    icon: Wifi,
-    title: "CONECTIVIDADE",
-    description: "Estrutura preparada para viagens confortáveis",
-  },
+const trustItems = [
+  { icon: ShieldCheck, title: "Segurança", description: "Frota revisada e equipe preparada" },
+  { icon: Users, title: "Grupos", description: "Excursões e roteiros sob medida" },
+  { icon: Sparkles, title: "Conforto", description: "Viagens planejadas com cuidado" },
 ];
 
 const featuredTrips = [
   {
-    title: "Rio de Janeiro",
-    origin: "Saídas de Gov. Valadares",
-    date: "Excursão sob consulta",
-    tag: "Praia e lazer",
-    tone: "from-cyan/80 via-primary/45 to-dark",
+    title: "Praias e litoral",
+    origin: "Saídas de Governador Valadares",
+    date: "Excursões sob consulta",
+    tag: "Mais procurado",
+    image: "/images/destinations/coastal-excursion.webp",
   },
   {
-    title: "Belo Horizonte",
-    origin: "Eventos e grupos",
-    date: "Roteiro personalizado",
-    tag: "Turismo urbano",
-    tone: "from-primary/75 via-teal/45 to-dark",
-  },
-  {
-    title: "Florianópolis",
-    origin: "Viagens em grupo",
+    title: "Roteiros personalizados",
+    origin: "Eventos, grupos e famílias",
     date: "Agenda flexível",
-    tag: "Excursão",
-    tone: "from-cyan/70 via-teal/40 to-dark",
+    tag: "Sob medida",
+    image: "/images/experiences/travel-planning.webp",
   },
   {
-    title: "Outros destinos",
-    origin: "Monte seu roteiro",
-    date: "Sob orçamento",
-    tag: "Sob consulta",
-    tone: "from-primary/70 via-cyan/35 to-dark",
+    title: "Viagens premium",
+    origin: "Conforto do embarque ao destino",
+    date: "Planejamento comercial",
+    tag: "Conforto",
+    image: "/images/experiences/premium-road-trip.webp",
   },
 ];
 
@@ -80,169 +57,164 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[52%_center] sm:object-[58%_center] lg:object-[62%_center]"
+          className="object-cover object-[58%_center]"
         />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-dark/98 via-dark/76 to-dark/24 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-dark/72 via-dark/28 to-dark/92 sm:from-dark/52 sm:via-transparent sm:to-dark/84 z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(0,212,255,0.08),transparent_42%)] sm:hidden z-10" />
-
-        <div
-          className="absolute inset-0 z-15 opacity-20"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)`,
-            backgroundSize: "100px 100px",
-          }}
-        />
-
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-glow-teal opacity-20 blur-3xl z-20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark/98 via-dark/72 to-dark/22" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark/56 via-transparent to-dark" />
+        <div className="absolute inset-0 route-texture opacity-35" />
+        <div className="absolute bottom-0 left-0 h-44 w-full bg-gradient-to-t from-dark to-transparent" />
       </div>
 
-      <div className="relative z-30 section-padding pt-20 sm:pt-28 lg:pt-32 pb-8 sm:pb-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="min-h-[30vh] sm:min-h-[42vh] lg:min-h-[44vh] flex items-center">
-            <div className="max-w-3xl">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
+      <div className="relative z-10 section-padding pt-24 sm:pt-32 lg:pt-36 pb-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid min-h-[62vh] items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <motion.span
+                initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="mb-4 sm:mb-6"
+                transition={{ duration: 0.55 }}
+                className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-dark/45 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold-light backdrop-blur-md"
               >
-                <span className="text-cyan text-[10px] sm:text-sm tracking-[0.22em] sm:tracking-[0.3em] font-medium uppercase">
-                  TURISMO EM GRUPO SOB CONSULTA.
-                </span>
-              </motion.div>
+                Turismo premium sob consulta
+              </motion.span>
 
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-[2.35rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[0.96] sm:leading-tight mb-4 sm:mb-6 max-w-[10ch] sm:max-w-none"
+                transition={{ duration: 0.65, delay: 0.08 }}
+                className="heading-xl mt-6 max-w-4xl text-white"
               >
-                <span className="text-white">VIAGENS TURÍSTICAS</span>
-                <br />
-                <span className="text-gradient">COM CONFORTO.</span>
+                Viagens turísticas com <span className="text-warm-gradient">conforto, cuidado e presença.</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-sm sm:text-lg text-ice/80 leading-relaxed mb-4 sm:mb-8 max-w-[34rem]"
+                transition={{ duration: 0.6, delay: 0.18 }}
+                className="body-lg mt-5 max-w-2xl"
               >
-                Turismo rodoviário sob consulta para excursões, grupos, passeios e roteiros personalizados com conforto e planejamento.
+                Planejamos excursões, passeios e roteiros para grupos com atendimento próximo, frota confortável e uma experiência mais tranquila do primeiro contato ao retorno.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="hidden sm:grid grid-cols-4 gap-4 mt-10 mb-8"
+                transition={{ duration: 0.6, delay: 0.28 }}
+                className="mt-8 flex flex-col gap-3 sm:flex-row"
               >
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                    className="flex items-center sm:items-start gap-2.5 sm:gap-3 rounded-xl border border-white/10 bg-dark/60 p-3 backdrop-blur-md group"
-                  >
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-cyan/10 border border-cyan/30 flex items-center justify-center shrink-0 group-hover:bg-cyan/20 transition-colors">
-                      <feature.icon className="w-4 sm:w-5 h-4 sm:h-5 text-cyan" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-[11px] sm:text-xs font-semibold text-ice/90 leading-tight">
-                        {feature.title}
-                      </p>
-                      <p className="hidden sm:block text-[10px] text-ice/70 leading-tight mt-1">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </motion.div>
+                <Link href="/passagens" className="btn-primary inline-flex items-center justify-center gap-2">
+                  Solicitar orçamento
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn-outline inline-flex items-center justify-center gap-2">
+                  <MessageCircle className="h-4 w-4 text-emerald-300" />
+                  Falar no WhatsApp
+                </a>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.38 }}
+                className="mt-8 grid gap-3 sm:grid-cols-3"
+              >
+                {trustItems.map((item) => (
+                  <div key={item.title} className="premium-panel rounded-xl p-4">
+                    <item.icon className="mb-3 h-5 w-5 text-gold" />
+                    <p className="text-sm font-semibold text-white">{item.title}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-ice/62">{item.description}</p>
+                  </div>
                 ))}
               </motion.div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.22 }}
+              className="hidden lg:block"
+            >
+              <div className="relative overflow-hidden rounded-[1.35rem] border border-white/12 bg-dark/70 shadow-premium">
+                <Image
+                  src={publicPath("/images/experiences/premium-road-trip.webp")}
+                  alt="Ônibus moderno em estrada cênica ao pôr do sol"
+                  width={900}
+                  height={600}
+                  className="h-[520px] w-full object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/88 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/12 bg-dark/68 p-5 backdrop-blur-xl">
+                  <div className="mb-3 flex items-center gap-2 text-gold-light">
+                    <CheckCircle2 className="h-4 w-4" />
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em]">Experiência planejada</span>
+                  </div>
+                  <p className="text-xl font-bold text-white">Roteiro, grupo e data alinhados antes da viagem.</p>
+                  <p className="mt-2 text-sm text-ice/68">Menos improviso, mais tranquilidade para quem organiza e para quem embarca.</p>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
-          <div className="mt-3 sm:mt-6 lg:mt-0">
+          <div className="mt-6 sm:mt-8">
             <BookingSearch />
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-5 sm:mt-8"
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="mt-8"
           >
-            <div className="mb-3 flex items-center justify-between gap-4">
-              <div className="min-w-0">
-                <span className="text-cyan text-[10px] sm:text-xs tracking-[0.22em] uppercase font-medium">
-                  Principais viagens
-                </span>
-                <h2 className="text-lg sm:text-2xl font-bold text-white leading-tight">
-                  Principais viagens e rotas
-                </h2>
+            <div className="mb-4 flex items-end justify-between gap-4">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Inspire sua próxima viagem</span>
+                <h2 className="mt-2 text-2xl font-bold text-white">Experiências em destaque</h2>
               </div>
-              <Link href="/destinos" className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-cyan hover:text-cyan-light transition-colors">
+              <Link href="/destinos" className="hidden items-center gap-2 text-sm font-semibold text-gold-light transition-colors hover:text-cyan sm:inline-flex">
                 Ver roteiros
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
-            <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:px-0 sm:pb-0">
+            <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
               {featuredTrips.map((trip, index) => (
-                <motion.div
+                <motion.article
                   key={trip.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.8 + index * 0.08 }}
-                  className="group relative min-w-[238px] overflow-hidden rounded-xl border border-white/10 bg-dark-lighter/85 shadow-card transition-all hover:-translate-y-1 hover:border-cyan/40 sm:min-w-0"
+                  transition={{ duration: 0.45, delay: 0.55 + index * 0.08 }}
+                  className="group relative min-w-[260px] overflow-hidden rounded-2xl border border-white/10 bg-dark-lighter/80 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 sm:min-w-0"
                 >
-                  <div className={`relative h-20 overflow-hidden bg-gradient-to-br ${trip.tone}`}>
-                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.16)_0%,transparent_34%,rgba(0,0,0,0.38)_100%)]" />
-                    <div className="absolute -right-8 -top-10 h-28 w-28 rounded-full border border-white/20" />
-                    <div className="absolute bottom-3 left-4 rounded-full bg-dark/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-ice backdrop-blur">
+                  <div className="relative h-40 overflow-hidden">
+                    <Image
+                      src={publicPath(trip.image as `/${string}`)}
+                      alt={trip.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, 260px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/86 to-transparent" />
+                    <span className="absolute left-4 top-4 rounded-full bg-gold/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.13em] text-dark">
                       {trip.tag}
-                    </div>
+                    </span>
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
-                      {trip.title}
-                    </h3>
-                    <div className="mt-3 space-y-2 text-xs sm:text-sm text-ice/70">
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold text-white">{trip.title}</h3>
+                    <div className="mt-3 space-y-2 text-sm text-ice/68">
                       <p className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 shrink-0 text-cyan" />
-                        <span className="truncate">{trip.origin}</span>
+                        <MapPin className="h-4 w-4 shrink-0 text-gold" />
+                        {trip.origin}
                       </p>
                       <p className="flex items-center gap-2">
-                        <CalendarDays className="h-4 w-4 shrink-0 text-primary" />
-                        <span className="truncate">{trip.date}</span>
+                        <CalendarDays className="h-4 w-4 shrink-0 text-cyan" />
+                        {trip.date}
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </motion.article>
               ))}
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="mt-6 hidden sm:flex justify-end"
-          >
-            <Link href="/institucional" className="group w-full sm:w-auto flex items-center gap-3 px-4 sm:px-6 py-3 glass-card hover:bg-cyan/10 transition-colors text-left">
-              <div className="w-10 h-10 rounded-full bg-cyan/20 flex items-center justify-center shrink-0 group-hover:bg-cyan/30 transition-colors">
-                <Play className="w-4 h-4 text-cyan fill-current" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-sm font-semibold text-ice leading-snug">
-                  VIAJE COM QUEM PLANEJA CADA ROTEIRO.
-                </p>
-                <p className="text-xs text-cyan">Conheça nossa história</p>
-              </div>
-            </Link>
           </motion.div>
         </div>
       </div>

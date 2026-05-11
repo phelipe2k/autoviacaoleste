@@ -1,117 +1,81 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
-import { companyContact } from "@/lib/contact";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { companyContact, whatsappUrl } from "@/lib/contact";
+import { publicPath } from "@/lib/site";
 
 export function CTASection() {
   return (
-    <section className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-lighter to-dark" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-glow-cyan opacity-30 blur-3xl" />
-
+    <section className="relative overflow-hidden py-16 sm:py-24">
+      <div className="absolute inset-0 bg-dark" />
       <div className="relative section-padding">
-        <div className="max-w-5xl mx-auto">
+        <div className="mx-auto max-w-7xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-card p-8 md:p-16 text-center relative overflow-hidden"
+            className="relative overflow-hidden rounded-[1.5rem] border border-white/10 shadow-premium"
           >
-            <div className="absolute inset-0 opacity-10">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,212,255,0.15) 1px, transparent 0)`,
-                  backgroundSize: "40px 40px",
-                }}
-              />
-            </div>
+            <Image
+              src={publicPath("/images/experiences/premium-road-trip.webp")}
+              alt="Ônibus em estrada ao pôr do sol"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark/96 via-dark/78 to-dark/30" />
+            <div className="absolute inset-0 route-texture opacity-25" />
 
-            <div className="relative z-10">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="inline-block px-4 py-2 rounded-full bg-cyan/10 border border-cyan/30 mb-6"
-              >
-                <span className="text-sm font-medium text-cyan">
+            <div className="relative grid gap-10 p-6 sm:p-10 lg:grid-cols-[1fr_0.8fr] lg:p-14">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
                   Atendimento sob consulta
                 </span>
-              </motion.div>
-
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-              >
-                Planeje sua Viagem
-                <span className="block text-gradient">com a Auto Viação Leste</span>
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-lg text-ice/70 mb-10 max-w-2xl mx-auto"
-              >
-                Entre em contato para solicitar orçamento de excursões, passeios e roteiros turísticos para grupos.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-              >
-                <Link href="/passagens" className="btn-primary flex items-center gap-2 px-8 py-4 text-lg">
-                  Solicitar orçamento
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link href="/contato" className="btn-outline flex items-center gap-2 px-8 py-4 text-lg">
-                  Fale conosco
-                </Link>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex flex-col md:flex-row items-center justify-center gap-8 pt-8 border-t border-white/10"
-              >
-                <a
-                  href={companyContact.phoneHref}
-                  className="flex items-center gap-3 text-ice/70 hover:text-cyan transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-full bg-cyan/10 flex items-center justify-center">
-                    <Phone className="w-4 h-4 text-cyan" />
-                  </div>
-                  <span>{companyContact.phoneDisplay}</span>
-                </a>
-                <a
-                  href={`mailto:${companyContact.email}`}
-                  className="flex items-center gap-3 text-ice/70 hover:text-cyan transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-full bg-cyan/10 flex items-center justify-center">
-                    <Mail className="w-4 h-4 text-cyan" />
-                  </div>
-                  <span>{companyContact.email}</span>
-                </a>
-                <div className="flex items-center gap-3 text-ice/70">
-                  <div className="w-10 h-10 rounded-full bg-cyan/10 flex items-center justify-center">
-                    <MapPin className="w-4 h-4 text-cyan" />
-                  </div>
-                  <span>Governador Valadares, MG</span>
+                <h2 className="heading-lg mt-4 max-w-3xl text-white">
+                  Sua próxima viagem pode começar com uma conversa simples.
+                </h2>
+                <p className="body-lg mt-5 max-w-2xl">
+                  Conte o destino, a data e o tamanho do grupo. A equipe ajuda a organizar uma proposta com conforto, segurança e clareza.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <Link href="/passagens" className="btn-primary inline-flex items-center justify-center gap-2">
+                    Solicitar orçamento
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn-whatsapp inline-flex items-center justify-center gap-2">
+                    <MessageCircle className="h-4 w-4" />
+                    Falar no WhatsApp
+                  </a>
                 </div>
-              </motion.div>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-dark/68 p-5 backdrop-blur-xl sm:p-6">
+                <h3 className="text-lg font-bold text-white">Canais diretos</h3>
+                <div className="mt-5 grid gap-4">
+                  <a href={companyContact.phoneHref} className="flex items-center gap-3 text-ice/76 transition-colors hover:text-gold-light">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
+                      <Phone className="h-4 w-4" />
+                    </span>
+                    {companyContact.phoneDisplay}
+                  </a>
+                  <a href={`mailto:${companyContact.email}`} className="flex items-center gap-3 text-ice/76 transition-colors hover:text-gold-light">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
+                      <Mail className="h-4 w-4" />
+                    </span>
+                    {companyContact.email}
+                  </a>
+                  <div className="flex items-center gap-3 text-ice/76">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
+                      <MapPin className="h-4 w-4" />
+                    </span>
+                    {companyContact.city}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -3,164 +3,120 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  MapPinned,
-  Users,
-  CalendarCheck,
-  Camera,
   ArrowRight,
+  CalendarCheck,
   CheckCircle,
+  ClipboardList,
+  MapPinned,
+  Route,
+  Users,
 } from "lucide-react";
-import { useState } from "react";
+import { ImageCard, SectionHeader } from "@/components/ui/premium";
+
+const journey = [
+  {
+    icon: ClipboardList,
+    title: "Conte o roteiro",
+    description: "Origem, destino, data, quantidade de pessoas e perfil do grupo.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Alinhamos a agenda",
+    description: "A equipe avalia disponibilidade, duração, paradas e melhor formato.",
+  },
+  {
+    icon: Route,
+    title: "Preparamos a viagem",
+    description: "O orçamento considera conforto, segurança e necessidades do trajeto.",
+  },
+  {
+    icon: Users,
+    title: "Embarque com suporte",
+    description: "Contato claro antes da saída e organização para o grupo viajar tranquilo.",
+  },
+];
 
 const services = [
   {
-    id: 1,
-    icon: MapPinned,
     title: "Excursões turísticas",
-    description:
-      "Viagens em grupo para destinos turísticos, eventos, praias, cidades históricas e experiências culturais.",
-    features: [
-      "Roteiros sob consulta",
-      "Planejamento de ida e volta",
-      "Paradas combinadas",
-      "Atendimento para grupos",
-    ],
-    color: "from-primary to-cyan",
-    highlight: "Para grupos",
+    tag: "Para grupos",
+    image: "/images/destinations/coastal-excursion.webp",
+    alt: "Excursão turística em destino de praia",
+    description: "Viagens para praias, cidades históricas, eventos, encontros religiosos e experiências culturais.",
+    features: ["Roteiros sob consulta", "Paradas combinadas", "Atendimento por WhatsApp"],
   },
   {
-    id: 2,
-    icon: Users,
-    title: "Viagens personalizadas",
-    description:
-      "Organização de viagens turísticas conforme origem, destino, data, quantidade de pessoas e perfil do grupo.",
-    features: [
-      "Orçamento personalizado",
-      "Roteiro flexível",
-      "Apoio no planejamento",
-      "Conforto durante a viagem",
-    ],
-    color: "from-cyan to-teal-neon",
-    highlight: "Sob medida",
-  },
-  {
-    id: 3,
-    icon: CalendarCheck,
-    title: "Passeios e eventos",
-    description:
-      "Transporte turístico para passeios, encontros, feiras, shows, eventos religiosos e datas especiais.",
-    features: [
-      "Datas sob consulta",
-      "Embarque combinado",
-      "Acompanhamento comercial",
-      "Confirmação por WhatsApp",
-    ],
-    color: "from-teal-neon to-primary",
-    highlight: "Agenda turística",
-  },
-  {
-    id: 4,
-    icon: Camera,
-    title: "Experiências de viagem",
-    description:
-      "Viagens com foco em conforto, segurança e uma experiência tranquila para quem quer aproveitar o destino.",
-    features: [
-      "Frota revisada",
-      "Motoristas qualificados",
-      "Viagens confortáveis",
-      "Atenção ao grupo",
-    ],
-    color: "from-primary-light to-cyan",
-    highlight: "Turismo com cuidado",
+    title: "Roteiros personalizados",
+    tag: "Sob medida",
+    image: "/images/experiences/travel-planning.webp",
+    alt: "Atendimento para planejamento de viagem turística",
+    description: "Planejamento conforme data, origem, destino, tamanho do grupo e estilo da viagem.",
+    features: ["Orçamento personalizado", "Apoio comercial", "Viagem pensada para o grupo"],
   },
 ];
 
 export function ServicesSection() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
-
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-glow-cyan opacity-15 blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-glow-teal opacity-15 blur-3xl" />
+    <section className="relative overflow-hidden py-16 sm:py-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-road via-dark to-dark-light" />
+      <div className="absolute inset-0 route-texture opacity-20" />
+      <div className="absolute bottom-0 left-0 h-[460px] w-[560px] bg-warm-glow opacity-45 blur-3xl" />
 
       <div className="relative section-padding">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-16"
-          >
-            <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-              Turismo rodoviário
-            </span>
-            <h2 className="heading-lg text-white mt-4 mb-4">
-              Viagens <span className="text-gradient">turísticas</span> sob consulta
-            </h2>
-            <p className="body-lg max-w-2xl mx-auto">
-              Atendimento exclusivo para excursões, passeios, grupos e roteiros turísticos personalizados.
-            </p>
-          </motion.div>
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader
+            eyebrow="Como funciona"
+            title={<>Uma jornada simples para <span className="text-warm-gradient">viajar melhor</span></>}
+            description="A seção de serviços passa a explicar a experiência de contratação, ajudando o visitante a entender o próximo passo sem se perder em cards repetidos."
+            className="mb-10 sm:mb-16"
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
+          <div className="grid gap-4 md:grid-cols-4">
+            {journey.map((step, index) => (
               <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
+                key={step.title}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                onMouseEnter={() => setHoveredId(service.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                className="group relative"
+                transition={{ duration: 0.45, delay: index * 0.06 }}
+                className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-premium backdrop-blur"
               >
-                <div
-                  className={`glass-card p-5 sm:p-8 h-full transition-all duration-500 ${
-                    hoveredId === service.id
-                      ? "shadow-glow-cyan border-cyan/30"
-                      : ""
-                  }`}
+                <span className="text-xs font-bold text-gold">0{index + 1}</span>
+                <div className="mt-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-gold">
+                  <step.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 text-lg font-bold text-white">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ice/62">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <ImageCard
+                  href="/servicos"
+                  image={service.image}
+                  imageAlt={service.alt}
+                  eyebrow={service.tag}
+                  title={service.title}
+                  description={service.description}
                 >
-                  <div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}
-                  >
-                    <service.icon className="w-8 h-8 text-dark" />
-                  </div>
-
-                  <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
-                    <span className="text-xs font-medium text-cyan">
-                      {service.highlight}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">
-                    {service.title}
-                  </h3>
-                  <p className="text-ice/60 mb-6">{service.description}</p>
-
-                  <ul className="space-y-3 mb-8">
+                  <ul className="mt-5 grid gap-2">
                     {service.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center gap-3 text-sm text-ice/70"
-                      >
-                        <CheckCircle className="w-4 h-4 text-cyan shrink-0" />
+                      <li key={feature} className="flex items-center gap-2 text-sm text-ice/72">
+                        <CheckCircle className="h-4 w-4 shrink-0 text-gold" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-
-                  <Link href="/passagens" className="flex items-center gap-2 text-cyan font-medium group-hover:gap-4 transition-all duration-300">
-                    Consultar viagem
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-
-                  <div
-                    className={`absolute -inset-px rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10`}
-                  />
-                </div>
+                </ImageCard>
               </motion.div>
             ))}
           </div>
@@ -169,21 +125,24 @@ export function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-10 sm:mt-16 glass-card p-5 sm:p-8 text-center"
+            transition={{ duration: 0.5, delay: 0.22 }}
+            className="mt-10 overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-r from-gold/14 via-white/[0.04] to-cyan/10 p-6 shadow-premium"
           >
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="text-left min-w-0">
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
-                  Quer montar uma viagem turística?
-                </h3>
-                <p className="text-ice/60">
-                  Conte o destino, a data e o tamanho do grupo para receber orientação e orçamento.
-                </p>
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-dark/50 text-gold">
+                  <MapPinned className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white">Quer montar uma viagem turística?</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-ice/65">
+                    Envie destino, data e tamanho do grupo para receber orientação e orçamento.
+                  </p>
+                </div>
               </div>
-              <Link href="/passagens" className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-8 py-4 text-sm sm:text-base">
-                Solicitar orçamento turístico
-                <ArrowRight className="w-5 h-5" />
+              <Link href="/passagens" className="btn-primary inline-flex items-center justify-center gap-2">
+                Solicitar orçamento
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </motion.div>

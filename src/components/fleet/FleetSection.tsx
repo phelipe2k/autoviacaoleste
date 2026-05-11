@@ -1,254 +1,187 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
-  Bus,
-  Wifi,
-  Usb,
-  Snowflake,
-  Armchair,
-  Tv,
   ArrowRight,
+  Armchair,
+  Bus,
+  CheckCircle2,
+  ShieldCheck,
+  Snowflake,
+  Usb,
+  Wifi,
 } from "lucide-react";
+import { publicPath } from "@/lib/site";
+import { SectionHeader } from "@/components/ui/premium";
+import { cn } from "@/lib/utils";
 
-// Catalogo resumido da frota; cada onibus informa categoria, recursos e especificacoes.
 const fleet = [
   {
     id: 1,
     name: "Executivo Plus",
     category: "Premium",
-    image: "/images/fleet/executivo-plus.jpg",
+    image: "/images/fleet/premium-coach-interior.webp",
+    cover: "/images/experiences/premium-road-trip.webp",
     features: [
-      { icon: Armchair, label: "Poltrona 160° reclinável" },
-      { icon: Wifi, label: "Wi-Fi Premium" },
-      { icon: Usb, label: "USB e tomadas individuais" },
-      { icon: Tv, label: "Entretenimento a bordo" },
-      { icon: Snowflake, label: "Ar-condicionado individual" },
+      { icon: Armchair, label: "Poltronas reclináveis" },
+      { icon: Wifi, label: "Conectividade sob disponibilidade" },
+      { icon: Usb, label: "Pontos de carregamento" },
+      { icon: Snowflake, label: "Climatização" },
     ],
-    specs: {
-      capacity: "42 poltronas",
-      age: "2023/2024",
-      wifi: "Incluído",
-    },
-    description:
-      "Experiência premium de viagem com máximo conforto e tecnologia de ponta.",
+    specs: ["Viagens longas", "Grupos e excursões", "Conforto superior"],
+    description: "Opção indicada para grupos que valorizam conforto, organização e uma experiência mais tranquila durante o trajeto.",
   },
   {
     id: 2,
-    name: "Executivo",
-    category: "Executivo",
-    image: "/images/fleet/executivo.jpg",
+    name: "Executivo Turismo",
+    category: "Versátil",
+    image: "/images/experiences/premium-road-trip.webp",
+    cover: "/images/fleet/premium-coach-interior.webp",
     features: [
-      { icon: Armchair, label: "Poltrona 140° reclinável" },
-      { icon: Wifi, label: "Wi-Fi gratuito" },
-      { icon: Usb, label: "USB individuais" },
+      { icon: Armchair, label: "Assentos confortáveis" },
       { icon: Snowflake, label: "Ar-condicionado" },
+      { icon: ShieldCheck, label: "Manutenção preventiva" },
+      { icon: Bus, label: "Bagageiro para grupos" },
     ],
-    specs: {
-      capacity: "46 poltronas",
-      age: "2022/2023",
-      wifi: "Incluído",
-    },
-    description:
-      "Conforto ideal para viagens turísticas em grupo.",
+    specs: ["Eventos", "Passeios", "Roteiros personalizados"],
+    description: "Equilíbrio entre conforto e praticidade para excursões, eventos, igrejas, escolas e grupos particulares.",
   },
   {
     id: 3,
-    name: "Convencional",
-    category: "Econômico",
-    image: "/images/fleet/convencional.jpg",
+    name: "Grupo Sob Medida",
+    category: "Consulta",
+    image: "/images/experiences/travel-planning.webp",
+    cover: "/images/institutional/safety-inspection.webp",
     features: [
-      { icon: Armchair, label: "Poltrona reclinável" },
-      { icon: Snowflake, label: "Ar-condicionado" },
-      { icon: Usb, label: "Carregadores USB" },
+      { icon: ShieldCheck, label: "Avaliação do roteiro" },
+      { icon: Bus, label: "Veículo adequado ao grupo" },
+      { icon: Armchair, label: "Conforto planejado" },
+      { icon: CheckCircle2, label: "Acompanhamento comercial" },
     ],
-    specs: {
-      capacity: "50 poltronas",
-      age: "2021/2022",
-      wifi: "Disponível",
-    },
-    description:
-      "Qualidade e economia para viagens turísticas planejadas.",
+    specs: ["Sob orçamento", "Datas combinadas", "Apoio no planejamento"],
+    description: "A equipe entende destino, duração, perfil do grupo e necessidade de bagagem antes de indicar a melhor configuração.",
   },
 ];
 
 export function FleetSection() {
-  // activeIndex define o onibus selecionado na grade.
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // A area de detalhes sempre usa o onibus atualmente selecionado.
   const activeBus = fleet[activeIndex];
 
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden">
-      {/* Fundo da secao, normalmente com degrade escuro. */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-lighter to-dark" />
-
-      {/* Elementos decorativos de brilho no fundo da secao. */}
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-glow-teal opacity-20 blur-3xl transform -translate-y-1/2" />
+    <section className="relative overflow-hidden py-16 sm:py-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-road" />
+      <div className="absolute inset-0 route-texture opacity-20" />
+      <div className="absolute right-0 top-1/3 h-[560px] w-[620px] bg-glow-teal opacity-20 blur-3xl" />
 
       <div className="relative section-padding">
-        <div className="max-w-7xl mx-auto">
-          {/* Cabecalho da secao com etiqueta, titulo e descricao. */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-16"
-          >
-            <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-              Nossa Frota
-            </span>
-            <h2 className="heading-lg text-white mt-4 mb-4">
-              Frota <span className="text-gradient">Moderna</span> e Confortável
-            </h2>
-            <p className="body-lg max-w-2xl mx-auto">
-              ônibus novos, revisados e equipados com o que há de mais moderno
-              em tecnologia e conforto.
-            </p>
-          </motion.div>
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader
+            eyebrow="Nossa frota"
+            title={<>Conforto que aparece <span className="text-warm-gradient">antes do embarque</span></>}
+            description="A frota deixa de ser um item técnico e vira parte da experiência: interiores mais acolhedores, segurança visível e detalhes que ajudam o organizador a confiar."
+            className="mb-10 sm:mb-16"
+          />
 
-          {/* Cards da frota: clicar em um card muda os detalhes exibidos abaixo. */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {fleet.map((bus, index) => (
-              <motion.div
-                key={bus.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={() => setActiveIndex(index)}
-                className={`glass-card overflow-hidden cursor-pointer transition-all duration-500 ${
-                  activeIndex === index
-                    ? "ring-2 ring-cyan/50 shadow-glow-cyan"
-                    : "hover:ring-2 hover:ring-cyan/30"
-                }`}
-              >
-                {/* area visual do card do onibus. */}
-                <div className="relative h-48 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal/20 to-cyan/10 flex items-center justify-center">
-                    <Bus className="w-20 h-20 text-cyan/30" />
-                  </div>
-                  <div className="absolute top-4 left-4">
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        bus.category === "Premium"
-                          ? "bg-primary text-dark"
-                          : bus.category === "Executivo"
-                          ? "bg-cyan text-dark"
-                          : "bg-white/20 text-ice"
-                      }`}
-                    >
-                      {bus.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Conteudo textual do card. */}
-                <div className="p-5 sm:p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {bus.name}
-                  </h3>
-                  <p className="text-sm text-ice/60 mb-4">{bus.description}</p>
-
-                  {/* Especificacoes rapidas: capacidade, ano e Wi-Fi. */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-4 text-center">
-                    <div className="p-2 bg-dark/50 rounded-lg">
-                      <p className="text-xs text-ice/50">Capacidade</p>
-                      <p className="text-sm font-semibold text-cyan">
-                        {bus.specs.capacity}
-                      </p>
-                    </div>
-                    <div className="p-2 bg-dark/50 rounded-lg">
-                      <p className="text-xs text-ice/50">Ano</p>
-                      <p className="text-sm font-semibold text-cyan">
-                        {bus.specs.age}
-                      </p>
-                    </div>
-                    <div className="p-2 bg-dark/50 rounded-lg">
-                      <p className="text-xs text-ice/50">Wi-Fi</p>
-                      <p className="text-sm font-semibold text-cyan">
-                        {bus.specs.wifi}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Previa dos principais recursos do onibus. */}
-                  <div className="flex flex-wrap gap-2">
-                    {bus.features.slice(0, 3).map((feature, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-1 text-xs text-ice/70"
-                      >
-                        <feature.icon className="w-3 h-3 text-cyan" />
-                        {feature.label}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Detalhes do veiculo selecionado, atualizados conforme activeIndex. */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card p-5 sm:p-8"
-          >
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
-              <div>
-                <h3 className="text-2xl font-bold text-white">
-                  {activeBus.name}
-                </h3>
-                <p className="text-ice/60">Recursos e diferenciais</p>
-              </div>
-              <Link href="/contato" className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 md:mt-0">
-                Ver Detalhes
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {activeBus.features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
+          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="space-y-4">
+              {fleet.map((bus, index) => (
+                <motion.button
+                  type="button"
+                  key={bus.id}
+                  initial={{ opacity: 0, x: -24 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="flex items-center gap-3 p-4 bg-dark/50 rounded-xl min-w-0"
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  onClick={() => setActiveIndex(index)}
+                  className={cn(
+                    "group w-full overflow-hidden rounded-2xl border bg-dark-lighter/70 text-left shadow-premium transition-all duration-300",
+                    activeIndex === index ? "border-gold/55" : "border-white/10 hover:border-gold/35"
+                  )}
                 >
-                  <div className="w-10 h-10 rounded-full bg-cyan/20 flex items-center justify-center shrink-0">
-                    <feature.icon className="w-5 h-5 text-cyan" />
+                  <div className="grid grid-cols-[116px_1fr] gap-4 p-3 sm:grid-cols-[150px_1fr]">
+                    <div className="relative h-32 overflow-hidden rounded-xl">
+                      <Image
+                        src={publicPath(bus.image as `/${string}`)}
+                        alt={bus.name}
+                        fill
+                        sizes="150px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="min-w-0 py-1 pr-2">
+                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                        {bus.category}
+                      </span>
+                      <h3 className="mt-2 text-xl font-bold text-white">{bus.name}</h3>
+                      <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-ice/62">
+                        {bus.description}
+                      </p>
+                    </div>
                   </div>
-                  <span className="text-sm text-ice/80 leading-snug">{feature.label}</span>
-                </motion.div>
+                </motion.button>
               ))}
             </div>
-          </motion.div>
 
-          {/* Chamada de acao da secao. */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-center mt-12"
-          >
-            <p className="text-ice/60 mb-4">
-              Quer conhecer nossa frota pessoalmente?
-            </p>
-            <Link href="/contato" className="btn-outline inline-flex items-center gap-2">
-              Agende uma Visita
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
+            <motion.div
+              key={activeBus.id}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+              className="overflow-hidden rounded-[1.35rem] border border-white/10 bg-dark/70 shadow-premium"
+            >
+              <div className="relative h-72 sm:h-96">
+                <Image
+                  src={publicPath(activeBus.cover as `/${string}`)}
+                  alt={`Detalhe da frota ${activeBus.name}`}
+                  fill
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5">
+                  <span className="rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-dark">
+                    {activeBus.category}
+                  </span>
+                  <h3 className="mt-4 text-3xl font-bold text-white">{activeBus.name}</h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ice/72">{activeBus.description}</p>
+                </div>
+              </div>
+
+              <div className="p-5 sm:p-7">
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {activeBus.specs.map((spec) => (
+                    <span key={spec} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-ice/75">
+                      {spec}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {activeBus.features.map((feature) => (
+                    <div key={feature.label} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/15 text-gold">
+                        <feature.icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-sm text-ice/78">{feature.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <Link href="/frota" className="btn-outline inline-flex items-center justify-center gap-2">
+                    Conhecer frota
+                  </Link>
+                  <Link href="/contato" className="btn-primary inline-flex items-center justify-center gap-2">
+                    Consultar veículo
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
