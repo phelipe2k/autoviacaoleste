@@ -69,15 +69,15 @@ export function BookingSearch() {
           ))}
         </div>
 
-        <div className="p-3.5 sm:p-6">
+        <div className="p-3 sm:p-6">
           {activeTab === "orcamento" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4"
+              className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2.5 sm:gap-4"
             >
               <div className="relative group col-span-2 md:col-span-1 lg:col-span-1">
-                <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
+                <label className="sr-only sm:not-sr-only sm:block text-xs text-ice/50 mb-2 uppercase tracking-wider">
                   Saída
                 </label>
                 <div className="relative">
@@ -87,13 +87,13 @@ export function BookingSearch() {
                     placeholder="Cidade de saída"
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
 
               <div className="relative group col-span-2 md:col-span-1 lg:col-span-1">
-                <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
+                <label className="sr-only sm:not-sr-only sm:block text-xs text-ice/50 mb-2 uppercase tracking-wider">
                   Destino turístico
                 </label>
                 <div className="relative">
@@ -103,13 +103,13 @@ export function BookingSearch() {
                     placeholder="Praia, cidade ou evento"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
 
               <div className="relative group">
-                <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
+                <label className="sr-only sm:not-sr-only sm:block text-xs text-ice/50 mb-2 uppercase tracking-wider">
                   Data da viagem
                 </label>
                 <div className="relative">
@@ -118,13 +118,13 @@ export function BookingSearch() {
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full pl-10 sm:pl-12 pr-2 sm:pr-4 py-3 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-xs sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-10 sm:pl-12 pr-2 sm:pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-xs sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300"
                   />
                 </div>
               </div>
 
               <div className="relative group">
-                <label className="block text-xs text-ice/50 mb-2 uppercase tracking-wider">
+                <label className="sr-only sm:not-sr-only sm:block text-xs text-ice/50 mb-2 uppercase tracking-wider">
                   Pessoas
                 </label>
                 <div className="relative">
@@ -132,7 +132,7 @@ export function BookingSearch() {
                   <select
                     value={passengers}
                     onChange={(e) => setPassengers(Number(e.target.value))}
-                    className="w-full pl-10 sm:pl-12 pr-2 sm:pr-4 py-3 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-xs sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300 appearance-none cursor-pointer"
+                    className="w-full pl-10 sm:pl-12 pr-2 sm:pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-xs sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300 appearance-none cursor-pointer"
                   >
                     {[15, 25, 35, 45, 50].map((num) => (
                       <option key={num} value={num}>
@@ -148,7 +148,7 @@ export function BookingSearch() {
                   href={whatsappUrl(quoteMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full btn-primary flex items-center justify-center gap-2 py-3 sm:py-3.5 text-sm sm:text-base"
+                  className="w-full btn-primary flex items-center justify-center gap-2 py-2.5 sm:py-3.5 text-sm sm:text-base"
                 >
                   Solicitar orçamento
                   <ArrowRight className="w-5 h-5" />

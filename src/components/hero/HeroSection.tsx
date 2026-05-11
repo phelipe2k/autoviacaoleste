@@ -118,7 +118,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="heading-xl mb-5 sm:mb-6 max-w-[11ch] sm:max-w-none"
+                className="text-[2.35rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[0.96] sm:leading-tight mb-4 sm:mb-6 max-w-[10ch] sm:max-w-none"
               >
                 <span className="text-white">VIAGENS TURÍSTICAS</span>
                 <br />
@@ -129,7 +129,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="body-lg mb-5 sm:mb-8 max-w-[34rem]"
+                className="text-sm sm:text-lg text-ice/80 leading-relaxed mb-4 sm:mb-8 max-w-[34rem]"
               >
                 Turismo rodoviário sob consulta para excursões, grupos, passeios e roteiros personalizados com conforto e planejamento.
               </motion.p>
