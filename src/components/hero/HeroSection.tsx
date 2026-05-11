@@ -138,7 +138,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="hidden sm:grid grid-cols-4 gap-4 mb-8"
+                className="hidden sm:grid grid-cols-4 gap-4 mt-10 mb-8"
               >
                 {features.map((feature, index) => (
                   <motion.div
@@ -178,10 +178,10 @@ export function HeroSection() {
             <div className="mb-3 flex items-center justify-between gap-4">
               <div className="min-w-0">
                 <span className="text-cyan text-[10px] sm:text-xs tracking-[0.22em] uppercase font-medium">
-                  Próximas viagens
+                  Principais viagens
                 </span>
                 <h2 className="text-lg sm:text-2xl font-bold text-white leading-tight">
-                  Rotas e excursões em destaque
+                  Principais viagens e rotas
                 </h2>
               </div>
               <Link href="/destinos" className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-cyan hover:text-cyan-light transition-colors">
