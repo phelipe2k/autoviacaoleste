@@ -173,33 +173,64 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-9 sm:mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4"
+            className="mt-5 sm:mt-8"
           >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                className="glass-card min-h-[148px] sm:min-h-0 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 hover:bg-dark-lighter/80 transition-colors group shadow-card/40"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-primary/20 flex items-center justify-center shrink-0 group-hover:from-cyan/30 group-hover:to-primary/30 transition-all">
-                  <stat.icon className="w-6 h-6 text-cyan" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-base sm:text-lg font-bold text-ice leading-tight break-words">{stat.value}</p>
-                  <p className="text-[11px] sm:text-xs font-semibold text-cyan leading-tight mt-1 break-words">{stat.label}</p>
-                  <p className="text-[11px] sm:text-[10px] text-ice/55 leading-snug mt-1">{stat.sublabel}</p>
-                </div>
-              </motion.div>
-            ))}
+            <div className="mb-3 flex items-center justify-between gap-4">
+              <div className="min-w-0">
+                <span className="text-cyan text-[10px] sm:text-xs tracking-[0.22em] uppercase font-medium">
+                  Próximas viagens
+                </span>
+                <h2 className="text-lg sm:text-2xl font-bold text-white leading-tight">
+                  Rotas e excursões em destaque
+                </h2>
+              </div>
+              <Link href="/destinos" className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-cyan hover:text-cyan-light transition-colors">
+                Ver roteiros
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:px-0 sm:pb-0">
+              {featuredTrips.map((trip, index) => (
+                <motion.div
+                  key={trip.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.8 + index * 0.08 }}
+                  className="group relative min-w-[238px] overflow-hidden rounded-xl border border-white/10 bg-dark-lighter/85 shadow-card transition-all hover:-translate-y-1 hover:border-cyan/40 sm:min-w-0"
+                >
+                  <div className={`relative h-20 overflow-hidden bg-gradient-to-br ${trip.tone}`}>
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.16)_0%,transparent_34%,rgba(0,0,0,0.38)_100%)]" />
+                    <div className="absolute -right-8 -top-10 h-28 w-28 rounded-full border border-white/20" />
+                    <div className="absolute bottom-3 left-4 rounded-full bg-dark/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-ice backdrop-blur">
+                      {trip.tag}
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
+                      {trip.title}
+                    </h3>
+                    <div className="mt-3 space-y-2 text-xs sm:text-sm text-ice/70">
+                      <p className="flex items-center gap-2">
+                        <MapPin className="h-4 w-4 shrink-0 text-cyan" />
+                        <span className="truncate">{trip.origin}</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        <CalendarDays className="h-4 w-4 shrink-0 text-primary" />
+                        <span className="truncate">{trip.date}</span>
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="mt-6 sm:mt-8 flex justify-stretch sm:justify-end"
+            className="mt-6 hidden sm:flex justify-end"
           >
             <Link href="/institucional" className="group w-full sm:w-auto flex items-center gap-3 px-4 sm:px-6 py-3 glass-card hover:bg-cyan/10 transition-colors text-left">
               <div className="w-10 h-10 rounded-full bg-cyan/20 flex items-center justify-center shrink-0 group-hover:bg-cyan/30 transition-colors">
