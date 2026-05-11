@@ -1,128 +1,146 @@
-# Auto Viacao Leste
+# Auto Viação Leste
 
-Site institucional da Auto Viacao Leste, desenvolvido com Next.js, React, TypeScript e Tailwind CSS. O projeto apresenta servicos de turismo rodoviario, frota, roteiros, atendimento, solicitacao de orcamento e paginas institucionais.
+Repositório do site institucional da **Auto Viação Leste**, desenvolvido como entrega profissional para apresentação da empresa, seus serviços de turismo rodoviário, frota, roteiros sob consulta e canais de atendimento.
 
-## Tecnologias
+O projeto foi estruturado para oferecer uma experiência moderna, responsiva e de fácil manutenção, com geração estática para publicação em ambientes como GitHub Pages.
 
-- Next.js 15 com App Router
-- React 19
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Lucide React
-- Swiper
+## Objetivo
+
+O site tem como objetivo fortalecer a presença digital da Auto Viação Leste, centralizando informações institucionais e comerciais em uma interface clara, confiável e compatível com diferentes dispositivos.
+
+Principais finalidades:
+
+- Apresentar a empresa, sua proposta de valor e seus serviços.
+- Divulgar frota, roteiros, excursões e viagens sob consulta.
+- Facilitar solicitações de orçamento por WhatsApp e canais de contato.
+- Disponibilizar páginas institucionais, dúvidas frequentes e informações legais.
+- Gerar uma versão estática do site para publicação simplificada.
+
+## Tecnologias Utilizadas
+
+- **Next.js 15** com App Router
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion**
+- **Lucide React**
+- **Swiper**
 
 ## Requisitos
 
-- Node.js 20 ou superior recomendado
+- Node.js 20 ou superior
 - npm
 
-## Instalacao
+## Instalação
 
 ```bash
 npm install
 ```
 
-## Desenvolvimento local
+## Ambiente de Desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-Depois acesse:
+Após iniciar o servidor local, acesse:
 
 ```text
 http://localhost:3000
 ```
 
-## Scripts disponiveis
+## Scripts Disponíveis
 
-```bash
-npm run dev
-```
+| Comando | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o ambiente de desenvolvimento. |
+| `npm run build` | Gera a versão estática do projeto na pasta `out/`. |
+| `npm run build:pages` | Gera a versão preparada para GitHub Pages e copia o resultado para `docs/`. |
+| `npm run start` | Inicia o servidor de produção do Next.js. |
+| `npm run lint` | Executa a verificação de lint configurada no projeto. |
 
-Inicia o servidor de desenvolvimento.
-
-```bash
-npm run build
-```
-
-Gera o build estatico do Next.js na pasta `out/`.
-
-```bash
-npm run build:pages
-```
-
-Executa o build com configuracao de GitHub Pages e copia o resultado para `docs/`, incluindo `.nojekyll`.
-
-```bash
-npm run start
-```
-
-Inicia o servidor de producao do Next.js. Observacao: como o projeto usa `output: "export"`, o fluxo principal de publicacao e estatico.
-
-```bash
-npm run lint
-```
-
-Executa a checagem de lint configurada no projeto.
-
-## Estrutura principal
+## Estrutura do Projeto
 
 ```text
 src/
-  app/                  Paginas do App Router
-  components/           Componentes reutilizaveis da interface
-  lib/                  Utilitarios, contatos e helpers de caminho publico
-  styles/               Estilos globais do Tailwind
+  app/                  Páginas e rotas do App Router
+  components/           Componentes reutilizáveis da interface
+  lib/                  Configurações, contatos e utilitários
+  styles/               Estilos globais e utilitários do Tailwind
 public/
-  images/               Logos, favicon e imagens publicas
+  images/               Logos, favicon e imagens públicas
 scripts/
-  build-pages.mjs       Build estatico para GitHub Pages
-docs/                   Saida estatica usada para publicacao no GitHub Pages
+  build-pages.mjs       Script de build para GitHub Pages
+docs/                   Saída estática utilizada para publicação
 ```
 
-## Paginas
+## Páginas Implementadas
 
-- `/` - pagina inicial
-- `/passagens` - solicitacao de orcamento
-- `/frota` - frota e certificacoes
-- `/destinos` - roteiros sob consulta
-- `/servicos` - servicos detalhados
-- `/institucional` - historia, valores e numeros da empresa
+- `/` - página inicial
+- `/passagens` - solicitação de orçamento
+- `/frota` - apresentação da frota
+- `/destinos` - roteiros e destinos sob consulta
+- `/servicos` - serviços oferecidos
+- `/institucional` - informações institucionais
 - `/contato` - canais de atendimento
 - `/faq` - perguntas frequentes
-- `/horarios` - opcoes de atendimento e horarios sob consulta
-- `/area-do-cliente` - area de acompanhamento
-- `/minhas-viagens` - resumo de solicitacoes
-- `/politica-de-privacidade` - politica de privacidade
+- `/horarios` - informações de atendimento e horários
+- `/area-do-cliente` - área do cliente
+- `/minhas-viagens` - acompanhamento de solicitações
+- `/politica-de-privacidade` - política de privacidade
 - `/termos-de-uso` - termos de uso
 
-## Publicacao no GitHub Pages
+## Publicação
 
-O arquivo `next.config.ts` detecta `GITHUB_ACTIONS=true` e aplica:
+O projeto utiliza exportação estática por meio da configuração:
 
-- `basePath: "/autoviacaoleste"`
-- `assetPrefix: "/autoviacaoleste/"`
-- `NEXT_PUBLIC_BASE_PATH=/autoviacaoleste`
+```ts
+output: "export"
+```
 
-Para gerar os arquivos estaticos para GitHub Pages:
+Para gerar a versão de publicação em GitHub Pages, execute:
 
 ```bash
 npm run build:pages
 ```
 
-O conteudo final fica em `docs/`. Configure o GitHub Pages para publicar a partir da pasta `docs` da branch principal.
+Esse comando:
 
-## Configuracoes importantes
+1. Executa o build do Next.js com configuração específica para GitHub Pages.
+2. Gera os arquivos estáticos em `out/`.
+3. Copia a saída final para `docs/`.
+4. Cria o arquivo `.nojekyll`, necessário para evitar processamento indevido pelo GitHub Pages.
 
-- Dados de contato: `src/lib/contact.ts`
-- Caminhos publicos com base path: `src/lib/site.ts`
-- Metadados globais: `src/app/layout.tsx`
-- Tema visual: `tailwind.config.mjs` e `src/styles/globals.css`
+No GitHub Pages, a publicação deve ser configurada para utilizar a pasta `docs/` da branch principal.
 
-## Observacoes
+## Configurações Importantes
 
-- Imagens locais devem ficar em `public/images/` quando usadas por componentes Next.
-- Para imagens com `next/image`, use `publicPath("/images/nome-do-arquivo.ext")` quando o ativo precisar respeitar o base path do GitHub Pages.
-- O projeto possui tambem arquivos HTML exportados na raiz e em `docs/`; as alteracoes de codigo devem ser feitas preferencialmente em `src/`.
+- Dados oficiais de contato: `src/lib/contact.ts`
+- Caminhos públicos e suporte ao `basePath`: `src/lib/site.ts`
+- Metadados globais do site: `src/app/layout.tsx`
+- Tema visual: `tailwind.config.mjs`
+- Estilos globais: `src/styles/globals.css`
+- Build para publicação: `scripts/build-pages.mjs`
+
+## Manutenção
+
+Para alterações de conteúdo, layout ou comportamento, a edição deve ser feita preferencialmente nos arquivos em `src/`. As pastas `out/` e `docs/` representam saídas geradas pelo processo de build.
+
+Fluxo recomendado:
+
+1. Editar os arquivos fonte em `src/` ou ativos em `public/`.
+2. Validar localmente com `npm run dev`.
+3. Gerar o build com `npm run build`.
+4. Para publicação no GitHub Pages, executar `npm run build:pages`.
+5. Revisar a saída estática em `docs/`.
+
+## Observações Técnicas
+
+- O projeto utiliza `next/image` com imagens não otimizadas, adequado para exportação estática.
+- O `basePath` é aplicado automaticamente durante o build para GitHub Pages.
+- Ativos públicos usados nos componentes devem considerar `publicPath()` quando necessário.
+- Formulários e chamadas comerciais priorizam contato direto por WhatsApp, telefone e e-mail.
+
+## Status
+
+Projeto institucional em desenvolvimento e manutenção contínua.
