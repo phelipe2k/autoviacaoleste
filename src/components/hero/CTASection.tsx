@@ -21,11 +21,11 @@ export function CTASection() {
             className="relative overflow-hidden rounded-[1.5rem] border border-white/10 shadow-premium"
           >
             <Image
-              src={publicPath("/images/experiences/premium-road-trip.webp")}
-              alt="Ônibus em estrada ao pôr do sol"
+              src={publicPath("/images/brand-scenes/cta-brand-bus.webp")}
+              alt="Ônibus Auto Viação Leste com identidade visual oficial"
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-contain p-6"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-dark/96 via-dark/78 to-dark/30" />
             <div className="absolute inset-0 route-texture opacity-25" />

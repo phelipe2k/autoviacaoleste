@@ -1,210 +1,145 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Star, Quote, ChevronLeft, ChevronRight, User } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, ShieldCheck, Star, UserRound } from "lucide-react";
+import { publicPath } from "@/lib/site";
+import { SectionHeader } from "@/components/ui/premium";
 
-// Depoimentos usados no carrossel de prova social.
 const testimonials = [
   {
     id: 1,
     name: "Maria Silva",
-    role: "Viagem frequente",
-    avatar: "/images/avatars/maria.jpg",
+    role: "Organizadora de excursão",
     rating: 5,
-    text: "Sempre viajo com a Auto Viação Leste. A pontualidade é incrével e o conforto das poltronas faz toda a diferenéa nas viagens longas. Recomendo a todos!",
-    route: "Governador Valadares - Rio de Janeiro",
+    text: "A equipe ajudou a organizar o roteiro com clareza. O grupo viajou tranquilo e tivemos suporte do primeiro contato até o retorno.",
+    route: "Excursão para o litoral",
   },
   {
     id: 2,
     name: "João Santos",
-    role: "Executivo",
-    avatar: "/images/avatars/joao.jpg",
+    role: "Grupo corporativo",
     rating: 5,
-    text: "Organizamos uma excursão em grupo e a viagem foi tranquila do começo ao fim. A equipe ajudou no planejamento e no conforto durante o trajeto.",
-    route: "Excursão para Curitiba",
+    text: "O atendimento foi direto, o ônibus confortável e a programação ficou bem combinada. Isso fez diferença para quem estava organizando.",
+    route: "Evento em Belo Horizonte",
   },
   {
     id: 3,
     name: "Ana Paula",
-    role: "Turista",
-    avatar: "/images/avatars/ana.jpg",
+    role: "Turismo em família",
     rating: 5,
-    text: "Viajei com minha família para o Rio e foi uma experiência maravilhosa. A equipe foi super atenciosa e o Wi-Fi funcionou perfeitamente durante toda a viagem.",
-    route: "Roteiro para o Rio de Janeiro",
-  },
-  {
-    id: 4,
-    name: "Carlos Mendes",
-    role: "Organizador de grupo",
-    avatar: "/images/avatars/carlos.jpg",
-    rating: 5,
-    text: "Nossa viagem turística foi muito bem organizada. O atendimento foi claro, o ônibus confortável e o grupo aproveitou cada parada.",
-    route: "Turismo Corporativo",
+    text: "Gostamos da atenção aos detalhes e da sensação de segurança durante a viagem. Foi uma experiência leve para todo mundo.",
+    route: "Roteiro personalizado",
   },
 ];
 
 export function TestimonialsSection() {
-  // Indice do depoimento atualmente visivel no carrossel.
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Avanca e volta de forma circular, sem estourar os limites do array.
-  const nextTestimonial = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const active = testimonials[activeIndex];
 
   return (
-    <section className="relative py-24 overflow-hidden">
-      {/* Fundo da secao, normalmente com degrade escuro. */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-light to-dark" />
-      
-      {/* Elementos decorativos de brilho no fundo da secao. */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-glow-cyan opacity-10 blur-3xl" />
+    <section className="relative overflow-hidden py-16 sm:py-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-light via-dark to-road" />
+      <div className="absolute inset-0 route-texture opacity-20" />
 
       <div className="relative section-padding">
-        <div className="max-w-5xl mx-auto">
-          {/* Cabecalho da secao com etiqueta, titulo e descricao. */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-              Depoimentos
-            </span>
-            <h2 className="heading-lg text-white mt-4 mb-4">
-              O Que Nossos <span className="text-gradient">Clientes</span> Dizem
-            </h2>
-            <p className="body-lg max-w-2xl mx-auto">
-              A satisfação de nossos passageiros é o nosso maior orgulho.
-            </p>
-          </motion.div>
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader
+            eyebrow="Confiança"
+            title={<>Prova social com <span className="text-warm-gradient">tom realista</span></>}
+            description="Depoimentos, cuidado operacional e uma identidade visual mais própria substituem números exagerados por sinais de confiança mais críveis."
+            className="mb-10 sm:mb-16"
+          />
 
-          {/* Testimonials Carousel */}
-          <div className="relative">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -28 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="glass-card p-8 md:p-12 relative"
+              className="relative min-h-[420px] overflow-hidden rounded-[1.35rem] border border-white/10 shadow-premium"
             >
-              {/* icone decorativo de citacao. */}
-              <div className="absolute top-8 left-8 w-16 h-16 rounded-full bg-cyan/10 flex items-center justify-center">
-                <Quote className="w-8 h-8 text-cyan" />
-              </div>
-
-              {/* Conteudo do depoimento ativo. */}
-              <div className="pt-16 text-center">
-                {/* Estrelas geradas conforme a nota do depoimento. */}
-                <div className="flex items-center justify-center gap-1 mb-6">
-                  {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-primary fill-current"
-                    />
-                  ))}
+              <Image
+                src={publicPath("/images/brand-scenes/safety-preparation.webp")}
+                alt="Inspeção de segurança antes da viagem"
+                fill
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/92 via-dark/16 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-dark/68 p-5 backdrop-blur-xl">
+                <div className="mb-3 flex items-center gap-2 text-gold-light">
+                  <ShieldCheck className="h-5 w-5" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em]">Cuidado operacional</span>
                 </div>
-
-                {/* Texto do depoimento. */}
-                <p className="text-xl md:text-2xl text-ice/90 leading-relaxed mb-8 max-w-3xl mx-auto">
-                  &ldquo;{testimonials[activeIndex].text}&rdquo;
-                </p>
-
-                {/* Rota relacionada ao depoimento. */}
-                <div className="inline-block px-4 py-2 rounded-full bg-cyan/10 border border-cyan/30 mb-6">
-                  <span className="text-sm text-cyan">
-                    {testimonials[activeIndex].route}
-                  </span>
-                </div>
-
-                {/* Nome e perfil de quem deu o depoimento. */}
-                <div className="flex items-center justify-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan/30 to-primary/30 flex items-center justify-center">
-                    <User className="w-7 h-7 text-cyan" />
-                  </div>
-                  <div className="text-left">
-                    <p className="font-semibold text-white">
-                      {testimonials[activeIndex].name}
-                    </p>
-                    <p className="text-sm text-ice/60">
-                      {testimonials[activeIndex].role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Botoes laterais navegam entre os depoimentos. */}
-              <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
-                <button
-                  type="button"
-                  aria-label="Depoimento anterior"
-                  onClick={prevTestimonial}
-                  className="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-cyan/20 transition-colors pointer-events-auto"
-                >
-                  <ChevronLeft className="w-5 h-5 text-cyan" />
-                </button>
-                <button
-                  type="button"
-                  aria-label="Próximo depoimento"
-                  onClick={nextTestimonial}
-                  className="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-cyan/20 transition-colors pointer-events-auto"
-                >
-                  <ChevronRight className="w-5 h-5 text-cyan" />
-                </button>
+                <p className="text-xl font-bold text-white">Viagem boa começa antes da estrada.</p>
+                <p className="mt-2 text-sm text-ice/68">Manutenção, planejamento e atendimento claro sustentam a experiência premium.</p>
               </div>
             </motion.div>
 
-            {/* Indicadores inferiores permitem pular diretamente para um depoimento. */}
-            <div className="flex items-center justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  aria-label={`Ver depoimento ${index + 1}`}
-                  onClick={() => setActiveIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === activeIndex
-                      ? "bg-cyan w-8"
-                      : "bg-ice/20 hover:bg-ice/40"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Linha de estatisticas de satisfacao. */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
-          >
-            {[
-              { value: "4.9", label: "Avaliação Média", suffix: "/5" },
-              { value: "98", label: "Satisfação", suffix: "%" },
-              { value: "50k+", label: "Avaliações", suffix: "" },
-              { value: "30", label: "Anos de", suffix: "+" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="glass-card p-6 text-center"
-              >
-                <p className="text-3xl font-bold text-gradient">
-                  {stat.value}
-                  <span className="text-lg">{stat.suffix}</span>
-                </p>
-                <p className="text-sm text-ice/60 mt-1">{stat.label}</p>
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="premium-panel p-6 sm:p-10"
+            >
+              <Quote className="h-12 w-12 text-gold/70" />
+              <div className="mt-7 flex gap-1">
+                {[...Array(active.rating)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-current text-gold" />
+                ))}
               </div>
-            ))}
-          </motion.div>
+              <p className="mt-6 text-xl leading-relaxed text-ice/90 sm:text-2xl">
+                &ldquo;{active.text}&rdquo;
+              </p>
+              <div className="mt-8 inline-flex rounded-full border border-gold/25 bg-gold/10 px-4 py-2 text-sm text-gold-light">
+                {active.route}
+              </div>
+              <div className="mt-8 flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gold/25 to-cyan/20">
+                  <UserRound className="h-7 w-7 text-gold" />
+                </div>
+                <div>
+                  <p className="font-semibold text-white">{active.name}</p>
+                  <p className="text-sm text-ice/58">{active.role}</p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
+                <div className="flex gap-2">
+                  {testimonials.map((testimonial, index) => (
+                    <button
+                      key={testimonial.id}
+                      type="button"
+                      aria-label={`Ver depoimento ${index + 1}`}
+                      onClick={() => setActiveIndex(index)}
+                      className={`h-2.5 rounded-full transition-all ${
+                        index === activeIndex ? "w-9 bg-gold" : "w-2.5 bg-white/25 hover:bg-white/45"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    aria-label="Depoimento anterior"
+                    onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gold transition-colors hover:bg-white/10"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Próximo depoimento"
+                    onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gold transition-colors hover:bg-white/10"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

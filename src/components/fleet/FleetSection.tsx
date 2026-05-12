@@ -23,8 +23,8 @@ const fleet = [
     id: 1,
     name: "Executivo Plus",
     category: "Premium",
-    image: "/images/fleet/premium-coach-interior.webp",
-    cover: "/images/experiences/premium-road-trip.webp",
+    image: "/images/brand-scenes/fleet-interior-premium.webp",
+    cover: "/images/brand-scenes/fleet-exterior-premium.webp",
     features: [
       { icon: Armchair, label: "Poltronas reclináveis" },
       { icon: Wifi, label: "Conectividade sob disponibilidade" },
@@ -38,8 +38,8 @@ const fleet = [
     id: 2,
     name: "Executivo Turismo",
     category: "Versátil",
-    image: "/images/experiences/premium-road-trip.webp",
-    cover: "/images/fleet/premium-coach-interior.webp",
+    image: "/images/brand-scenes/fleet-exterior-premium.webp",
+    cover: "/images/brand-scenes/destination-cultural.webp",
     features: [
       { icon: Armchair, label: "Assentos confortáveis" },
       { icon: Snowflake, label: "Ar-condicionado" },
@@ -53,8 +53,8 @@ const fleet = [
     id: 3,
     name: "Grupo Sob Medida",
     category: "Consulta",
-    image: "/images/experiences/travel-planning.webp",
-    cover: "/images/institutional/safety-inspection.webp",
+    image: "/images/brand-scenes/travel-planning-team.webp",
+    cover: "/images/brand-scenes/safety-preparation.webp",
     features: [
       { icon: ShieldCheck, label: "Avaliação do roteiro" },
       { icon: Bus, label: "Veículo adequado ao grupo" },
@@ -102,7 +102,7 @@ export function FleetSection() {
                   )}
                 >
                   <div className="grid grid-cols-[116px_1fr] gap-4 p-3 sm:grid-cols-[150px_1fr]">
-                    <div className="relative h-32 overflow-hidden rounded-xl">
+                    <div className="relative h-40 overflow-hidden rounded-xl sm:h-44">
                       <Image
                         src={publicPath(bus.image as `/${string}`)}
                         alt={bus.name}
@@ -111,11 +111,11 @@ export function FleetSection() {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
-                    <div className="min-w-0 py-1 pr-2">
+                    <div className="min-w-0 py-2 pr-3">
                       <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">
                         {bus.category}
                       </span>
-                      <h3 className="mt-2 text-xl font-bold text-white">{bus.name}</h3>
+                      <h3 className="mt-2 text-2xl font-bold text-white">{bus.name}</h3>
                       <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-ice/62">
                         {bus.description}
                       </p>
@@ -132,13 +132,14 @@ export function FleetSection() {
               transition={{ duration: 0.45 }}
               className="overflow-hidden rounded-[1.35rem] border border-white/10 bg-dark/70 shadow-premium"
             >
-              <div className="relative h-72 sm:h-96">
+              <div className="relative h-80 sm:h-[28rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-road via-dark to-dark-light route-texture" />
                 <Image
                   src={publicPath(activeBus.cover as `/${string}`)}
                   alt={`Detalhe da frota ${activeBus.name}`}
                   fill
                   sizes="(min-width: 1024px) 52vw, 100vw"
-                  className="object-cover"
+                  className="object-contain p-4"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5">
@@ -150,7 +151,7 @@ export function FleetSection() {
                 </div>
               </div>
 
-              <div className="p-5 sm:p-7">
+              <div className="p-6 sm:p-8">
                 <div className="mb-6 flex flex-wrap gap-2">
                   {activeBus.specs.map((spec) => (
                     <span key={spec} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-ice/75">

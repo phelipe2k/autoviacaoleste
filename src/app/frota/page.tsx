@@ -1,128 +1,81 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FleetSection } from "@/components/fleet/FleetSection";
-import { Bus, Shield, Wrench, Award } from "lucide-react";
+import { PageHero } from "@/components/ui/premium";
+import { Award, Bus, Shield, Wrench } from "lucide-react";
+import { publicPath } from "@/lib/site";
 
-// Certificacoes e garantias exibidas antes dos detalhes da frota.
 const certifications = [
-  { icon: Shield, title: "ISO 9001", description: "Gestão de Qualidade" },
-  { icon: Award, title: "Selo Ouro", description: "Programa Bem-Estar no Ônibus" },
-  { icon: Wrench, title: "Manutenção", description: "Revisões periódicas rigorosas" },
-  { icon: Bus, title: "Frota 5 estrelas", description: "Avaliação ANTT" },
+  { icon: Shield, title: "Segurança", description: "Inspeções e cuidado operacional" },
+  { icon: Wrench, title: "Manutenção", description: "Revisões preventivas" },
+  { icon: Bus, title: "Identidade própria", description: "Padrão visual teal e azul-claro" },
+  { icon: Award, title: "Conforto", description: "Frota pensada para grupos" },
 ];
 
-// Pagina da frota: apresenta confianca, tipos de onibus e rotina de manutencao.
 export default function FrotaPage() {
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
-      
-      {/* Hero da pagina: apresenta o assunto principal da rota. */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-glow-teal opacity-20 blur-3xl" />
-        
-        <div className="relative section-padding">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                Nossa Frota
-              </span>
-              <h1 className="heading-lg text-white mt-4 mb-4">
-                Conforto e <span className="text-gradient">Tecnologia</span>
-              </h1>
-              <p className="body-lg max-w-2xl mx-auto">
-                Ônibus modernos, seguros e equipados com o que há de mais avançado
-                para sua viagem ser inesquecível.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Frota Auto Viação Leste"
+        title={<>Ônibus com identidade própria e <span className="text-warm-gradient">presença premium.</span></>}
+        description="A pintura oficial teal e azul-claro, as faixas de movimento e o acabamento escuro dos vidros passam a guiar toda imagem da frota."
+        image="/images/brand-scenes/fleet-exterior-premium.webp"
+        imageAlt="Ônibus Auto Viação Leste com padrão visual oficial"
+        primaryCta={{ href: "/contato", label: "Consultar veículo" }}
+        secondaryCta={{ href: "/passagens", label: "Solicitar orçamento" }}
+      />
 
-      {/* Cards de certificacoes reforcam seguranca, manutencao e qualidade. */}
-      <section className="py-12 relative">
+      <section className="relative overflow-hidden py-12">
         <div className="absolute inset-0 bg-dark" />
         <div className="relative section-padding">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="glass-card p-6 text-center"
-                >
-                  <cert.icon className="w-8 h-8 text-cyan mx-auto mb-3" />
-                  <h3 className="text-lg font-semibold text-white">{cert.title}</h3>
-                  <p className="text-sm text-ice/60">{cert.description}</p>
-                </motion.div>
-              ))}
-            </div>
+          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-4">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={cert.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.07 }}
+                className="premium-panel p-5 text-center"
+              >
+                <cert.icon className="mx-auto mb-3 h-7 w-7 text-gold" />
+                <h3 className="text-base font-semibold text-white">{cert.title}</h3>
+                <p className="mt-1 text-sm text-ice/60">{cert.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Componente reutilizado com os modelos de onibus e recursos de cada um. */}
       <FleetSection />
 
-      {/* Explica os processos de manutencao preventiva e seguranca operacional. */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-dark to-dark-light" />
+      <section className="relative overflow-hidden py-16 sm:py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-road to-dark" />
         <div className="relative section-padding">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                  Segurança Primeiro
-                </span>
-                <h2 className="heading-md text-white mt-4 mb-4">
-                  Manutenção de <span className="text-gradient">Alto Padrão</span>
-                </h2>
-                <p className="body-md mb-6">
-                  Nossa frota passa por rigorosos processos de manutenção preventiva
-                  e corretiva, garantindo a máxima segurança em todas as viagens.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    "Revisões a cada 10.000 km",
-                    "Inspeção diária de todos os veículos",
-                    "Equipe técnica especializada",
-                    "Peças originais e certificadas",
-                    "Sistema de rastreamento em tempo real",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-ice/80">
-                      <div className="w-2 h-2 rounded-full bg-cyan" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="glass-card p-8 h-80 flex items-center justify-center"
-              >
-                <div className="text-center">
-                  <Wrench className="w-20 h-20 text-cyan/30 mx-auto mb-4" />
-                  <p className="text-ice/60">Área Técnica</p>
-                </div>
-              </motion.div>
-            </div>
+          <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
+            <motion.div initial={{ opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <span className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Padrão visual oficial</span>
+              <h2 className="heading-md mt-4 text-white">
+                A frota deve parecer <span className="text-warm-gradient">Auto Viação Leste</span> em qualquer imagem.
+              </h2>
+              <p className="body-md mt-5">
+                Imagens externas de ônibus devem preservar a paleta teal, azul-claro, vidros escuros, faixas de movimento laterais e presença limpa da marca. Quando isso não for possível, usamos imagem institucional, interior ou cenário sem mostrar pintura externa genérica.
+              </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-80 overflow-hidden rounded-[1.35rem] border border-white/10 bg-road shadow-premium">
+              <Image
+                src={publicPath("/images/brand-scenes/fleet-exterior-premium.webp")}
+                alt="Prancha do padrão visual oficial do ônibus"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-contain p-4"
+              />
+            </motion.div>
           </div>
         </div>
       </section>

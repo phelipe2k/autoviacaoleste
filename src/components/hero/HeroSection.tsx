@@ -29,21 +29,21 @@ const featuredTrips = [
     origin: "Saídas de Governador Valadares",
     date: "Excursões sob consulta",
     tag: "Mais procurado",
-    image: "/images/destinations/coastal-excursion.webp",
+    image: "/images/brand-scenes/destination-coast.webp",
   },
   {
     title: "Roteiros personalizados",
     origin: "Eventos, grupos e famílias",
     date: "Agenda flexível",
     tag: "Sob medida",
-    image: "/images/experiences/travel-planning.webp",
+    image: "/images/brand-scenes/travel-planning-team.webp",
   },
   {
     title: "Viagens premium",
     origin: "Conforto do embarque ao destino",
     date: "Planejamento comercial",
     tag: "Conforto",
-    image: "/images/experiences/premium-road-trip.webp",
+    image: "/images/brand-scenes/fleet-exterior-premium.webp",
   },
 ];
 
@@ -52,7 +52,7 @@ export function HeroSection() {
     <section className="relative overflow-hidden bg-dark">
       <div className="absolute inset-0">
         <Image
-          src={publicPath("/images/banner-home.webp")}
+          src={publicPath("/images/brand-scenes/home-hero-road.webp")}
           alt="Ônibus de turismo viajando pela estrada"
           fill
           priority
@@ -135,12 +135,13 @@ export function HeroSection() {
               className="hidden lg:block"
             >
               <div className="relative overflow-hidden rounded-[1.35rem] border border-white/12 bg-dark/70 shadow-premium">
+                <div className="absolute inset-0 bg-gradient-to-br from-road via-dark to-dark-light route-texture opacity-95" />
                 <Image
-                  src={publicPath("/images/experiences/premium-road-trip.webp")}
-                  alt="Ônibus moderno em estrada cênica ao pôr do sol"
+                  src={publicPath("/images/brand-scenes/fleet-exterior-premium.webp")}
+                  alt="Padrão visual oficial do ônibus Auto Viação Leste"
                   width={900}
-                  height={600}
-                  className="h-[520px] w-full object-cover"
+                  height={420}
+                  className="relative h-[520px] w-full object-contain p-8"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/88 via-transparent to-transparent" />
@@ -149,8 +150,8 @@ export function HeroSection() {
                     <CheckCircle2 className="h-4 w-4" />
                     <span className="text-xs font-semibold uppercase tracking-[0.18em]">Experiência planejada</span>
                   </div>
-                  <p className="text-xl font-bold text-white">Roteiro, grupo e data alinhados antes da viagem.</p>
-                  <p className="mt-2 text-sm text-ice/68">Menos improviso, mais tranquilidade para quem organiza e para quem embarca.</p>
+                  <p className="text-xl font-bold text-white">Identidade própria em cada viagem.</p>
+                  <p className="mt-2 text-sm text-ice/68">A pintura teal e azul-claro da frota vira parte da experiência e reforça a presença da marca.</p>
                 </div>
               </div>
             </motion.div>
@@ -177,21 +178,21 @@ export function HeroSection() {
               </Link>
             </div>
 
-            <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
+            <div className="-mx-5 flex gap-5 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
               {featuredTrips.map((trip, index) => (
                 <motion.article
                   key={trip.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: 0.55 + index * 0.08 }}
-                  className="group relative min-w-[260px] overflow-hidden rounded-2xl border border-white/10 bg-dark-lighter/80 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 sm:min-w-0"
+                  className="group relative min-w-[300px] overflow-hidden rounded-2xl border border-white/10 bg-dark-lighter/80 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:border-gold/45 sm:min-w-0"
                 >
-                  <div className="relative h-40 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden lg:h-64">
                     <Image
                       src={publicPath(trip.image as `/${string}`)}
                       alt={trip.title}
                       fill
-                      sizes="(min-width: 1024px) 33vw, 260px"
+                      sizes="(min-width: 1024px) 33vw, 300px"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-dark/86 to-transparent" />
@@ -199,8 +200,8 @@ export function HeroSection() {
                       {trip.tag}
                     </span>
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold text-white">{trip.title}</h3>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-white">{trip.title}</h3>
                     <div className="mt-3 space-y-2 text-sm text-ice/68">
                       <p className="flex items-center gap-2">
                         <MapPin className="h-4 w-4 shrink-0 text-gold" />

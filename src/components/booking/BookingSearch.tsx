@@ -48,7 +48,7 @@ export function BookingSearch() {
       transition={{ duration: 0.8, delay: 0.5 }}
       className="relative z-20"
     >
-      <div className="glass-card bg-dark-lighter/90 border-cyan/20 overflow-hidden shadow-deep">
+      <div className="premium-panel overflow-hidden border-gold/20 bg-dark-lighter/88">
         <div className="grid grid-cols-3 sm:flex border-b border-white/10">
           {tabs.map((tab) => (
             <button
@@ -58,8 +58,8 @@ export function BookingSearch() {
               className={cn(
                 "min-w-0 flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-2.5 sm:py-4 text-[11px] sm:text-sm font-semibold sm:font-medium transition-all duration-300",
                 activeTab === tab.id
-                  ? "text-cyan border-b-2 border-cyan bg-cyan/5"
-                  : "text-ice/80 hover:text-ice hover:bg-white/5"
+                  ? "text-gold-light border-b-2 border-gold bg-gold/10"
+                  : "text-ice/78 hover:text-ice hover:bg-white/5"
               )}
             >
               <tab.icon className="w-4 h-4 shrink-0" />
@@ -87,7 +87,7 @@ export function BookingSearch() {
                     placeholder="Cidade de saída"
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
-                    className="w-full pl-12 pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-gold/60 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -103,7 +103,7 @@ export function BookingSearch() {
                     placeholder="Praia, cidade ou evento"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
-                    className="w-full pl-12 pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-sm sm:text-base text-ice placeholder:text-ice/50 focus:outline-none focus:border-gold/60 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -118,7 +118,7 @@ export function BookingSearch() {
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full pl-10 sm:pl-12 pr-2 sm:pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-xs sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300"
+                    className="w-full pl-10 sm:pl-12 pr-2 sm:pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-xs sm:text-base text-ice focus:outline-none focus:border-gold/60 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -132,7 +132,7 @@ export function BookingSearch() {
                   <select
                     value={passengers}
                     onChange={(e) => setPassengers(Number(e.target.value))}
-                    className="w-full pl-10 sm:pl-12 pr-2 sm:pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-xs sm:text-base text-ice focus:outline-none focus:border-cyan/50 transition-all duration-300 appearance-none cursor-pointer"
+                    className="w-full pl-10 sm:pl-12 pr-2 sm:pr-4 py-2.5 sm:py-3.5 bg-dark/75 border border-white/10 rounded-xl text-xs sm:text-base text-ice focus:outline-none focus:border-gold/60 transition-all duration-300 appearance-none cursor-pointer"
                   >
                     {[15, 25, 35, 45, 50].map((num) => (
                       <option key={num} value={num}>

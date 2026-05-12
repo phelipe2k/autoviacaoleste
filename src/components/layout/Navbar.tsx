@@ -46,8 +46,8 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-dark/90 backdrop-blur-xl border-b border-white/5 py-2.5 lg:py-3"
-            : "bg-dark/60 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-0 py-4 lg:py-5"
+            ? "bg-dark/86 backdrop-blur-xl border-b border-gold/10 shadow-premium py-2.5 lg:py-3"
+            : "bg-dark/55 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-0 py-4 lg:py-5"
         )}
       >
         <div className="section-padding">
@@ -76,7 +76,7 @@ export function Navbar() {
                   className={cn(
                     "relative text-sm font-medium transition-all duration-300 py-2",
                     pathname === item.href
-                      ? "text-cyan"
+                      ? "text-gold-light"
                       : "text-ice/70 hover:text-ice"
                   )}
                 >
@@ -84,7 +84,7 @@ export function Navbar() {
                   {pathname === item.href && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-cyan"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-gold to-cyan"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -99,10 +99,10 @@ export function Navbar() {
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute inset-0 border border-cyan/50 rounded-full group-hover:border-cyan transition-colors duration-300" />
-                <div className="absolute inset-0 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.3)] transition-shadow duration-300" />
-                <MessageCircle className="w-4 h-4 text-cyan" />
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 border border-gold/40 rounded-full group-hover:border-gold transition-colors duration-300" />
+                <div className="absolute inset-0 rounded-full shadow-[0_0_20px_rgba(246,183,86,0.08)] group-hover:shadow-[0_0_30px_rgba(246,183,86,0.22)] transition-shadow duration-300" />
+                <MessageCircle className="w-4 h-4 text-emerald-300" />
                 <span className="text-sm font-medium text-ice">
                   WHATSAPP
                 </span>
@@ -159,7 +159,7 @@ export function Navbar() {
                       className={cn(
                         "flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300",
                         pathname === item.href
-                          ? "bg-primary/10 text-cyan border border-primary/20"
+                          ? "bg-gold/10 text-gold-light border border-gold/20"
                           : "text-ice/70 hover:bg-white/5 hover:text-ice"
                       )}
                     >
@@ -174,7 +174,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-primary/20 to-cyan/20 rounded-xl border border-cyan/30 text-cyan font-medium"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-emerald-500/15 rounded-xl border border-emerald-400/30 text-emerald-300 font-medium"
                 >
                   <MessageCircle className="w-4 h-4" />
                   WHATSAPP

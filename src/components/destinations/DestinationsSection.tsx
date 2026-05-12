@@ -11,7 +11,7 @@ const destinations = [
     state: "RJ, ES e SC",
     status: "Excursões sob consulta",
     frequency: "Datas combinadas",
-    image: "/images/destinations/coastal-excursion.webp",
+    image: "/images/brand-scenes/destination-coast.webp",
     alt: "Destino litorâneo para excursão de ônibus",
     tag: "Praia e lazer",
   },
@@ -20,7 +20,7 @@ const destinations = [
     state: "Minas e região",
     status: "Roteiro personalizado",
     frequency: "Grupos e escolas",
-    image: "/images/experiences/travel-planning.webp",
+    image: "/images/brand-scenes/travel-planning-team.webp",
     alt: "Grupo planejando roteiro turístico",
     tag: "Cultura",
   },
@@ -29,8 +29,8 @@ const destinations = [
     state: "Brasil",
     status: "Sob orçamento",
     frequency: "Agenda flexível",
-    image: "/images/experiences/premium-road-trip.webp",
-    alt: "Ônibus em estrada durante viagem turística",
+    image: "/images/brand-scenes/destination-cultural.webp",
+    alt: "Ônibus Auto Viação Leste com identidade visual oficial",
     tag: "Grupos",
   },
 ];
@@ -51,7 +51,7 @@ export function DestinationsSection() {
             className="mb-10 sm:mb-16"
           />
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3">
             {destinations.map((destination, index) => (
               <motion.div
                 key={destination.city}

@@ -140,7 +140,7 @@ export function ImageCard({
         className
       )}
     >
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-64 overflow-hidden sm:h-72 lg:h-80">
         <Image
           src={publicPath(image as `/${string}`)}
           alt={imageAlt}
@@ -156,9 +156,9 @@ export function ImageCard({
         )}
       </div>
 
-      <div className="p-5 sm:p-6">
+      <div className="p-6 sm:p-7">
         {meta && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan mb-2">{meta}</p>}
-        <h3 className="text-xl font-bold text-white leading-tight group-hover:text-gold-light transition-colors">
+        <h3 className="text-2xl font-bold text-white leading-tight group-hover:text-gold-light transition-colors">
           {title}
         </h3>
         {description && <p className="mt-3 text-sm leading-relaxed text-ice/68">{description}</p>}

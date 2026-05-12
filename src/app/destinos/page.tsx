@@ -1,105 +1,79 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { MapPin, Search, ArrowRight } from "lucide-react";
+import { ImageCard, PageHero, SectionHeader } from "@/components/ui/premium";
+import { ArrowRight, Search } from "lucide-react";
 import { useState } from "react";
 
-// Lista base dos destinos exibidos e filtrados na pagina.
 const allDestinations = [
-  { city: "Governador Valadares", state: "MG", coverage: "Base de saída", image: "/images/destinations/gv.jpg" },
-  { city: "Rio de Janeiro", state: "RJ", coverage: "Turismo sob consulta", image: "/images/destinations/rj.jpg" },
-  { city: "Curitiba", state: "PR", coverage: "Sob consulta", image: "/images/destinations/pr.jpg" },
-  { city: "Florianópolis", state: "SC", coverage: "Sob consulta", image: "/images/destinations/sc.jpg" },
-  { city: "Belo Horizonte", state: "MG", coverage: "Eventos e grupos", image: "/images/destinations/mg.jpg" },
-  { city: "Campinas", state: "SP", coverage: "Atendimento regional", image: "/images/destinations/campinas.jpg" },
-  { city: "Santos", state: "SP", coverage: "Atendimento regional", image: "/images/destinations/santos.jpg" },
-  { city: "Outras cidades", state: "BR", coverage: "Avaliação comercial", image: "/images/destinations/br.jpg" },
+  { city: "Litoral e praias", state: "RJ / ES / SC", region: "sul-sudeste", coverage: "Excursões sob consulta", tag: "Praia", image: "/images/brand-scenes/destination-coast.webp", alt: "Ônibus Auto Viação Leste chegando ao litoral" },
+  { city: "Governador Valadares", state: "MG", region: "sudeste", coverage: "Base de saída", tag: "Base", image: "/images/brand-scenes/fleet-exterior-premium.webp", alt: "Ônibus Auto Viação Leste com identidade visual oficial" },
+  { city: "Belo Horizonte", state: "MG", region: "sudeste", coverage: "Eventos e grupos", tag: "Eventos", image: "/images/brand-scenes/travel-planning-team.webp", alt: "Planejamento de viagem em grupo" },
+  { city: "Cidades históricas", state: "MG / BR", region: "nacional", coverage: "Roteiro personalizado", tag: "Cultura", image: "/images/brand-scenes/destination-cultural.webp", alt: "Ônibus Auto Viação Leste em roteiro cultural" },
+  { city: "Outros destinos", state: "BR", region: "nacional", coverage: "Avaliação comercial", tag: "Sob medida", image: "/images/brand-scenes/cta-brand-bus.webp", alt: "Ônibus Auto Viação Leste em composição premium" },
 ];
 
 export default function DestinosPage() {
-  // Texto digitado no campo de busca por cidade ou estado.
   const [searchTerm, setSearchTerm] = useState("");
-  // Regiao selecionada no filtro lateral do campo de busca.
   const [selectedRegion, setSelectedRegion] = useState("todos");
 
-  // Aplica busca textual e filtro regional antes de renderizar os cards.
   const filteredDestinations = allDestinations.filter((dest) => {
-    const matchesSearch =
-      dest.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      dest.state.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesRegion =
-      selectedRegion === "todos" ||
-      (selectedRegion === "sudeste" && ["SP", "RJ", "MG"].includes(dest.state)) ||
-      (selectedRegion === "sul" && ["PR", "SC", "RS"].includes(dest.state)) ||
-      (selectedRegion === "nacional" && dest.state === "BR");
+    const query = `${dest.city} ${dest.state} ${dest.coverage}`.toLowerCase();
+    const matchesSearch = query.includes(searchTerm.toLowerCase());
+    const matchesRegion = selectedRegion === "todos" || dest.region === selectedRegion;
     return matchesSearch && matchesRegion;
   });
 
   return (
     <main className="relative min-h-screen bg-dark">
       <Navbar />
+      <PageHero
+        eyebrow="Roteiros e excursões"
+        title={<>Escolha o destino. A gente ajuda a <span className="text-warm-gradient">dar forma à viagem.</span></>}
+        description="Consulte possibilidades para praias, eventos, cidades históricas, encontros e roteiros personalizados para grupos."
+        image="/images/brand-scenes/destination-coast.webp"
+        imageAlt="Destino de praia para excursões turísticas"
+        primaryCta={{ href: "/passagens", label: "Solicitar orçamento" }}
+        secondaryCta={{ href: "/contato", label: "Falar com a equipe" }}
+      />
 
-      <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-light to-dark" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-glow-cyan opacity-20 blur-3xl" />
-
+      <section className="relative overflow-hidden py-16">
+        <div className="absolute inset-0 bg-gradient-to-b from-dark to-road" />
         <div className="relative section-padding">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-cyan text-sm tracking-[0.3em] uppercase font-medium">
-                Turismo e excursões
-              </span>
-              <h1 className="heading-lg text-white mt-4 mb-4">
-                Roteiros sob <span className="text-gradient">Consulta</span>
-              </h1>
-              <p className="body-lg max-w-2xl mx-auto">
-                Consulte nossa equipe para avaliar excursões, passeios, eventos turísticos e viagens em grupo por região.
-              </p>
-            </motion.div>
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="Catálogo turístico"
+              title={<>Roteiros com <span className="text-warm-gradient">contexto visual</span></>}
+              description="Os cards deixam de ser placeholders e passam a comunicar experiência, tipo de viagem e disponibilidade."
+              className="mb-8"
+            />
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 flex flex-col md:flex-row gap-4 max-w-2xl mx-auto"
-            >
-              <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan" />
+            <div className="mx-auto mb-10 flex max-w-3xl flex-col gap-3 sm:flex-row">
+              <div className="relative flex-1">
+                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gold" />
                 <input
                   type="text"
-                  placeholder="Buscar cidade ou estado..."
+                  placeholder="Buscar cidade, estado ou tipo de roteiro..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-dark/50 border border-white/10 rounded-xl text-ice placeholder:text-ice/40 focus:outline-none focus:border-cyan/50"
+                  className="w-full rounded-xl border border-white/10 bg-dark/60 py-3 pl-12 pr-4 text-ice placeholder:text-ice/40 focus:border-gold/60 focus:outline-none"
                 />
               </div>
               <select
                 value={selectedRegion}
                 onChange={(e) => setSelectedRegion(e.target.value)}
-                className="px-4 py-3 bg-dark/50 border border-white/10 rounded-xl text-ice focus:outline-none focus:border-cyan/50"
+                className="rounded-xl border border-white/10 bg-dark/60 px-4 py-3 text-ice focus:border-gold/60 focus:outline-none"
               >
                 <option value="todos">Todas as regiões</option>
                 <option value="sudeste">Sudeste</option>
-                <option value="sul">Sul</option>
+                <option value="sul-sudeste">Sul e Sudeste</option>
                 <option value="nacional">Outras regiões</option>
               </select>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+            </div>
 
-      <section className="py-16 relative">
-        <div className="absolute inset-0 bg-dark" />
-        <div className="relative section-padding">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {filteredDestinations.map((dest, index) => (
                 <motion.div
                   key={dest.city}
@@ -108,38 +82,22 @@ export default function DestinosPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                 >
-                  <Link
-                    href="/contato"
-                    className="group block glass-card overflow-hidden hover:border-cyan/30 transition-all duration-300"
-                  >
-                    <div className="h-40 bg-gradient-to-br from-teal/20 to-cyan/10 flex items-center justify-center">
-                      <MapPin className="w-12 h-12 text-cyan/30" />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="text-lg font-semibold text-white group-hover:text-cyan transition-colors">
-                        {dest.city}
-                      </h3>
-                      <p className="text-sm text-ice/60">{dest.state}</p>
-                      <div className="flex items-center justify-between mt-3">
-                        <span className="text-xs text-cyan">{dest.coverage}</span>
-                        <ArrowRight className="w-4 h-4 text-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-                  </Link>
+                  <ImageCard href="/contato" image={dest.image} imageAlt={dest.alt} eyebrow={dest.tag} title={dest.city} meta={dest.state} description={dest.coverage}>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold-light">
+                      Consultar roteiro
+                      <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </ImageCard>
                 </motion.div>
               ))}
             </div>
 
             {filteredDestinations.length === 0 && (
-              <div className="text-center py-16">
-                <MapPin className="w-16 h-16 text-cyan/20 mx-auto mb-4" />
-                <p className="text-ice/60">Nenhum destino encontrado</p>
-              </div>
+              <div className="py-16 text-center text-ice/60">Nenhum destino encontrado.</div>
             )}
           </div>
         </div>
       </section>
-
       <Footer />
     </main>
   );

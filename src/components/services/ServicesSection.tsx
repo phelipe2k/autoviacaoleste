@@ -40,7 +40,7 @@ const services = [
   {
     title: "Excursões turísticas",
     tag: "Para grupos",
-    image: "/images/destinations/coastal-excursion.webp",
+    image: "/images/brand-scenes/destination-coast.webp",
     alt: "Excursão turística em destino de praia",
     description: "Viagens para praias, cidades históricas, eventos, encontros religiosos e experiências culturais.",
     features: ["Roteiros sob consulta", "Paradas combinadas", "Atendimento por WhatsApp"],
@@ -48,7 +48,7 @@ const services = [
   {
     title: "Roteiros personalizados",
     tag: "Sob medida",
-    image: "/images/experiences/travel-planning.webp",
+    image: "/images/brand-scenes/travel-planning-team.webp",
     alt: "Atendimento para planejamento de viagem turística",
     description: "Planejamento conforme data, origem, destino, tamanho do grupo e estilo da viagem.",
     features: ["Orçamento personalizado", "Apoio comercial", "Viagem pensada para o grupo"],
@@ -71,7 +71,7 @@ export function ServicesSection() {
             className="mb-10 sm:mb-16"
           />
 
-          <div className="grid gap-4 md:grid-cols-4">
+          <div className="grid gap-5 md:grid-cols-4">
             {journey.map((step, index) => (
               <motion.div
                 key={step.title}
@@ -79,7 +79,7 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
-                className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-premium backdrop-blur"
+                className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-premium backdrop-blur"
               >
                 <span className="text-xs font-bold text-gold">0{index + 1}</span>
                 <div className="mt-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-gold">
@@ -91,7 +91,7 @@ export function ServicesSection() {
             ))}
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
